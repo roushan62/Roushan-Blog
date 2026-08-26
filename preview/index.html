@@ -27,6 +27,34 @@
     <nav aria-label="Main menu" class="main-menu">
       <ul class="menu-list" id="main-menu-nav">
         <li><a href="index.html">Home</a></li>
+        <li class="has-mega">
+          <a aria-haspopup="true" href="#">Topics
+            <svg class="ic chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="mega-panel">
+            <div class="mega-col">
+              <h4>Business</h4>
+              <a href="#latest">All Business</a>
+              <a href="#latest">Startups</a>
+              <a href="#latest">Marketing</a>
+              <a href="#latest">Money &amp; Growth</a>
+            </div>
+            <div class="mega-col">
+              <h4>Technology</h4>
+              <a href="#latest">All Technology</a>
+              <a href="#latest">Gadgets</a>
+              <a href="#latest">Apps &amp; Tools</a>
+              <a href="#latest">Productivity</a>
+            </div>
+            <div class="mega-col">
+              <h4>Artificial Intelligence</h4>
+              <a href="#latest">All AI</a>
+              <a href="#latest">AI Tools</a>
+              <a href="#latest">Automation</a>
+              <a href="#latest">Guides</a>
+            </div>
+          </div>
+        </li>
         <li><a href="#latest">Business</a></li>
         <li><a href="#latest">Technology</a></li>
         <li><a href="#latest">AI</a></li>
@@ -60,6 +88,22 @@
   <div class="drawer-links" id="drawer-links"></div>
   <div class="drawer-foot">© <span class="rp-year">2026</span> Roushan Gupta</div>
 </nav>
+
+<!-- TRENDING TICKER -->
+<div class="ticker" id="ticker">
+  <div class="container ticker-inner">
+    <span class="ticker-badge">Trending</span>
+    <div class="ticker-mask">
+      <div class="ticker-track" id="ticker-track">
+        <a class="ticker-item" href="post.html"><span class="ticker-dot"></span>10 AI Tools That Will Save You 10+ Hours Every Week</a>
+        <a class="ticker-item" href="post.html"><span class="ticker-dot"></span>The Subscription Economy: Why Every Business Is Becoming Netflix</a>
+        <a class="ticker-item" href="post.html"><span class="ticker-dot"></span>Your 2026 Tech Stack: 7 Free Tools That Replace Expensive Software</a>
+        <a class="ticker-item" href="post.html"><span class="ticker-dot"></span>Prompt Engineering 101: Talk to AI Like a Pro</a>
+        <a class="ticker-item" href="post.html"><span class="ticker-dot"></span>Side Income in 2026: 5 Realistic Ways to Earn Online in India</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -117,9 +161,57 @@
   </div>
 </section>
 
+<!-- FEATURED SLIDER -->
+<section class="feat-sec">
+  <div class="feat-wrap container">
+    <div class="section-head">
+      <h2 class="section-title">Featured</h2>
+      <p class="section-sub">Hand-picked stories on business, technology and AI.</p>
+    </div>
+    <div class="feat-slider" id="feat-slider">
+      <div class="feat-track" id="feat-track">
+        <article class="feat-slide">
+          <img src="assets/img/post-ai.jpg" alt=""/>
+          <div class="feat-copy">
+            <span class="feat-label">AI</span>
+            <h3 class="feat-title"><a href="post.html">10 AI Tools That Will Save You 10+ Hours Every Week</a></h3>
+            <p class="feat-snip">Artificial intelligence is no longer optional. Here are the ten AI tools I personally use to write faster, research deeper and automate boring work.</p>
+            <a class="btn btn-primary" href="post.html">Read Article</a>
+          </div>
+        </article>
+        <article class="feat-slide">
+          <img src="assets/img/post-business.jpg" alt=""/>
+          <div class="feat-copy">
+            <span class="feat-label">Business</span>
+            <h3 class="feat-title"><a href="post.html">The Subscription Economy: Why Every Business Is Becoming Netflix</a></h3>
+            <p class="feat-snip">From software to shaving razors, subscriptions are eating every industry. A practical breakdown of the business model.</p>
+            <a class="btn btn-primary" href="post.html">Read Article</a>
+          </div>
+        </article>
+        <article class="feat-slide">
+          <img src="assets/img/post-tech.jpg" alt=""/>
+          <div class="feat-copy">
+            <span class="feat-label">Technology</span>
+            <h3 class="feat-title"><a href="post.html">Your 2026 Tech Stack: 7 Free Tools That Replace Expensive Software</a></h3>
+            <p class="feat-snip">You do not need a big budget to work like a big company. These seven free tools cover writing, design and automation.</p>
+            <a class="btn btn-primary" href="post.html">Read Article</a>
+          </div>
+        </article>
+      </div>
+      <button type="button" class="feat-nav feat-prev" id="feat-prev" aria-label="Previous featured"><svg class="ic" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+      <button type="button" class="feat-nav feat-next" id="feat-next" aria-label="Next featured"><svg class="ic" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+      <div class="feat-dots" id="feat-dots"></div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTENT -->
 <div class="container content-wrapper" id="content-wrapper">
   <main id="main-content">
+    <div class="ad-slot ad-leader" id="ad-incontent">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-box"><span class="ad-ph">AdSense 728 × 90</span></div>
+    </div>
     <div class="section-head" id="latest">
       <h2 class="section-title">Latest Articles</h2>
       <p class="section-sub">Fresh insights on business, technology and artificial intelligence.</p>
@@ -247,6 +339,13 @@
     </div>
 
     <div class="sidebar-widget">
+      <div class="ad-slot ad-sidebar">
+        <span class="ad-label">Advertisement</span>
+        <div class="ad-box ad-box-rect"><span class="ad-ph">AdSense 300 × 250</span></div>
+      </div>
+    </div>
+
+    <div class="sidebar-widget">
       <h3 class="widget-title">Popular Posts</h3>
       <div class="widget-content popular-posts">
         <article class="pp-item">
@@ -277,6 +376,17 @@
             <span class="pp-date"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Aug 16, 2026</span>
           </div>
         </article>
+      </div>
+    </div>
+
+    <div class="sidebar-widget">
+      <div class="news-box">
+        <h3 class="news-title">Newsletter</h3>
+        <p class="news-sub">Get new posts on business, tech and AI — straight to your inbox. No spam.</p>
+        <form action="#" class="news-form" method="post">
+          <input name="email" placeholder="Your email address" required type="email"/>
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </form>
       </div>
     </div>
 
@@ -364,6 +474,11 @@
 </div>
 
 <div class="lightbox" id="lightbox"></div>
+
+<div aria-label="Cookie notice" class="cookie-bar" id="cookie-bar" role="dialog">
+  <p>We use cookies to remember your theme and improve your reading experience. See our <a href="#">Privacy Policy</a>.</p>
+  <button class="btn btn-primary" id="cookie-accept" type="button">Accept</button>
+</div>
 
 <button aria-label="Back to top" class="to-top" id="to-top" type="button">
   <svg class="ic" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>

@@ -60,6 +60,36 @@
               <ul class='menu-list' id='main-menu-nav'>
                 <b:loop values='data:links' var='link'>
                   <li><a expr:href='data:link.target'><data:link.name/></a></li>
+                  <b:if cond='data:link.name == &quot;Home&quot;'>
+                    <li class='has-mega'>
+                      <a aria-haspopup='true' href='#'>Topics
+                        <svg class='ic chev' viewBox='0 0 24 24'><polyline points='6 9 12 15 18 9'></polyline></svg>
+                      </a>
+                      <div class='mega-panel'>
+                        <div class='mega-col'>
+                          <h4>Business</h4>
+                          <a href='/search/label/Business'>All Business</a>
+                          <a href='/search/label/Startups'>Startups</a>
+                          <a href='/search/label/Marketing'>Marketing</a>
+                          <a href='/search/label/Money'>Money &amp; Growth</a>
+                        </div>
+                        <div class='mega-col'>
+                          <h4>Technology</h4>
+                          <a href='/search/label/Technology'>All Technology</a>
+                          <a href='/search/label/Gadgets'>Gadgets</a>
+                          <a href='/search/label/Apps'>Apps &amp; Tools</a>
+                          <a href='/search/label/Productivity'>Productivity</a>
+                        </div>
+                        <div class='mega-col'>
+                          <h4>Artificial Intelligence</h4>
+                          <a href='/search/label/AI'>All AI</a>
+                          <a href='/search/label/AI Tools'>AI Tools</a>
+                          <a href='/search/label/Automation'>Automation</a>
+                          <a href='/search/label/Guides'>Guides</a>
+                        </div>
+                      </div>
+                    </li>
+                  </b:if>
                 </b:loop>
               </ul>
             </b:includable>
@@ -95,6 +125,28 @@
     <div class='drawer-links' id='drawer-links'></div>
     <div class='drawer-foot'>© <span class='rp-year'>2026</span> <data:blog.title/></div>
   </nav>
+
+  <!-- =====================================================
+       TRENDING TICKER
+       ===================================================== -->
+  <b:section class='ticker' id='ticker-sec' maxwidgets='1' name='Trending Ticker' showaddelement='no'>
+    <b:widget id='HTML6' locked='true' title='Trending Ticker' type='HTML' version='2' visible='true'>
+      <b:widget-settings>
+        <b:widget-setting name='content'>&lt;div class="ticker" id="ticker"&gt;
+  &lt;div class="container ticker-inner"&gt;
+    &lt;span class="ticker-badge"&gt;Trending&lt;/span&gt;
+    &lt;div class="ticker-mask"&gt;&lt;div class="ticker-track" id="ticker-track"&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</b:widget-setting>
+      </b:widget-settings>
+      <b:includable id='main'>
+        <b:include name='content'/>
+      </b:includable>
+      <b:includable id='content'>
+        <data:content/>
+      </b:includable>
+    </b:widget>
+  </b:section>
 
   <!-- =====================================================
        HERO (Homepage only)
@@ -163,6 +215,34 @@
     &lt;h3&gt;AI&lt;/h3&gt;
     &lt;p&gt;Artificial intelligence, AI tools and automation — how to use AI to learn faster and earn more.&lt;/p&gt;
     &lt;a class="topic-link" href="/search/label/AI"&gt;Explore &lt;svg class="ic" viewBox="0 0 24 24"&gt;&lt;line x1="5" y1="12" x2="19" y2="12"&gt;&lt;/line&gt;&lt;polyline points="12 5 19 12 12 19"&gt;&lt;/polyline&gt;&lt;/svg&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</b:widget-setting>
+        </b:widget-settings>
+        <b:includable id='main'>
+          <b:include name='content'/>
+        </b:includable>
+        <b:includable id='content'>
+          <data:content/>
+        </b:includable>
+      </b:widget>
+    </b:section>
+
+    <!-- =====================================================
+         FEATURED SLIDER (Homepage only)
+         ===================================================== -->
+    <b:section class='feat-sec' id='featured-slider' maxwidgets='1' name='Featured Slider' showaddelement='no'>
+      <b:widget id='HTML7' locked='true' title='Featured Slider' type='HTML' version='2' visible='true'>
+        <b:widget-settings>
+          <b:widget-setting name='content'>&lt;div class="feat-wrap container"&gt;
+  &lt;div class="section-head"&gt;
+    &lt;h2 class="section-title"&gt;Featured&lt;/h2&gt;
+    &lt;p class="section-sub"&gt;Hand-picked stories on business, technology and AI.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="feat-slider" id="feat-slider"&gt;
+    &lt;div class="feat-track" id="feat-track"&gt;&lt;/div&gt;
+    &lt;button type="button" class="feat-nav feat-prev" id="feat-prev" aria-label="Previous featured"&gt;&lt;svg class="ic" viewBox="0 0 24 24"&gt;&lt;polyline points="15 18 9 12 15 6"&gt;&lt;/polyline&gt;&lt;/svg&gt;&lt;/button&gt;
+    &lt;button type="button" class="feat-nav feat-next" id="feat-next" aria-label="Next featured"&gt;&lt;svg class="ic" viewBox="0 0 24 24"&gt;&lt;polyline points="9 18 15 12 9 6"&gt;&lt;/polyline&gt;&lt;/svg&gt;&lt;/button&gt;
+    &lt;div class="feat-dots" id="feat-dots"&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</b:widget-setting>
         </b:widget-settings>

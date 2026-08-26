@@ -27,6 +27,34 @@
     <nav aria-label="Main menu" class="main-menu">
       <ul class="menu-list" id="main-menu-nav">
         <li><a href="index.html">Home</a></li>
+        <li class="has-mega">
+          <a aria-haspopup="true" href="#">Topics
+            <svg class="ic chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="mega-panel">
+            <div class="mega-col">
+              <h4>Business</h4>
+              <a href="index.html">All Business</a>
+              <a href="index.html">Startups</a>
+              <a href="index.html">Marketing</a>
+              <a href="index.html">Money &amp; Growth</a>
+            </div>
+            <div class="mega-col">
+              <h4>Technology</h4>
+              <a href="index.html">All Technology</a>
+              <a href="index.html">Gadgets</a>
+              <a href="index.html">Apps &amp; Tools</a>
+              <a href="index.html">Productivity</a>
+            </div>
+            <div class="mega-col">
+              <h4>Artificial Intelligence</h4>
+              <a href="index.html">All AI</a>
+              <a href="index.html">AI Tools</a>
+              <a href="index.html">Automation</a>
+              <a href="index.html">Guides</a>
+            </div>
+          </div>
+        </li>
         <li><a href="index.html">Business</a></li>
         <li><a href="index.html">Technology</a></li>
         <li><a href="index.html">AI</a></li>
@@ -61,9 +89,29 @@
   <div class="drawer-foot">© <span class="rp-year">2026</span> Roushan Gupta</div>
 </nav>
 
+<!-- TRENDING TICKER -->
+<div class="ticker" id="ticker">
+  <div class="container ticker-inner">
+    <span class="ticker-badge">Trending</span>
+    <div class="ticker-mask">
+      <div class="ticker-track" id="ticker-track">
+        <a class="ticker-item" href="post.html"><span class="ticker-dot"></span>10 AI Tools That Will Save You 10+ Hours Every Week</a>
+        <a class="ticker-item" href="post.html"><span class="ticker-dot"></span>The Subscription Economy: Why Every Business Is Becoming Netflix</a>
+        <a class="ticker-item" href="post.html"><span class="ticker-dot"></span>Your 2026 Tech Stack: 7 Free Tools That Replace Expensive Software</a>
+        <a class="ticker-item" href="post.html"><span class="ticker-dot"></span>Prompt Engineering 101: Talk to AI Like a Pro</a>
+        <a class="ticker-item" href="post.html"><span class="ticker-dot"></span>Side Income in 2026: 5 Realistic Ways to Earn Online in India</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- CONTENT -->
 <div class="container content-wrapper" id="content-wrapper">
   <main id="main-content">
+    <div class="ad-slot ad-leader" id="ad-incontent">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-box"><span class="ad-ph">AdSense 728 × 90</span></div>
+    </div>
     <article class="item-post">
       <div class="post-inner">
         <nav aria-label="Breadcrumb" class="breadcrumb">
@@ -240,6 +288,12 @@ context + subject + style + color palette + composition
       </div>
     </div>
     <div class="sidebar-widget">
+      <div class="ad-slot ad-sidebar">
+        <span class="ad-label">Advertisement</span>
+        <div class="ad-box ad-box-rect"><span class="ad-ph">AdSense 300 × 250</span></div>
+      </div>
+    </div>
+    <div class="sidebar-widget">
       <h3 class="widget-title">Popular Posts</h3>
       <div class="widget-content popular-posts">
         <article class="pp-item">
@@ -263,6 +317,16 @@ context + subject + style + color palette + composition
             <span class="pp-date"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Aug 12, 2026</span>
           </div>
         </article>
+      </div>
+    </div>
+    <div class="sidebar-widget">
+      <div class="news-box">
+        <h3 class="news-title">Newsletter</h3>
+        <p class="news-sub">Get new posts on business, tech and AI — straight to your inbox. No spam.</p>
+        <form action="#" class="news-form" method="post">
+          <input name="email" placeholder="Your email address" required type="email"/>
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </form>
       </div>
     </div>
     <div class="sidebar-widget">
@@ -337,6 +401,11 @@ context + subject + style + color palette + composition
 </div>
 
 <div class="lightbox" id="lightbox"></div>
+
+<div aria-label="Cookie notice" class="cookie-bar" id="cookie-bar" role="dialog">
+  <p>We use cookies to remember your theme and improve your reading experience. See our <a href="#">Privacy Policy</a>.</p>
+  <button class="btn btn-primary" id="cookie-accept" type="button">Accept</button>
+</div>
 
 <button aria-label="Back to top" class="to-top" id="to-top" type="button">
   <svg class="ic" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
