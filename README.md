@@ -1,4 +1,4 @@
-# Roushan Pro — Complete Blogger Theme (100% Apna)
+# Roushan Pro v1.1 — Complete Blogger Theme (100% Apna)
 
 **Roushan Gupta / Roushan Kumar** ke personal brand blog ke liye — **Business • Tech • AI**.
 Same modern look (teal + navy), lekin puri tarah **clean rebuild**:
@@ -67,6 +67,9 @@ Har post me label add karo: `Business`, `Technology`, `AI`, `Startups`, `AI Tool
 | Menu (Home/Business/Tech/AI/About/Contact) | **Layout → Main Menu** |
 | Hero section ka text + buttons | **Layout → Hero Section → Edit** |
 | 3 Topic cards (Business/Tech/AI) | **Layout → Topics Section → Edit** |
+| Featured slider / Trending ticker | Homepage sections (feed se automatic) |
+| AdSense header + sidebar slots | **Layout → AdSense — Header / AdSense — Sidebar → Edit** (AdSense code paste) |
+| Newsletter | **Layout → Sidebar → Newsletter** |
 | Stats numbers (100+, 50000+…) | **Layout → Stats Section → Edit** |
 | Sidebar (About / Popular / Categories) | **Layout → Sidebar Widgets** |
 | Footer (About / Quick Links / Topics) | **Layout → Footer Columns** |
@@ -131,6 +134,15 @@ Har post me label add karo: `Business`, `Technology`, `AI`, `Startups`, `AI Tool
 - **Live search overlay** (`Ctrl/Cmd + K`) — type karte hi results
 - Back to top, reading progress bar, image lightbox, copy-code buttons
 - Reveal-on-scroll animations (prefers-reduced-motion respected)
+
+**v1.1 additions**
+- **Featured slider** — homepage carousel of latest posts (feed-powered, autoplay + arrows + dots)
+- **Trending ticker** — scrolling headlines bar under the header
+- **Topics mega menu** — Business / Technology / AI dropdown with sub-labels
+- **Newsletter widget** — sidebar email signup (Layout se Feedburner/Mailchimp form laga sakte ho)
+- **AdSense ad slots** — header/in-content (728×90) + sidebar (300×250); Layout → Edit widget me apna AdSense code paste karo
+- **Cookie notice** — one-tap Accept, `localStorage` memory
+- **Sticky sidebar** — desktop pe scroll ke saath chipka rehta hai
 
 **Performance**
 - No jQuery, no icon fonts, no animation libraries — sirf ~15KB vanilla JS

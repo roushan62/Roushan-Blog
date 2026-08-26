@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateVersion='1.0.0' expr:class='data:blog.languageDirection' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateVersion='1.1.0' expr:class='data:blog.languageDirection' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
   <meta content='width=device-width, initial-scale=1' name='viewport'/>
   <meta content='#ffffff' id='meta-theme-color' name='theme-color'/>
@@ -87,12 +87,16 @@
 -----------------------------------------------
 Blogger Template Style
 Name:      Roushan Pro
-Version:   1.0.0
+Version:   1.1.0
 Designer:  Roushan Gupta
 URL:       (your blog url)
 License:   Fully owned by the blog owner.
            No third-party credits, no encrypted
            scripts, no external CSS/JS libraries.
+v1.1:      Featured slider, trending ticker,
+           Topics mega menu, newsletter widget,
+           AdSense header + sidebar slots,
+           cookie notice, sticky sidebar.
 ----------------------------------------------- */
 
 /* Variable definitions
@@ -748,6 +752,9 @@ html[data-theme='dark'] .post-body code { color: #7fe7cb; }
    12. SIDEBAR
    ========================================================= */
 .sidebar .widget, .sidebar-widget { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 26px 24px; box-shadow: var(--shadow-sm); margin-bottom: 26px; }
+@media (min-width: 981px) {
+  aside.sidebar { position: sticky; top: calc(var(--header-h) + 16px); }
+}
 .widget-title { font-size: 1.02rem; font-weight: 700; letter-spacing: -.01em; display: flex; align-items: center; gap: 11px; margin: 0 0 18px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
 .widget-title::before { content: ""; width: 4px; height: 20px; border-radius: 4px; background: var(--accent); flex: none; }
 
@@ -908,6 +915,113 @@ html[data-theme='dark'] .label-count { color: #8ff0d6; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
 /* =========================================================
+   17b. V1.1 — TICKER, SLIDER, ADS, NEWSLETTER, COOKIE
+   Featured slider: feed-powered homepage carousel
+   Trending ticker: scrolling headlines under header
+   Mega menu: Topics dropdown (Business / Tech / AI)
+   Newsletter + AdSense slots: Layout-editable widgets
+   Cookie bar + sticky sidebar
+   Header/in-content ad: 728x90 placeholder
+   Sidebar ad: 300x250 placeholder
+   FollowByEmail newsletter in sidebar
+   ========================================================= */
+.ticker { background: var(--card); border-bottom: 1px solid var(--line); }
+.ticker-inner { display: flex; align-items: center; gap: 14px; min-height: 42px; }
+.ticker-badge {
+  flex: none; padding: 4px 11px; border-radius: 999px; background: var(--accent); color: #fff;
+  font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.ticker-mask { overflow: hidden; flex: 1; mask-image: linear-gradient(90deg, transparent, #000 18px, #000 calc(100% - 18px), transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 18px, #000 calc(100% - 18px), transparent); }
+.ticker-track { display: flex; align-items: center; gap: 28px; width: max-content; animation: ticker-x 32s linear infinite; }
+.ticker-mask:hover .ticker-track { animation-play-state: paused; }
+@keyframes ticker-x { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.ticker-item { white-space: nowrap; color: var(--text); font-size: .86rem; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; }
+.ticker-item:hover { color: var(--accent); }
+.ticker-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex: none; }
+@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
+
+.feat-sec { padding: 36px 0 0; }
+.feat-slider { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: #0a0f1e; box-shadow: var(--shadow); }
+.feat-track { display: flex; transition: transform .55s cubic-bezier(.4, 0, .2, 1); will-change: transform; }
+.feat-slide { position: relative; min-width: 100%; aspect-ratio: 21 / 9; min-height: 300px; }
+.feat-slide > img, .feat-noimg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.feat-noimg { background: linear-gradient(135deg, #10203a, #0d2b26); }
+.feat-slide::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,15,30,.86) 0%, rgba(10,15,30,.5) 50%, rgba(10,15,30,.18) 100%); }
+.feat-copy { position: relative; z-index: 1; max-width: 560px; padding: 44px 56px; color: #fff; }
+.feat-label {
+  display: inline-block; padding: 4px 12px; border-radius: 999px; background: var(--accent); color: #fff;
+  font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+}
+.feat-title { font-size: clamp(1.35rem, 3vw, 2.05rem); margin: 12px 0 10px; color: #fff; line-height: 1.25; }
+.feat-title a { color: #fff; }
+.feat-title a:hover { color: var(--accent); }
+.feat-snip { color: #c5d0e0; font-size: .95rem; margin-bottom: 18px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.feat-nav {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: rgba(255,255,255,.14); color: #fff; border: 1px solid rgba(255,255,255,.22);
+  display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px);
+}
+.feat-nav:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.feat-prev { left: 14px; } .feat-next { right: 14px; }
+.feat-dots { position: absolute; bottom: 16px; left: 56px; display: flex; gap: 8px; z-index: 2; }
+.feat-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.35); padding: 0; }
+.feat-dot.on { background: var(--accent); width: 22px; border-radius: 8px; }
+
+.ad-slot { margin: 0 0 26px; text-align: center; }
+.ad-label { display: block; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-text); margin-bottom: 8px; }
+.ad-box {
+  min-height: 90px; border: 1px dashed var(--line); border-radius: var(--radius-sm);
+  background: var(--card); display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.ad-box.ad-box-rect { min-height: 250px; }
+.ad-ph { color: var(--muted-text); font-size: .82rem; font-weight: 600; }
+.ad-box ins, .ad-box iframe, .ad-box .adsbygoogle { display: block; margin: 0 auto; max-width: 100%; }
+#ad-header .widget, #ad-sidebar .widget, #ticker-sec .widget, #featured-slider .widget,
+.sidebar .widget:has(.ad-slot), #HTML9 {
+  background: none; border: 0; box-shadow: none; padding: 0; margin: 0;
+}
+#ad-incontent { margin-bottom: 8px; }
+
+.sidebar .FollowByEmail { background: none; border: 0; padding: 0; box-shadow: none; }
+.news-box {
+  background: linear-gradient(160deg, #0a0f1e 0%, #0d241f 100%);
+  color: #c5d0e0; border-radius: var(--radius); padding: 26px 24px;
+  border: 1px solid rgba(48, 189, 155, .35);
+}
+.news-title { color: #fff; font-size: 1.12rem; margin: 0 0 8px; }
+.news-sub { font-size: .86rem; margin: 0; color: #9aa6bb; }
+.news-form { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.news-form input[type='email'] {
+  width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.08); color: #fff; outline: none;
+}
+.news-form input[type='email']::placeholder { color: #8b95a9; }
+.news-form .btn { justify-content: center; width: 100%; }
+
+.cookie-bar {
+  position: fixed; z-index: 940; left: 16px; right: 16px; bottom: 16px;
+  max-width: 720px; margin: 0 auto;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-lg); padding: 16px 18px;
+  display: flex; align-items: center; gap: 16px;
+}
+.cookie-bar p { margin: 0; font-size: .86rem; color: var(--text); flex: 1; }
+.cookie-bar .btn { padding: 10px 18px; flex: none; }
+.cookie-bar[hidden] { display: none !important; }
+body.has-cookie .to-top { bottom: 88px; }
+.cookie-bar a { font-weight: 600; }
+.news-form .btn-primary:hover { color: #fff; }
+.ticker-sec .widget-title, .feat-sec .widget-title { display: none; }
+.has-mega > a[href='#'] { cursor: default; }
+.menu-list .chev { transition: transform .2s ease; }
+.has-mega:hover > a .chev, .has-mega:focus-within > a .chev { transform: rotate(180deg); }
+.feat-nav:focus-visible { outline-color: #fff; }
+@media (max-width: 640px) {
+  body.has-cookie .to-top { bottom: 140px; }
+}
+
+/* =========================================================
    18. RESPONSIVE
    ========================================================= */
 @media (max-width: 1080px) {
@@ -927,6 +1041,10 @@ html[data-theme='dark'] .label-count { color: #8ff0d6; }
   .footer-widgets { grid-template-columns: 1fr 1fr; gap: 34px; }
   .footer-widgets .footer-about { grid-column: 1 / -1; }
   .post-inner { padding: 30px 26px 34px; }
+  .feat-slide { aspect-ratio: 16 / 10; }
+  .feat-copy { padding: 28px 22px 48px; max-width: 100%; }
+  .feat-dots { left: 22px; }
+  aside.sidebar { position: static; }
 }
 
 @media (max-width: 640px) {
@@ -945,13 +1063,15 @@ html[data-theme='dark'] .label-count { color: #8ff0d6; }
   .post-title { font-size: 1.45rem; }
   .comments .comment-thread ol ol { padding-left: 16px; }
   .comments .comment-replybox-single, .comments .comment-replybox-thread { margin-left: 0; }
+  .cookie-bar { flex-direction: column; align-items: stretch; text-align: center; }
+  .feat-nav { width: 36px; height: 36px; }
 }
 
 /* =========================================================
    19. PRINT
    ========================================================= */
 @media print {
-  .site-header, .site-footer, .to-top, .post-share, .comments-wrap, .related-posts, .progress-bar, .search-overlay, .mobile-drawer, .drawer-backdrop, .hero-side { display: none !important; }
+  .site-header, .site-footer, .to-top, .post-share, .comments-wrap, .related-posts, .progress-bar, .search-overlay, .mobile-drawer, .drawer-backdrop, .hero-side, .ticker, .feat-slider, .ad-slot, .cookie-bar, .news-box { display: none !important; }
   body { background: #fff; color: #000; }
   .item-post { border: 0; box-shadow: none; }
 }
@@ -966,7 +1086,8 @@ html[data-theme='dark'] .label-count { color: #8ff0d6; }
     body#layout .lightbox, body#layout .hero-side, body#layout .skip-link,
     body#layout .footer-note { display: none !important; }
     body#layout .site-header { background: #dfe9f5; border: 1px dashed #5b7ba0; border-radius: 8px; padding: 6px; margin: 8px 0; }
-    body#layout .hero, body#layout .topics, body#layout .stats { background: #e3f4ee; border: 1px dashed #30bd9b; border-radius: 8px; margin: 8px 0; padding: 6px; }
+    body#layout .hero, body#layout .topics, body#layout .stats, body#layout .ticker, body#layout .feat-sec, body#layout .ad-slot { background: #e3f4ee; border: 1px dashed #30bd9b; border-radius: 8px; margin: 8px 0; padding: 6px; }
+    body#layout .cookie-bar, body#layout .feat-nav, body#layout .ticker-track { display: none !important; }
     body#layout .content-wrapper, body#layout .footer-widgets { background: transparent; border: 0; }
     body#layout .footer-widgets { background: #e8ebf2; border-radius: 8px; padding: 6px; margin-top: 8px; }
     body#layout ul { list-style: none; margin: 0; padding: 0; }
@@ -1036,6 +1157,36 @@ html[data-theme='dark'] .label-count { color: #8ff0d6; }
               <ul class='menu-list' id='main-menu-nav'>
                 <b:loop values='data:links' var='link'>
                   <li><a expr:href='data:link.target'><data:link.name/></a></li>
+                  <b:if cond='data:link.name == &quot;Home&quot;'>
+                    <li class='has-mega'>
+                      <a aria-haspopup='true' href='#'>Topics
+                        <svg class='ic chev' viewBox='0 0 24 24'><polyline points='6 9 12 15 18 9'></polyline></svg>
+                      </a>
+                      <div class='mega-panel'>
+                        <div class='mega-col'>
+                          <h4>Business</h4>
+                          <a href='/search/label/Business'>All Business</a>
+                          <a href='/search/label/Startups'>Startups</a>
+                          <a href='/search/label/Marketing'>Marketing</a>
+                          <a href='/search/label/Money'>Money &amp; Growth</a>
+                        </div>
+                        <div class='mega-col'>
+                          <h4>Technology</h4>
+                          <a href='/search/label/Technology'>All Technology</a>
+                          <a href='/search/label/Gadgets'>Gadgets</a>
+                          <a href='/search/label/Apps'>Apps &amp; Tools</a>
+                          <a href='/search/label/Productivity'>Productivity</a>
+                        </div>
+                        <div class='mega-col'>
+                          <h4>Artificial Intelligence</h4>
+                          <a href='/search/label/AI'>All AI</a>
+                          <a href='/search/label/AI Tools'>AI Tools</a>
+                          <a href='/search/label/Automation'>Automation</a>
+                          <a href='/search/label/Guides'>Guides</a>
+                        </div>
+                      </div>
+                    </li>
+                  </b:if>
                 </b:loop>
               </ul>
             </b:includable>
@@ -1071,6 +1222,28 @@ html[data-theme='dark'] .label-count { color: #8ff0d6; }
     <div class='drawer-links' id='drawer-links'></div>
     <div class='drawer-foot'>© <span class='rp-year'>2026</span> <data:blog.title/></div>
   </nav>
+
+  <!-- =====================================================
+       TRENDING TICKER
+       ===================================================== -->
+  <b:section class='ticker' id='ticker-sec' maxwidgets='1' name='Trending Ticker' showaddelement='no'>
+    <b:widget id='HTML6' locked='true' title='Trending Ticker' type='HTML' version='2' visible='true'>
+      <b:widget-settings>
+        <b:widget-setting name='content'>&lt;div class="ticker" id="ticker"&gt;
+  &lt;div class="container ticker-inner"&gt;
+    &lt;span class="ticker-badge"&gt;Trending&lt;/span&gt;
+    &lt;div class="ticker-mask"&gt;&lt;div class="ticker-track" id="ticker-track"&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</b:widget-setting>
+      </b:widget-settings>
+      <b:includable id='main'>
+        <b:include name='content'/>
+      </b:includable>
+      <b:includable id='content'>
+        <data:content/>
+      </b:includable>
+    </b:widget>
+  </b:section>
 
   <!-- =====================================================
        HERO (Homepage only)
@@ -1150,6 +1323,34 @@ html[data-theme='dark'] .label-count { color: #8ff0d6; }
         </b:includable>
       </b:widget>
     </b:section>
+
+    <!-- =====================================================
+         FEATURED SLIDER (Homepage only)
+         ===================================================== -->
+    <b:section class='feat-sec' id='featured-slider' maxwidgets='1' name='Featured Slider' showaddelement='no'>
+      <b:widget id='HTML7' locked='true' title='Featured Slider' type='HTML' version='2' visible='true'>
+        <b:widget-settings>
+          <b:widget-setting name='content'>&lt;div class="feat-wrap container"&gt;
+  &lt;div class="section-head"&gt;
+    &lt;h2 class="section-title"&gt;Featured&lt;/h2&gt;
+    &lt;p class="section-sub"&gt;Hand-picked stories on business, technology and AI.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="feat-slider" id="feat-slider"&gt;
+    &lt;div class="feat-track" id="feat-track"&gt;&lt;/div&gt;
+    &lt;button type="button" class="feat-nav feat-prev" id="feat-prev" aria-label="Previous featured"&gt;&lt;svg class="ic" viewBox="0 0 24 24"&gt;&lt;polyline points="15 18 9 12 15 6"&gt;&lt;/polyline&gt;&lt;/svg&gt;&lt;/button&gt;
+    &lt;button type="button" class="feat-nav feat-next" id="feat-next" aria-label="Next featured"&gt;&lt;svg class="ic" viewBox="0 0 24 24"&gt;&lt;polyline points="9 18 15 12 9 6"&gt;&lt;/polyline&gt;&lt;/svg&gt;&lt;/button&gt;
+    &lt;div class="feat-dots" id="feat-dots"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</b:widget-setting>
+        </b:widget-settings>
+        <b:includable id='main'>
+          <b:include name='content'/>
+        </b:includable>
+        <b:includable id='content'>
+          <data:content/>
+        </b:includable>
+      </b:widget>
+    </b:section>
   </b:if>
 
   <!-- =====================================================
@@ -1157,6 +1358,25 @@ html[data-theme='dark'] .label-count { color: #8ff0d6; }
        ===================================================== -->
   <div class='container content-wrapper' id='content-wrapper'>
     <main id='main-content'>
+      <b:section class='ad-sec' id='ad-header' maxwidgets='1' name='AdSense — Header / In-content' showaddelement='yes'>
+        <b:widget id='HTML8' locked='false' title='AdSense — Header' type='HTML' version='2' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='content'>&lt;div class="ad-slot ad-leader" id="ad-incontent"&gt;
+  &lt;span class="ad-label"&gt;Advertisement&lt;/span&gt;
+  &lt;div class="ad-box"&gt;
+    &lt;!-- Paste your Google AdSense code here (Layout → Edit this widget) --&gt;
+    &lt;span class="ad-ph"&gt;AdSense 728 × 90&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <b:include name='content'/>
+          </b:includable>
+          <b:includable id='content'>
+            <data:content/>
+          </b:includable>
+        </b:widget>
+      </b:section>
       <b:section class='main' id='main' maxwidgets='1' name='Main Posts' showaddelement='no'>
         <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
           <b:widget-settings>
@@ -1730,6 +1950,24 @@ html[data-theme='dark'] .label-count { color: #8ff0d6; }
           </b:includable>
         </b:widget>
 
+        <b:widget id='HTML9' locked='false' title='AdSense — Sidebar' type='HTML' version='2' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='content'>&lt;div class="ad-slot ad-sidebar" id="ad-sidebar"&gt;
+  &lt;span class="ad-label"&gt;Advertisement&lt;/span&gt;
+  &lt;div class="ad-box ad-box-rect"&gt;
+    &lt;!-- Paste your Google AdSense code here (Layout → Edit this widget) --&gt;
+    &lt;span class="ad-ph"&gt;AdSense 300 × 250&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <b:include name='content'/>
+          </b:includable>
+          <b:includable id='content'>
+            <data:content/>
+          </b:includable>
+        </b:widget>
+
         <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='2' visible='true'>
           <b:widget-settings>
             <b:widget-setting name='numItemsToShow'>4</b:widget-setting>
@@ -1761,6 +1999,21 @@ html[data-theme='dark'] .label-count { color: #8ff0d6; }
                   </div>
                 </article>
               </b:loop>
+            </div>
+          </b:includable>
+        </b:widget>
+
+        <b:widget id='FollowByEmail1' locked='false' title='Newsletter' type='FollowByEmail' version='2' visible='true'>
+          <b:includable id='main'>
+            <div class='news-box'>
+              <h3 class='news-title'>Newsletter</h3>
+              <p class='news-sub'>Get new posts on business, tech and AI — straight to your inbox. No spam.</p>
+              <form action='https://feedburner.google.com/fb/a/mailverify' class='news-form' method='post' target='popupwindow'>
+                <input name='email' placeholder='Your email address' required='required' type='email'/>
+                <input name='uri' type='hidden' value=''/>
+                <input name='loc' type='hidden' value='en_US'/>
+                <button class='btn btn-primary' type='submit'>Subscribe</button>
+              </form>
             </div>
           </b:includable>
         </b:widget>
@@ -1930,6 +2183,12 @@ html[data-theme='dark'] .label-count { color: #8ff0d6; }
 
   <!-- Lightbox -->
   <div class='lightbox' id='lightbox'></div>
+
+  <!-- Cookie notice -->
+  <div aria-label='Cookie notice' class='cookie-bar' id='cookie-bar' role='dialog'>
+    <p>We use cookies to remember your theme and improve your reading experience. See our <a href='/p/privacy-policy.html'>Privacy Policy</a>.</p>
+    <button class='btn btn-primary' id='cookie-accept' type='button'>Accept</button>
+  </div>
 
   <!-- Back to top -->
   <button aria-label='Back to top' class='to-top' id='to-top' type='button'>
@@ -2229,6 +2488,127 @@ html[data-theme='dark'] .label-count { color: #8ff0d6; }
             else { var rp = $('#related-posts'); if (rp) { rp.style.display = 'none'; } }
           })
           .catch(function () {});
+      }
+
+      /* ----- Mega menu: Topics # link ----- */
+      $$('.has-mega > a[href=\"#\"]').forEach(function (a) {
+        a.addEventListener('click', function (e) { e.preventDefault(); });
+      });
+
+      /* ----- Cookie notice ----- */
+      var cookieBar = $('#cookie-bar');
+      var cookieBtn = $('#cookie-accept');
+      try {
+        if (localStorage.getItem('rp-cookies') === '1' && cookieBar) { cookieBar.setAttribute('hidden', ''); }
+        else if (cookieBar) { body.classList.add('has-cookie'); }
+      } catch (e) { if (cookieBar) { body.classList.add('has-cookie'); } }
+      if (cookieBtn) {
+        cookieBtn.addEventListener('click', function () {
+          try { localStorage.setItem('rp-cookies', '1'); } catch (err) {}
+          if (cookieBar) { cookieBar.setAttribute('hidden', ''); }
+          body.classList.remove('has-cookie');
+        });
+      }
+
+      /* ----- Trending ticker + featured slider (Blogger feed) ----- */
+      function labelOf(entry) {
+        var cats = entry.category || [];
+        return cats.length ? (cats[0].term || '') : '';
+      }
+      function snippetOf(entry) {
+        var s = (entry.summary && entry.summary.$t) || '';
+        s = s.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+        return s.length > 150 ? s.slice(0, 147) + '...' : s;
+      }
+
+      function initTicker(items) {
+        var track = $('#ticker-track');
+        if (!track) { return; }
+        if (!items || !items.length) {
+          var wrap = $('#ticker'); if (wrap) { wrap.style.display = 'none'; }
+          return;
+        }
+        var html = '';
+        items.forEach(function (it) {
+          html += '<a class=\"ticker-item\" href=\"' + it.url + '\"><span class=\"ticker-dot\"></span>' + esc(it.title) + '</a>';
+        });
+        track.innerHTML = html + html;
+      }
+
+      function initSliderFromSlides() {
+        var track = $('#feat-track'), slider = $('#feat-slider'), dotsEl = $('#feat-dots');
+        if (!track || !slider) { return; }
+        var slides = $$('.feat-slide', track);
+        var n = slides.length, idx = 0, timer = null;
+        if (!n) { var w = $('.feat-wrap'); if (w) { w.style.display = 'none'; } return; }
+        function go(i) {
+          idx = (i + n) % n;
+          track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+          if (dotsEl) { $$('.feat-dot', dotsEl).forEach(function (dot, k) { dot.classList.toggle('on', k === idx); }); }
+        }
+        function stop() { if (timer) { clearInterval(timer); timer = null; } }
+        function play() {
+          stop();
+          if (n < 2) { return; }
+          timer = setInterval(function () { go(idx + 1); }, 5200);
+        }
+        if (dotsEl) {
+          var h = '';
+          for (var i = 0; i < n; i++) { h += '<button type=\"button\" class=\"feat-dot' + (i === 0 ? ' on' : '') + '\" data-i=\"' + i + '\" aria-label=\"Slide ' + (i + 1) + '\"></button>'; }
+          dotsEl.innerHTML = h;
+          $$('.feat-dot', dotsEl).forEach(function (dot) {
+            dot.addEventListener('click', function () { go(+dot.getAttribute('data-i')); play(); });
+          });
+        }
+        var prev = $('#feat-prev'), next = $('#feat-next');
+        if (prev) { prev.addEventListener('click', function () { go(idx - 1); play(); }); }
+        if (next) { next.addEventListener('click', function () { go(idx + 1); play(); }); }
+        slider.addEventListener('mouseenter', stop);
+        slider.addEventListener('mouseleave', play);
+        play();
+      }
+
+      function renderSlider(entries) {
+        var track = $('#feat-track');
+        if (!track) { return; }
+        if (!entries || !entries.length) { var w = $('.feat-wrap'); if (w) { w.style.display = 'none'; } return; }
+        var html = '';
+        entries.slice(0, 5).forEach(function (en) {
+          var th = thumbOf(en, 'w1200-h630-p-k-no-nu');
+          var lab = labelOf(en);
+          html += '<article class=\"feat-slide\">' +
+            (th ? '<img src=\"' + th + '\" alt=\"\"/>' : '<div class=\"feat-noimg\"></div>') +
+            '<div class=\"feat-copy\">' +
+            (lab ? '<span class=\"feat-label\">' + esc(lab) + '</span>' : '') +
+            '<h3 class=\"feat-title\"><a href=\"' + linkOf(en) + '\">' + esc(en.title && en.title.$t) + '</a></h3>' +
+            '<p class=\"feat-snip\">' + esc(snippetOf(en)) + '</p>' +
+            '<a class=\"btn btn-primary\" href=\"' + linkOf(en) + '\">Read Article</a>' +
+            '</div></article>';
+        });
+        track.innerHTML = html;
+        initSliderFromSlides();
+      }
+
+      if ($('#ticker-track') && HOME) {
+        fetch(HOME + '/feeds/posts/summary?alt=json&max-results=8')
+          .then(function (r) { return r.json(); })
+          .then(function (j) {
+            var entries = (j.feed && j.feed.entry) || [];
+            initTicker(entries.map(function (en) { return { url: linkOf(en), title: (en.title && en.title.$t) || '' }; }));
+          })
+          .catch(function () { var t = $('#ticker'); if (t) { t.style.display = 'none'; } });
+      } else if ($('#ticker-track') && $$('#ticker-track .ticker-item').length) {
+        var tEl = $('#ticker-track');
+        tEl.innerHTML = tEl.innerHTML + tEl.innerHTML;
+      }
+
+      if ($('#feat-track') && HOME) {
+        fetch(HOME + '/feeds/posts/summary?alt=json&max-results=5')
+          .then(function (r) { return r.json(); })
+          .then(function (j) { renderSlider((j.feed && j.feed.entry) || []); })
+          .catch(function () { var w = $('.feat-wrap'); if (w) { w.style.display = 'none'; } });
+      } else if ($('#feat-track') && $$('#feat-track .feat-slide').length) {
+        initSliderFromSlides();
       }
 
       /* ----- Copy link button ----- */
