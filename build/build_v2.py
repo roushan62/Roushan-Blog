@@ -148,20 +148,22 @@ NEW_HEAD = """    <meta content='width=device-width, initial-scale=1' name='view
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' media='all' rel='stylesheet'/>"""
 sub_once(OLD_HEAD, NEW_HEAD, "head SEO block")
 
-# Google+ was shut down in 2019. The upstream theme still contains two
+# Google+ was shut down in 2019. The upstream theme originally contained
 # <g:plusone> elements without an xmlns:g declaration, which makes the file
-# malformed XML and causes Blogger Restore to reject the entire template.
-sub_all(
+# malformed XML. Remove them if still present.
+if "<b:includable id='googlePlusShare'>" in t:
+    sub_all(
 """            <b:includable id='googlePlusShare'>
   <div class='goog-inline-block google-plus-share-container'>
     <g:plusone annotation='inline' expr:href='data:originalUrl.canonical.http' size='medium' source='blogger:blog:plusone'/>
   </div>
 </b:includable>
 """,
-    "",
-    "remove obsolete malformed Google+ includables",
-    expect=2,
-)
+        "",
+        "remove obsolete malformed Google+ includables",
+    )
+else:
+    print("ok  Google+ includables already removed")
 
 # ------------------------------------------------- 3. static defaults script
 sub_once(
@@ -401,7 +403,7 @@ sub_block(
                   &quot;@type&quot;: &quot;ListItem&quot;,
                   &quot;position&quot;: 2,
                   &quot;item&quot;: {
-                    &quot;name&quot;: &quot;<data:post.labels.first.name/>&quot;,
+                    &quot;name&quot;: &quot;<data:post.labels.first.name.jsonEscaped/>&quot;,
                     &quot;@id&quot;: &quot;<data:post.labels.first.url/>&quot;
                   }
                 },
@@ -410,7 +412,7 @@ sub_block(
                   &quot;@type&quot;: &quot;ListItem&quot;,
                   &quot;position&quot;: <b:if cond='data:post.labels'>3<b:else/>2</b:if>,
                   &quot;item&quot;: {
-                    &quot;name&quot;: &quot;<data:post.title/>&quot;,
+                    &quot;name&quot;: &quot;<data:post.title.jsonEscaped/>&quot;,
                     &quot;@id&quot;: &quot;<data:post.url.jsonEscaped/>&quot;
                   }
                 }]
@@ -439,8 +441,8 @@ sub_once(
                 &quot;datePublished&quot;: &quot;<data:post.date.iso8601/>&quot;,
                 &quot;dateModified&quot;: &quot;<data:post.lastUpdated.iso8601/>&quot;,
                 <b:if cond='data:post.labels'>
-                &quot;articleSection&quot;: &quot;<data:post.labels.first.name/>&quot;,
-                &quot;keywords&quot;: &quot;<data:post.labels.first.name/>&quot;,
+                &quot;articleSection&quot;: &quot;<data:post.labels.first.name.jsonEscaped/>&quot;,
+                &quot;keywords&quot;: &quot;<data:post.labels.first.name.jsonEscaped/>&quot;,
                 </b:if>
                 &quot;author&quot;: {
                   &quot;@type&quot;: &quot;Person&quot;,
@@ -481,8 +483,12 @@ sub_all("class='post-thumb'", "class='post-thumb' loading='lazy' decoding='async
 sub_once("twitter.com/intent/tweet?via=templatesyard&amp;url=", "twitter.com/intent/tweet?url=", "twitter share")
 
 # 404 page: drop icon font glyph
-sub_once("<a class='homepage' expr:href='data:blog.homepageUrl'><i class='fa fa-home'/> <data:messages.home/></a>",
-         "<a class='homepage' expr:href='data:blog.homepageUrl'><data:messages.home/></a>", "404 link")
+if "<a class='homepage' expr:href='data:blog.homepageUrl'><i class='fa fa-home'/> <data:messages.home/></a>" in t:
+    sub_once("<a class='homepage' expr:href='data:blog.homepageUrl'><i class='fa fa-home'/> <data:messages.home/></a>",
+             "<a class='homepage' expr:href='data:blog.homepageUrl'><data:messages.home/></a>", "404 link")
+else:
+    sub_once("<a class='homepage' expr:href='data:blog.homepageUrl'><i class='fa fa-home'></i> <data:messages.home/></a>",
+             "<a class='homepage' expr:href='data:blog.homepageUrl'><data:messages.home/></a>", "404 link")
 
 # itemPost: add Table of Contents
 sub_block(
@@ -496,8 +502,8 @@ sub_block(
               </div>
               <b:if cond='data:view.isPost'>
                 <div class='post-toc-wrap'>
-                  <h4 class='toc-title'><i class='fa fa-list-ul'/> Table of Contents</h4>
-                  <ul class='post-toc' data-toc-headings='h2,h3'/>
+                  <h4 class='toc-title'><i class='fa fa-list-ul'></i> Table of Contents</h4>
+                  <ul class='post-toc' data-toc-headings='h2,h3'></ul>
                 </div>
               </b:if>
               <b:include data='post' name='postBody'/>

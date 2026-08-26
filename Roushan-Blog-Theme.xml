@@ -5430,10 +5430,10 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
           <form name='contact-form'>
             <input class='contact-form-name' expr:ariby='data:contactFormNameMsg' expr:id='data:widget.instanceId + &quot;_contact-form-name&quot;' expr:placeholder='data:contactFormNameMsg' name='name' size='30' type='text' value=''/>
             <input class='contact-form-email' expr:ariby='data:contactFormEmailMsg + &quot; *&quot;' expr:id='data:widget.instanceId + &quot;_contact-form-email&quot;' expr:placeholder='data:contactFormEmailMsg + &quot; *&quot;' name='email' size='30' type='text' value=''/>
-            <textarea class='contact-form-email-message' cols='25' expr:ariby='data:contactFormMessageMsg + &quot; *&quot;' expr:id='data:widget.instanceId + &quot;_contact-form-email-message&quot;' expr:placeholder='data:contactFormMessageMsg + &quot; *&quot;' name='email-message' rows='5'/>
+            <textarea class='contact-form-email-message' cols='25' expr:ariby='data:contactFormMessageMsg + &quot; *&quot;' expr:id='data:widget.instanceId + &quot;_contact-form-email-message&quot;' expr:placeholder='data:contactFormMessageMsg + &quot; *&quot;' name='email-message' rows='5'></textarea>
             <input class='contact-form-button btn contact-form-button-submit' expr:id='data:widget.instanceId + &quot;_contact-form-submit&quot;' expr:value='data:contactFormSendMsg' type='button'/>
-            <p class='contact-form-error-message' expr:id='data:widget.instanceId + &quot;_contact-form-error-message&quot;'/>
-            <p class='contact-form-success-message' expr:id='data:widget.instanceId + &quot;_contact-form-success-message&quot;'/>
+            <p class='contact-form-error-message' expr:id='data:widget.instanceId + &quot;_contact-form-error-message&quot;'></p>
+            <p class='contact-form-success-message' expr:id='data:widget.instanceId + &quot;_contact-form-success-message&quot;'></p>
           </form>
         </div>
       </div>
@@ -5685,7 +5685,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
 </b:includable>
         </b:widget>
       </b:section>
-      <span class='scrolling-mobile-menu-toggle'/> 
+      <span class='scrolling-mobile-menu-toggle'></span> 
       <b:section class='main-menu' id='main-menu' maxwidgets='1' name='Main Menu' showaddelement='yes'>
          <b:widget id='LinkList74' locked='true' title='Main Menu' type='LinkList' version='2' visible='true'>
            <b:widget-settings>
@@ -5715,17 +5715,17 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
           </b:includable>
          </b:widget>
        </b:section>
-      <span class='mobile-menu-toggle'/> 
+      <span class='mobile-menu-toggle'></span> 
     </div>
     <div class='scrolling-mobile-menu-wrap'>
-      <div class='scrolling-mobile-menu'/>
+      <div class='scrolling-mobile-menu'></div>
     </div>
     <div class='mobile-menu-wrap'>
-      <div class='mobile-menu'/>
+      <div class='mobile-menu'></div>
     </div>
   </div>
 
-  <div class='clearfix'/>
+  <div class='clearfix'></div>
 
   <b:if cond='data:view.isHomepage'> 
    
@@ -5840,11 +5840,11 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
           </b:includable>
         </b:widget>
       </b:section>
-         <div class='clearfix'/>
+         <div class='clearfix'></div>
         </div>
       </div>
     </div>
-    <div class='clearfix'/>
+    <div class='clearfix'></div>
     
  
 
@@ -5869,7 +5869,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
                </b:includable>
              </b:widget>
            </b:section>
-          <div class='clearfix'/>
+          <div class='clearfix'></div>
         </b:if>
  
         <b:section class='main' id='main' maxwidgets='1' name='Main Posts' showaddelement='yes'>
@@ -5964,7 +5964,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
               <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
                 <b:if cond='data:showCmtPopup'>
                   <div class='goog-toggle-button'>
-                    <div class='goog-inline-block comment-action-icon'/>
+                    <div class='goog-inline-block comment-action-icon'></div>
                   </div>
                   <b:else/>
                   <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:messages.deleteComment'>
@@ -5975,12 +5975,12 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
             </b:includable>
             <b:includable id='commentForm' var='post'>
               <div class='comment-form'>
-                <a name='comment-form'/>
+                <a name='comment-form'></a>
                 <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
                   <p><data:this.messages.blogComment/></p>
                 </b:if>
                 <b:include data='post' name='commentFormIframeSrc'/>
-                <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+                <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'></iframe>
                 <data:post.cmtfpIframe/>
                 <script type='text/javascript'>
                   BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
@@ -5988,7 +5988,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
               </div>
             </b:includable>
             <b:includable id='commentFormIframeSrc' var='post'>
-              <a expr:href='data:post.commentFormIframeSrc + &quot;&amp;skin=contempo&quot;' id='comment-editor-src'/>
+              <a expr:href='data:post.commentFormIframeSrc + &quot;&amp;skin=contempo&quot;' id='comment-editor-src'></a>
             </b:includable>
             <b:includable id='commentItem' var='comment'>
               <div class='comment' expr:id='&quot;c&quot; + data:comment.id'>
@@ -6039,7 +6039,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
             </b:includable>
             <b:includable id='comments' var='post'>
               <section expr:class='&quot;comments&quot; + (data:post.embedCommentForm ? &quot; embed&quot; : &quot;&quot;)' expr:data-num-comments='data:post.numberOfComments' id='comments'>
-                <a name='comments'/>
+                <a name='comments'></a>
                 <b:if cond='data:post.allowComments'>
 
                   <b:include name='commentsTitle'/>
@@ -6116,7 +6116,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
               <b:class cond='data:post.numberOfComments == &quot;0&quot;' name='no-comments'/>
             </b:includable>
             <b:includable id='defaultAdUnit'>
-  <ins class='adsbygoogle' data-ad-format='auto' expr:data-ad-client='data:adClientId ?: data:blog.adsenseClientId' expr:data-ad-host='data:blog.adsenseHostId' expr:data-analytics-uacct='data:blog.analyticsAccountNumber' expr:style='data:style ?: &quot;display: block;&quot;'/>
+  <ins class='adsbygoogle' data-ad-format='auto' expr:data-ad-client='data:adClientId ?: data:blog.adsenseClientId' expr:data-ad-host='data:blog.adsenseHostId' expr:data-analytics-uacct='data:blog.analyticsAccountNumber' expr:style='data:style ?: &quot;display: block;&quot;'></ins>
   <script>
    (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
@@ -6160,8 +6160,8 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
             </b:includable>
             <b:includable id='iframeComments' var='post'>
               <b:if cond='data:post.allowIframeComments'>
-                <script expr:src='data:post.iframeCommentSrc' type='text/javascript'/>
-                <div class='cmt_iframe_holder' expr:data-href='data:post.url.canonical' expr:data-viewtype='data:post.viewType'/>
+                <script expr:src='data:post.iframeCommentSrc' type='text/javascript'></script>
+                <div class='cmt_iframe_holder' expr:data-href='data:post.url.canonical' expr:data-viewtype='data:post.viewType'></div>
                 <b:if cond='!data:post.embedCommentForm'>
                   <b:include data='post' name='commentsLink'/>
                 </b:if>
@@ -6173,12 +6173,12 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
     <div class='post-content'>
                     <div class='post-info'>
                       <b:include data='post' name='postTitle'/>
-<div class='clearfix'/>
+<div class='clearfix'></div>
  <div class='post-meta'>
                         <b:include data='post' name='postAuthor'/>    <b:include data='post' name='postTimestamp'/>
  <b:include data='post' name='postCategory'/>
                       </div>
-<div class='clearfix'/>
+<div class='clearfix'></div>
                    <b:include data='post' name='postSummary'/>
                     </div>
                   </div>
@@ -6194,8 +6194,8 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
               </div>
               <b:if cond='data:view.isPost'>
                 <div class='post-toc-wrap'>
-                  <h4 class='toc-title'><i class='fa fa-list-ul'/> Table of Contents</h4>
-                  <ul class='post-toc' data-toc-headings='h2,h3'/>
+                  <h4 class='toc-title'><i class='fa fa-list-ul'></i> Table of Contents</h4>
+                  <ul class='post-toc' data-toc-headings='h2,h3'></ul>
                 </div>
               </b:if>
               <b:include data='post' name='postBody'/>
@@ -6271,7 +6271,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
                   &quot;@type&quot;: &quot;ListItem&quot;,
                   &quot;position&quot;: 2,
                   &quot;item&quot;: {
-                    &quot;name&quot;: &quot;<data:post.labels.first.name/>&quot;,
+                    &quot;name&quot;: &quot;<data:post.labels.first.name.jsonEscaped/>&quot;,
                     &quot;@id&quot;: &quot;<data:post.labels.first.url/>&quot;
                   }
                 },
@@ -6280,7 +6280,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
                   &quot;@type&quot;: &quot;ListItem&quot;,
                   &quot;position&quot;: <b:if cond='data:post.labels'>3<b:else/>2</b:if>,
                   &quot;item&quot;: {
-                    &quot;name&quot;: &quot;<data:post.title/>&quot;,
+                    &quot;name&quot;: &quot;<data:post.title.jsonEscaped/>&quot;,
                     &quot;@id&quot;: &quot;<data:post.url.jsonEscaped/>&quot;
                   }
                 }]
@@ -6388,8 +6388,8 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
                 &quot;datePublished&quot;: &quot;<data:post.date.iso8601/>&quot;,
                 &quot;dateModified&quot;: &quot;<data:post.lastUpdated.iso8601/>&quot;,
                 <b:if cond='data:post.labels'>
-                &quot;articleSection&quot;: &quot;<data:post.labels.first.name/>&quot;,
-                &quot;keywords&quot;: &quot;<data:post.labels.first.name/>&quot;,
+                &quot;articleSection&quot;: &quot;<data:post.labels.first.name.jsonEscaped/>&quot;,
+                &quot;keywords&quot;: &quot;<data:post.labels.first.name.jsonEscaped/>&quot;,
                 </b:if>
                 &quot;author&quot;: {
                   &quot;@type&quot;: &quot;Person&quot;,
@@ -6446,7 +6446,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
     <span class='reactions-label'>
       <data:byline.label/>
     </span>
-    <iframe allowtransparency='true' class='reactions-iframe' expr:src='data:post.reactionsUrl' frameborder='0' name='reactions' scrolling='no'/>
+    <iframe allowtransparency='true' class='reactions-iframe' expr:src='data:post.reactionsUrl' frameborder='0' name='reactions' scrolling='no'></iframe>
   </span>
 </b:includable>
             <b:includable id='postRelated' var='post'>
@@ -6457,9 +6457,9 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
                   </div>
                   <div class='related-ready'>
                     <b:if cond='data:post.labels'>
-                      <div class='related-tag' expr:data-label='data:post.labels.first.name'/>
+                      <div class='related-tag' expr:data-label='data:post.labels.first.name'></div>
                       <b:else/>
-                      <div class='related-tag' data-label='random'/>
+                      <div class='related-tag' data-label='random'></div>
                     </b:if>
                   </div> 
                 </div>  
@@ -6470,13 +6470,13 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
                 <div class='post-share'>
                   <ul class='share-links social social-color'>
                     <b:class cond='data:blog.isMobileRequest' name='is-mobile'/>
-                    <li class='facebook-f'><a class='facebook' expr:href='&quot;https://www.facebook.com/sharer.php?u=&quot; + data:post.url' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=650, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'/></li>
-                    <li class='x-twitter'><a class='x-twitter' expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=450, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'/></li>
-                    <li class='pinterest-p'><a class='pinterest' expr:href='&quot;https://www.pinterest.com/pin/create/button/?url=&quot; + data:post.url + &quot;&amp;media=&quot; + data:post.featuredImage + &quot;&amp;description=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=735, height=750, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'/></li> 
-                                  <li class='linkedin'><a class='linkedin' expr:href='&quot;https://www.linkedin.com/shareArticle?url=&quot; + data:post.url' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=950, height=650, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'/></li>
-                    <li class='whatsapp whatsapp-desktop'><a class='whatsapp' expr:href='&quot;https://web.whatsapp.com/send?text=&quot; + data:post.title + &quot; | &quot; + data:post.url' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=900, height=550, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'/></li>
-                    <li class='whatsapp whatsapp-mobile'><a class='whatsapp' expr:href='&quot;https://api.whatsapp.com/send?text=&quot; + data:post.title + &quot; | &quot; + data:post.url' rel='nofollow' target='_blank'/></li> 
-                    <li class='email'><a class='email' expr:href='&quot;mailto:?subject=&quot; + data:post.title + &quot;&amp;body=&quot; + data:post.url' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=500, height=400, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'/></li>
+                    <li class='facebook-f'><a class='facebook' expr:href='&quot;https://www.facebook.com/sharer.php?u=&quot; + data:post.url' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=650, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'></a></li>
+                    <li class='x-twitter'><a class='x-twitter' expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=450, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'></a></li>
+                    <li class='pinterest-p'><a class='pinterest' expr:href='&quot;https://www.pinterest.com/pin/create/button/?url=&quot; + data:post.url + &quot;&amp;media=&quot; + data:post.featuredImage + &quot;&amp;description=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=735, height=750, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'></a></li> 
+                                  <li class='linkedin'><a class='linkedin' expr:href='&quot;https://www.linkedin.com/shareArticle?url=&quot; + data:post.url' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=950, height=650, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'></a></li>
+                    <li class='whatsapp whatsapp-desktop'><a class='whatsapp' expr:href='&quot;https://web.whatsapp.com/send?text=&quot; + data:post.title + &quot; | &quot; + data:post.url' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=900, height=550, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'></a></li>
+                    <li class='whatsapp whatsapp-mobile'><a class='whatsapp' expr:href='&quot;https://api.whatsapp.com/send?text=&quot; + data:post.title + &quot; | &quot; + data:post.url' rel='nofollow' target='_blank'></a></li> 
+                    <li class='email'><a class='email' expr:href='&quot;mailto:?subject=&quot; + data:post.title + &quot;&amp;body=&quot; + data:post.url' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=500, height=400, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'></a></li>
                   </ul>
                 </div>
               </b:if>
@@ -6515,7 +6515,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
               <b:if cond='data:view.search.query'>
                 <div class='queryMessage'>
                   <b:if cond='data:posts.empty'>
-                    <span class='query-info query-error'/><data:view.search.resultsMessageHtml/><a class='show-more' expr:href='data:blog.homepageUrl'><data:messages.showAll/></a>
+                    <span class='query-info query-error'></span><data:view.search.resultsMessageHtml/><a class='show-more' expr:href='data:blog.homepageUrl'><data:messages.showAll/></a>
                     <b:else/>
                     <span class='query-info query-success'><data:view.search.resultsMessageHtml/></span><a class='show-more' expr:href='data:blog.homepageUrl'><data:messages.showAll/></a>
                   </b:if>
@@ -6587,12 +6587,12 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
 </b:includable>
             <b:includable id='threadedCommentForm' var='post'>
               <div class='comment-form'>
-                <a name='comment-form'/>
+                <a name='comment-form'></a>
                 <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
                   <p><data:this.messages.blogComment/></p>
                 </b:if>
                 <b:include data='post' name='commentFormIframeSrc'/>
-                <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+                <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'></iframe>
                 <data:post.cmtfpIframe/>
                 <script type='text/javascript'>
                   BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
@@ -6600,7 +6600,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
               </div>
             </b:includable>
             <b:includable id='threadedCommentJs' var='post'>
-              <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
+              <script async='async' expr:src='data:post.commentSrc' type='text/javascript'></script>
               <b:template-script inline='true' name='threaded_comments'/>
               <script type='text/javascript'>
                 blogger.widgets.blog.initThreadedComments(
@@ -6611,7 +6611,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
             </b:includable>
             <b:includable id='threadedComments' var='post'>
               <section class='comments threaded' expr:data-embed='data:post.embedCommentForm' expr:data-num-comments='data:post.numberOfComments' id='comments'>
-                <a name='comments'/>
+                <a name='comments'></a>
                 <b:include name='commentsTitle'/>
                 <div class='comments-content'>
                   <b:if cond='data:post.embedCommentForm'>
@@ -6898,7 +6898,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
     <span class='reactions-label'>
       <data:byline.label/>
     </span>
-    <iframe allowtransparency='true' class='reactions-iframe' expr:src='data:post.reactionsUrl' frameborder='0' name='reactions' scrolling='no'/>
+    <iframe allowtransparency='true' class='reactions-iframe' expr:src='data:post.reactionsUrl' frameborder='0' name='reactions' scrolling='no'></iframe>
   </span>
 </b:includable>
             <b:includable id='postShareButtons'>
@@ -7149,7 +7149,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
       </div>
   </div>
 
-  <div class='clearfix'/>
+  <div class='clearfix'></div>
    <b:if cond='data:view.isHomepage'> 
    <div class='wow animate__animated animate__rotateInUpLeft counter-box' id='counter-box-bg'>
 <div class='container row'>
@@ -7173,7 +7173,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
                <b:if cond='data:link == &quot;image&quot;'>
                     <div class='counter-avatar'><img expr:alt='data:title' expr:src='data:sourceUrl'/></div>
                     <b:else/>
-                    <div class='counter-avatar'><i expr:class='&quot;fa &quot; + data:link'/></div>
+                    <div class='counter-avatar'><i expr:class='&quot;fa &quot; + data:link'></i></div>
                   </b:if>
                 <div class='counter-info'>
                   <h3 class='counter-title'><data:title/></h3>
@@ -7203,7 +7203,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
                <b:if cond='data:link == &quot;image&quot;'>
                     <div class='counter-avatar'><img expr:alt='data:title' expr:src='data:sourceUrl'/></div>
                     <b:else/>
-                    <div class='counter-avatar'><i expr:class='&quot;fa &quot; + data:link'/></div>
+                    <div class='counter-avatar'><i expr:class='&quot;fa &quot; + data:link'></i></div>
                   </b:if>
                 <div class='counter-info'>
                   <h3 class='counter-title'><data:title/></h3>
@@ -7234,7 +7234,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
                <b:if cond='data:link == &quot;image&quot;'>
                     <div class='counter-avatar'><img expr:alt='data:title' expr:src='data:sourceUrl'/></div>
                     <b:else/>
-                    <div class='counter-avatar'><i expr:class='&quot;fa &quot; + data:link'/></div>
+                    <div class='counter-avatar'><i expr:class='&quot;fa &quot; + data:link'></i></div>
                   </b:if>
                 <div class='counter-info'>
                   <h3 class='counter-title'><data:title/></h3>
@@ -7265,7 +7265,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
                <b:if cond='data:link == &quot;image&quot;'>
                     <div class='counter-avatar'><img expr:alt='data:title' expr:src='data:sourceUrl'/></div>
                     <b:else/>
-                    <div class='counter-avatar'><i expr:class='&quot;fa &quot; + data:link'/></div>
+                    <div class='counter-avatar'><i expr:class='&quot;fa &quot; + data:link'></i></div>
                   </b:if>
                 <div class='counter-info'>
                   <h3 class='counter-title'><data:title/></h3>
@@ -7278,11 +7278,11 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
             </b:includable>
         </b:widget>
       </b:section>
-    <div class='clearfix'/>
+    <div class='clearfix'></div>
       </div>
     </div>
   
-    <div class='clearfix'/>
+    <div class='clearfix'></div>
   </b:if>
   <div id='footer-wrapper-bg'>
   
@@ -7320,7 +7320,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
             </b:includable>
      </b:widget>
    </b:section>
-     <div class='clearfix'/> 
+     <div class='clearfix'></div> 
       </div>
     </div>
   </div>
@@ -7343,7 +7343,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
 </div>
 </b:if>
 <!-- Main Scripts -->
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' type='text/javascript'/>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' type='text/javascript'></script>
 
   <!-- Theme Functions JS -->
 <script type='text/javascript'>
@@ -7514,8 +7514,8 @@ jQuery(document).ready(function($){$('.counter-info .counter-title').counterUp({
 </script>
 
 <!-- Overlay and Back To Top --> 
-  <div class='overlay'/>
-  <div class='back-top' title='Back to Top'/>
+  <div class='overlay'></div>
+  <div class='back-top' title='Back to Top'></div>
  
 </body>
 </html>
