@@ -48,9 +48,9 @@
       <meta content='Roushan Gupta &amp; Roushan Kumar - Business, Technology, AI, Startups &amp; Digital Marketing blog.' name='twitter:description'/>
     </b:if>
     <meta content='summary_large_image' name='twitter:card'/>
-    <b:if cond='data:view.isPost and data:posts.first.featuredImage'>
-      <meta expr:content='data:posts.first.featuredImage.isYouTube ? data:posts.first.featuredImage.youtubeMaxResDefaultUrl : resizeImage(data:posts.first.featuredImage, 1200, &quot;1200:630&quot;)' property='og:image'/>
-      <meta expr:content='data:posts.first.featuredImage.isYouTube ? data:posts.first.featuredImage.youtubeMaxResDefaultUrl : resizeImage(data:posts.first.featuredImage, 1200, &quot;1200:630&quot;)' name='twitter:image'/>
+    <b:if cond='data:view.featuredImage'>
+      <meta expr:content='resizeImage(data:view.featuredImage, 1200, &quot;1200:630&quot;)' property='og:image'/>
+      <meta expr:content='resizeImage(data:view.featuredImage, 1200, &quot;1200:630&quot;)' name='twitter:image'/>
     </b:if>
     <!-- ===== Roushan SEO: WebSite + Person Schema (Roushan Gupta / Roushan Kumar) ===== -->
   <b:if cond='data:view.isHomepage'>
@@ -6147,11 +6147,6 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
               <b:include data='post' name='postLabels'/>
               <b:include data='post' name='postShareButtons'/>
             </b:includable>
-            <b:includable id='googlePlusShare'>
-  <div class='goog-inline-block google-plus-share-container'>
-    <g:plusone annotation='inline' expr:href='data:originalUrl.canonical.http' size='medium' source='blogger:blog:plusone'/>
-  </div>
-</b:includable>
             <b:includable id='headerByline' var='post'>
               <!-- Post Header Meta -->
                 <div class='post-meta'>
@@ -6800,11 +6795,6 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
       </b:if>
     </b:loop>
   </b:if>
-</b:includable>
-            <b:includable id='googlePlusShare'>
-  <div class='goog-inline-block google-plus-share-container'>
-    <g:plusone annotation='inline' expr:href='data:originalUrl.canonical.http' size='medium' source='blogger:blog:plusone'/>
-  </div>
 </b:includable>
             <b:includable id='headerByline'>
   <b:if cond='data:widgets.Blog.first.headerByline'>

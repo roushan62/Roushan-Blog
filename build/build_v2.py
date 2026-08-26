@@ -4,7 +4,8 @@
 Every replacement is exact-match with assertions, so a mismatch aborts
 instead of producing a broken template.
 """
-import io, os, sys
+import io, os, re, sys
+import xml.etree.ElementTree as ET
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "Sian Free Version 1.0.xml")
@@ -131,9 +132,9 @@ NEW_HEAD = """    <meta content='width=device-width, initial-scale=1' name='view
       <meta content='Roushan Gupta &amp; Roushan Kumar - Business, Technology, AI, Startups &amp; Digital Marketing blog.' name='twitter:description'/>
     </b:if>
     <meta content='summary_large_image' name='twitter:card'/>
-    <b:if cond='data:view.isPost and data:posts.first.featuredImage'>
-      <meta expr:content='data:posts.first.featuredImage.isYouTube ? data:posts.first.featuredImage.youtubeMaxResDefaultUrl : resizeImage(data:posts.first.featuredImage, 1200, &quot;1200:630&quot;)' property='og:image'/>
-      <meta expr:content='data:posts.first.featuredImage.isYouTube ? data:posts.first.featuredImage.youtubeMaxResDefaultUrl : resizeImage(data:posts.first.featuredImage, 1200, &quot;1200:630&quot;)' name='twitter:image'/>
+    <b:if cond='data:view.featuredImage'>
+      <meta expr:content='resizeImage(data:view.featuredImage, 1200, &quot;1200:630&quot;)' property='og:image'/>
+      <meta expr:content='resizeImage(data:view.featuredImage, 1200, &quot;1200:630&quot;)' name='twitter:image'/>
     </b:if>
     <!-- ===== Roushan SEO: WebSite + Person Schema (Roushan Gupta / Roushan Kumar) ===== -->
   <b:if cond='data:view.isHomepage'>
@@ -146,6 +147,21 @@ NEW_HEAD = """    <meta content='width=device-width, initial-scale=1' name='view
     <link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&amp;family=Poppins:ital,wght@0,400;0,500;0,700;1,400&amp;family=Indie+Flower&amp;display=swap' media='all' rel='stylesheet' type='text/css'/>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' media='all' rel='stylesheet'/>"""
 sub_once(OLD_HEAD, NEW_HEAD, "head SEO block")
+
+# Google+ was shut down in 2019. The upstream theme still contains two
+# <g:plusone> elements without an xmlns:g declaration, which makes the file
+# malformed XML and causes Blogger Restore to reject the entire template.
+sub_all(
+"""            <b:includable id='googlePlusShare'>
+  <div class='goog-inline-block google-plus-share-container'>
+    <g:plusone annotation='inline' expr:href='data:originalUrl.canonical.http' size='medium' source='blogger:blog:plusone'/>
+  </div>
+</b:includable>
+""",
+    "",
+    "remove obsolete malformed Google+ includables",
+    expect=2,
+)
 
 # ------------------------------------------------- 3. static defaults script
 sub_once(
@@ -746,9 +762,25 @@ if leftovers:
     print("LEFTOVERS:", leftovers)
     sys.exit(1)
 
-# restore CRLF line endings (matches original)
-t = t.replace("\n", "\r\n")
+# Blogger's generic "could not be parsed" message hides ordinary XML errors.
+# Parse the final output here so an invalid build can never be published again.
+try:
+    ET.fromstring(t)
+except ET.ParseError as exc:
+    print(f"INVALID XML: {exc}")
+    sys.exit(1)
 
+# Blogger also requires widget and section IDs to be unique across the theme.
+for tag in ("widget", "section"):
+    ids = re.findall(rf"<b:{tag}\\b[^>]*\\bid=['\"]([^'\"]+)", t)
+    duplicates = sorted({item for item in ids if ids.count(item) > 1})
+    if duplicates:
+        print(f"DUPLICATE b:{tag} IDs: {', '.join(duplicates)}")
+        sys.exit(1)
+print("ok  final XML and Blogger IDs")
+
+# Preserve the upstream template's CRLF line endings.
+t = t.replace("\n", "\r\n")
 with io.open(DST, "w", encoding="utf-8", newline="") as f:
     f.write(t)
 print(f"\nWROTE {DST} ({os.path.getsize(DST)} bytes)")
