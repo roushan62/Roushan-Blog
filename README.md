@@ -1,133 +1,179 @@
-# SkillBlog Pro — Complete Blogger Theme
+# Roushan Pro — Complete Blogger Theme (100% Apna)
 
-SkillCourse.in inspired, **responsive**, **SEO-ready**, **error-free** Blogger XML theme.
+**Roushan Gupta / Roushan Kumar** ke personal brand blog ke liye — **Business • Tech • AI**.
+Same modern look (teal + navy), lekin puri tarah **clean rebuild**:
 
-**Restore this file on Blogger:** [`myblog.xml`](myblog.xml)
+- ❌ SoraTemplates / Gooyaabi credit links — **removed**
+- ❌ Encrypted credit-lock JavaScript (`_0x...`) — **removed**
+- ❌ Font Awesome / Remixicon / jQuery CDN — **removed** (sirf inline SVG icons)
+- ✅ 100% vanilla code — koi third-party template code nahi, blog **poora aapka**
+- ✅ Full SEO + fast + dark mode + live search + related posts
+
+**Blogger pe upload karne wali file:** [`Roushan-Blog-Theme.xml`](Roushan-Blog-Theme.xml)
+
+Design pehle dekhna ho to `preview/index.html` kholo (ya repo me preview folder).
 
 ---
 
-## Blogger pe restore kaise kare (2 minute)
+## 1. Blogger pe upload kaise kare (2 minute)
 
-1. [Blogger.com](https://www.blogger.com) pe apna blog kholo
+1. [Blogger.com](https://www.blogger.com) → apna blog kholo
 2. Left menu → **Theme**
-3. Theme card pe **⋮** (three dots) → **Restore** / **Backup**
-4. **Upload** → `myblog.xml` select karo → **Upload**
-5. Preview check karo, phir **Apply to Blog**
+3. Theme card pe **⋮** (three dots) → pehle **Backup** (apna purana theme save kar lo)
+4. Phir **⋮** → **Restore** → `Roushan-Blog-Theme.xml` select karo → **Upload**
+5. Blog kholo — done! 🎉
 
-> Pehle apna current theme backup zaroor lo (same ⋮ menu → Backup).
-
-### Alternate method
-Theme → **Customize** → **Edit HTML** → saara code hatao → `myblog.xml` ka content paste → **Save**.
+> **Note:** File ko hamesha UTF-8 hi rakho — Word/Google Docs me copy-paste mat karo.
 
 ---
 
-## Restore ke baad ye pages banao
+## 2. Upload ke turant baad ye karo (important)
 
-Pages → New page (ye URLs theme footer/header me already linked hain):
+### A) Pages banao
+**Pages → New page** — ye 5 pages banao (menu/footer me already linked hain):
 
-| Page title | Permalink / URL |
+| Page title | Permalink (URL) |
 |---|---|
-| About | `/p/about.html` |
-| Courses | `/p/courses.html` |
-| Privacy | `/p/privacy.html` |
-| Disclaimer | `/p/disclaimer.html` |
-| Contact | `/p/contact.html` |
-| Terms | `/p/terms.html` |
+| About | `about` |
+| Contact | `contact` |
+| Privacy Policy | `privacy-policy` |
+| Terms & Conditions | `terms` |
+| Disclaimer | `disclaimer` |
 
-Phir **Layout → Main Menu (Pages gadget)** me in pages ko add karo.
+(Page banate waqt right side **Page settings → Custom permalink** me upar wala slug daalo.)
 
-Posts me labels use karo: `Excel`, `Power BI`, `SQL`, `Python`, `AI` — cards aur related posts isi se chalte hain.
+### B) Posts me Labels lagao
+Har post me label add karo: `Business`, `Technology`, `AI`, `Startups`, `AI Tools`, `Marketing`…
+- Homepage ke **topic cards** aur **menu** inhi labels se linked hain
+- **Related posts** bhi label se automatic aate hain
+- Card image = post ki **pehli image** (ya featured image)
 
----
+### C) Social links apne daalo
+3 jagah placeholder `#` links hain — apne profile URLs se replace karo:
+- **Layout → Sidebar → "About Me" widget → Edit** (pencil icon)
+- **Layout → Footer Columns → "About" widget → Edit**
+- Search karke bhi mil jayega: Theme → Edit HTML → `href="#"`
 
-## Features
-
-### Design (SkillCourse UI)
-- Gold / peach / navy brand system (`#E5B549`, `#FECDA5`, `#1B2431`)
-- Homepage hero, mastery-style post cards, Why-us, stats, newsletter
-- Sticky glass header, mobile drawer, 404 page, dark footer
-- Fully responsive (desktop / tablet / phone)
-
-### SEO
-- Dynamic title, description, canonical, robots
-- Open Graph + Twitter Card
-- JSON-LD: WebSite + SearchAction, BlogPosting, BreadcrumbList
-- Semantic HTML5, heading hierarchy, RSS/Atom, lazy images
-- Hindi + English font stack (Plus Jakarta Sans + Noto Sans Devanagari)
-
-### Blog features
-- Grid cards on home / labels / search
-- Single post: breadcrumb, featured image, TOC, reading time
-- Social share (Facebook, X, WhatsApp, LinkedIn, Telegram, copy link)
-- Related posts (label-based JSON feed)
-- Author box, tags, comments (Blogger iframe)
-- Popular posts, labels cloud, archive, profile, follow-by-email
-- Search overlay (`Ctrl/Cmd + K`)
-- Dark mode, reading progress, back-to-top
-- Image lightbox, copy-code buttons
-- Cookie notice, WhatsApp float, ad slot
-- Theme Designer color + font variables
+### D) Apni photo lagani ho to
+- **Layout → Header (Logo) → Edit** → image upload karo (placement: *Instead of title and description*) — text logo ki jagah image logo lag jayega
+- Sidebar "About Me" me avatar chahiye to widget me `<div class="about-ava">R</div>` ki jagah `<img src="photo-URL" class="about-ava" style="object-fit:cover"/>` likho
 
 ---
 
-## Customize
+## 3. Blogger me kya-kya handle ho sakta hai (Layout se, bina code chhue)
 
 | Kya badalna hai | Kahan |
 |---|---|
-| Colors / fonts | Theme → Customize → Theme Designer |
-| Menu pages | Layout → Main Menu |
-| WhatsApp number | Theme → Edit HTML → search `wa.me/` |
-| Email | Edit HTML → `hello@yourblog.com` |
-| Hero text | Edit HTML → `sb-hero` section |
-| Stats numbers | Edit HTML → `sb-stats` |
-| Sidebar ad | Layout → Sidebar Ad HTML gadget |
-| Social links | Footer icons in Edit HTML |
+| Menu (Home/Business/Tech/AI/About/Contact) | **Layout → Main Menu** |
+| Hero section ka text + buttons | **Layout → Hero Section → Edit** |
+| 3 Topic cards (Business/Tech/AI) | **Layout → Topics Section → Edit** |
+| Stats numbers (100+, 50000+…) | **Layout → Stats Section → Edit** |
+| Sidebar (About / Popular / Categories) | **Layout → Sidebar Widgets** |
+| Footer (About / Quick Links / Topics) | **Layout → Footer Columns** |
+| Copyright text | **Layout → Copyright** |
+| Colors + fonts | **Theme → Customize → Theme Designer** |
+| Naye widgets (Ad slot, HTML…) | Layout me "Add a Gadget" — sidebar/footer me allowed hai |
 
-WhatsApp example:
-
-```html
-href='https://wa.me/91XXXXXXXXXX'
-```
+**Colors badalne ke liye code ki zaroorat nahi:** Theme → Customize → Advanced → Theme Colors → Accent Color badlo — pura theme (buttons, links, chips) update ho jayega.
 
 ---
 
-## Settings (recommended)
+## 4. SEO Setup (Roushan Gupta / Roushan Kumar rank karne ke liye)
 
-Blogger → Settings:
+### A) Blogger Settings
+1. **Settings → Title** → `Roushan Gupta — Business, Tech & AI` (ya apna pasand ka)
+2. **Settings → Meta tags → Description** ON karo aur likho:
+   > `Roushan Gupta (Roushan Kumar) blogs about business, technology and artificial intelligence — practical guides, AI tools and growth ideas in simple language.`
+3. **Settings → HTTPS** → ON + **HTTPS Redirect** ON
+4. **Settings → Crawlers and indexing** → Custom robots.txt allow karo (agar pata hai), `noindex` search pages already theme handle karta hai
 
-- **Meta description** add karo (SEO)
-- **Custom robots** → `index, follow`
-- **HTTPS** enable
-- **Search preferences** → custom description
-- Posts: always add **title, label, featured image** (first image = card image)
+### B) Har post me (ye adat bana lo)
+- **Search Description** likho (post editor → right sidebar → Search Description)
+- **1 label minimum** + **achi featured image**
+- Title me main keyword (jaise "10 AI Tools…")
+
+### C) Google Search Console (ranking ke liye MUST)
+1. [search.google.com/search-console](https://search.google.com/search-console) → property add karo (apna blogspot URL ya custom domain)
+2. **Sitemaps** → `sitemap.xml` submit karo (Blogger ka automatic sitemap)
+3. Har naye post ka URL **URL Inspection → Request Indexing** karo
+4. 2–4 hafte me `Roushan Gupta`, `Roushan Kumar`, `Roushan blog` jaise searches me aana shuru hoga
+
+### D) Theme me already built-in SEO
+- Dynamic `<title>` + meta description + canonical
+- **JSON-LD schemas:** `Person` (alternateName: *Roushan, Roushan Kumar*), `WebSite` + SearchAction, `BlogPosting`, `BreadcrumbList`
+- Open Graph + Twitter Cards (WhatsApp/Telegram/X share me achi preview)
+- Semantic HTML5, ek hi H1 per page, lazy images, fast CSS (no render-blocking libs)
+- Search/archive pages pe `noindex` (duplicate content se bachav)
+
+### E) Personal branding boost (name se gugl karne pe aana)
+- **Google Business Profile / LinkedIn / X** pe apne blog ka link daalo (sameAs)
+- About page me poora naam + photo + achievements likho
+- Har post ke end me author box already "Roushan Gupta" dikhata hai
 
 ---
 
-## File map
+## 5. Features (sab built-in, zero plugins)
 
-```
-myblog.xml          ← upload / restore this on Blogger
-README.md           ← this guide
-src/skin.css        ← theme CSS source
-src/app.js          ← theme JS source
-src/build_theme.py  ← rebuilds myblog.xml
-preview/            ← visual demo only (not uploaded to Blogger)
-```
+**Design**
+- Teal `#30bd9b` + navy `#0a0f1e` brand system (Theme Designer se changeable)
+- Sticky glass header, mobile drawer, 404 page, dark navy footer
+- Hero section with animated chips + glass card
+- 3 topic cards, featured first post, count-up stats
+- **Dark mode** (toggle + memory), fully responsive
 
-Rebuild after CSS/JS edits:
+**Blog**
+- Post grid cards (label chip, author, date, snippet)
+- Single post: breadcrumb, labels, reading time, **auto Table of Contents**
+- Share: Facebook, X, LinkedIn, WhatsApp, Telegram, Copy link
+- **Related posts** (label-based, automatic)
+- Author box, prev/next navigation, Blogger threaded comments (styled)
+- Popular posts (ranked), categories, topics cloud
+- **Live search overlay** (`Ctrl/Cmd + K`) — type karte hi results
+- Back to top, reading progress bar, image lightbox, copy-code buttons
+- Reveal-on-scroll animations (prefers-reduced-motion respected)
 
-```bash
-python3 src/build_theme.py
-```
+**Performance**
+- No jQuery, no icon fonts, no animation libraries — sirf ~15KB vanilla JS
+- Async Google Fonts (Poppins + Noto Sans — Hindi bhi support)
+- Inline SVG icons, native lazy-loading
+- Ek hi request-safe CSS (sab theme me inline)
 
 ---
 
-## Error-free notes
+## 6. Advanced customization (Edit HTML)
 
-- Valid XML, Blogger layoutsVersion **3**, widget version **2**
-- Required gadgets included: Blog, Header, Attribution, PageList
-- Sidebar gadgets use official default markup (no fragile custom loops)
-- Ampersands escaped, CSS/JS inside CDATA
+| Kya | Kahan dhoondo |
+|---|---|
+| Author box bio | Edit HTML → `author-bio` |
+| Person schema (name/alternateName) | Edit HTML → `"@type": "Person"` |
+| Dark mode colors | Edit HTML → `html[data-theme='dark']` |
+| Related posts count | Edit HTML → `shown >= 3` |
+| Font | Edit HTML → `fonts.googleapis.com` (poora link hata bhi sakte ho — system font fallback hai) |
+
+CSS/JS source alag se edit karke rebuild karna ho to:
+```
+build/p1_head.xml  +  p2  +  p3  +  p4  →  Roushan-Blog-Theme.xml
+```
+(cat se jod do, phir Blogger pe restore)
+
+---
+
+## 7. File map
+
+```
+Roushan-Blog-Theme.xml   ← YE BLOGGER PE UPLOAD KARO
+Sian Free Version 1.0.xml ← purani file (reference, upload mat karo)
+preview/                  ← design demo (browser me kholo, Blogger se related nahi)
+build/                    ← theme ke 4 source parts
+README.md                 ← ye guide
+```
+
+## 8. Error-free notes
+
+- Valid XML, Blogger **layoutsVersion 3**, widgets **version 2**
+- Required widgets included: Blog, Header, Attribution, PopularPosts, Labels, LinkLists
+- Saare `b:include` references defined, widget/section IDs unique, CDATA balanced
 - Tested well-formed with an XML parser
+- Koi external JS/CSS library nahi — sirf Google Fonts (optional, remove bhi kar sakte ho)
 
-Agar kabhi Blogger “Unable to parse” dikhaye: file ko **UTF-8** me hi upload karo, Word/Google Docs se mat copy karo.
+Agar Blogger "Unable to parse" de: file UTF-8 me upload karo, aur restore se pehle pura theme backup le lo.
