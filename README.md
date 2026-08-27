@@ -1,153 +1,125 @@
-# Roushan Pro v2.0 — Complete Blogger Theme (Sian Design)
+# RoushanTalky — StartupTalky Style Blogger Theme
 
-**Sian (SoraTemplates) design ke mutabiq 100% ready theme** — Roushan Gupta & Roushan Kumar ke personal brand blog ke liye: **Business • Technology • AI • Startups • Marketing**.
+**Ek hi complete XML file** — `Roushan-Blog-Theme.xml` — jise Blogger pe **Restore** karke aap
+poori news-magazine website (StartupTalky jaisi) chala sakte ho.
 
-- ✅ Sian ka exact modern design (dark navy + teal, hero section, counters, sidebar, animations)
-- ✅ **Complete SEO** — dono naam (Roushan Gupta + Roushan Kumar) Google pe rank karne ke liye
-- ✅ **Fast** — 424 KB obfuscated junk script, unused Facebook SDK, Remixicon CDN hata diya (789 KB → 375 KB)
-- ✅ **100% Responsive** — mobile, tablet, desktop
-- ✅ Upload **guaranteed valid** — XML well-formed + saare schema JSON valid (test karke bana hai)
+Brand: **Roushan Gupta** • Niche: **Startups • Business • Technology • AI • Marketing**
 
-**Blogger pe upload karne wali file:** [`Roushan-Blog-Theme.xml`](Roushan-Blog-Theme.xml)
+| | |
+|---|---|
+| File to upload | [`Roushan-Blog-Theme.xml`](Roushan-Blog-Theme.xml) |
+| Size | 119 KB (25 KB gzip) — **zero** external JS/CSS library |
+| Layout | Blogger Layout v3, widget version 2, responsive |
+| Colors | Red `#e5094b` + Dark navy `#0e1424` + clean white cards |
+| Fonts | Sora (headings) + Inter (body), Google Fonts, `display=swap` |
 
 ---
 
-## 1. Blogger pe upload kaise kare (2 minute)
+## 1. Upload kaise kare (2 minute)
 
 1. [Blogger.com](https://www.blogger.com) → apna blog kholo
 2. Left menu → **Theme**
-3. Theme card pe **⋮** (three dots) → pehle **Backup** (purana theme save karo)
-4. Phir **⋮** → **Restore** → `Roushan-Blog-Theme.xml` select karo → **Upload**
-5. Blog kholo — done! 🎉
+3. Theme card ke **⋮** (3 dots) → **Backup** (purana theme save kar lo)
+4. **⋮** → **Restore** → `Roushan-Blog-Theme.xml` select → **Upload**
+5. Blog kholo — done
 
-> **Note:** File ko hamesha **UTF-8** hi rakho. Word / Google Docs me copy-paste MAT karo.
-
----
-
-## 2. Upload ke turant baad ye karo (IMPORTANT)
-
-### A) Blog Title & Description set karo
-**Settings → Basic** me:
-
-| Field | Exact value (copy karo) |
-|---|---|
-| **Title** | `Roushan Gupta \| Roushan Kumar` |
-| **Description** | `Roushan Gupta & Roushan Kumar - Business, Technology, AI, Startups & Digital Marketing blog. Latest tips, tools, reviews & ideas to grow your business.` |
-
-Isse homepage title, og:site_name, WebSite schema sab me naam automatically aa jayenge.
-
-### B) Pages banao (menu + footer me already linked hain)
-**Pages → New page** — ye pages banao (Page settings → Custom permalink me slug daalo):
-
-| Page title | Permalink (slug) |
-|---|---|
-| About | `about` |
-| Contact | `contact` |
-| Privacy Policy | `privacy-policy` |
-| Terms & Conditions | `terms` |
-| Disclaimer | `disclaimer` |
-
-### C) Posts me Labels lagao
-Har post me ye labels use karo: `Business`, `Technology`, `AI`, `Startups`, `Marketing`, `AI Tools`
-- Menu aur sidebar inhi labels se linked hain
-- **Related posts** bhi label se automatic aate hain
-- Card image = post ki **pehli/featured image**
-
-### D) Blogger Profile (author name)
-**Settings → Authors & Publishers** → apne profile ka naam **Roushan Gupta** rakh lo (post author me dikhta hai).
-
-### E) Social links (optional)
-- Sidebar → **About Roushan** widget → Edit → apni social URLs daalo
-- Homepage pe **Person Schema** me `sameAs` blank hai — Theme → Edit HTML → `"sameAs":[]` dhundo aur apne social profile URLs add karo (LinkedIn, X, YouTube, Instagram). Ye Google ko batata hai ki ye profile aapka official hai.
+> File ko hamesha **UTF-8** rakho. Word / Google Docs me copy-paste mat karo.
 
 ---
 
-## 3. Theme me kya-kya SEO hai (complete list)
+## 2. Upload ke turant baad (IMPORTANT)
 
-| Feature | Kahan |
+### A) Blog title + description — **Settings → Basic**
+
+| Field | Value |
 |---|---|
-| Title tag with **Roushan Gupta \| Roushan Kumar** (har post pe) | Head |
-| Meta description (auto per post + branded fallback) | Head |
-| **Person Schema** — Roushan Gupta + Roushan Kumar (dono ke liye separate entities) | Homepage |
-| **WebSite Schema** + SearchAction (sitelinks search box) | Homepage |
-| **Blog Schema** (blog + dono authors) | Homepage |
-| **BlogPosting Schema** — headline, image, author, datePublished, dateModified, keywords | Har post |
-| **BreadcrumbList Schema** (Home > Label > Post) | Har post |
-| **Open Graph + Twitter Card** (Facebook/WhatsApp/Telegram pe badi image ke saath share) | Sab pages |
-| Canonical link | Posts/Pages |
-| Robots meta (`max-image-preview:large` = Google me badi image dikhne ke liye) | Sab pages |
-| Search pages `noindex` (sirf search results pages, label/category pages indexable) | Head |
-| Related Posts (label based, current post duplicate nahi) | Post ke neeche |
-| Table of Contents (h2/h3 se automatic) | Post ke upar |
-| Semantic HTML (h1 post title, h2 post titles index me) | Sab jagah |
+| **Title** | `Roushan Gupta \| Startup, Business & AI Stories` |
+| **Description** | `Roushan Gupta writes about startups, business models, technology, AI tools and digital marketing. Latest news, reviews, guides and success stories.` |
 
-### Google pe rank karne ke extra steps (theme ke bahar)
-1. **Google Search Console** → blog add karo → **Sitemap** submit karo: `https://yourblog.blogspot.com/sitemap.xml`
-2. Posts me **keywords naturally** use karo, 700+ words, headings (H2/H3) ke saath
-3. Har post me **1-2 labels** do (zyada nahi)
-4. Apne social profiles (LinkedIn/X) me blog ka link lagao — Person Schema ki `sameAs` se match hoga
-5. Consistent posting (week me 2-3 posts) — Google fresh content ko push karta hai
+Ye title/description automatically homepage `<title>`, `og:site_name` aur **WebSite schema** me chala jata hai.
+
+### B) Apna naam, photo, social links — **Theme → Customize → Advanced**
+
+Sab kuch bina code ke edit hota hai (skin variables):
+
+| Variable | Kya hai |
+|---|---|
+| `Author Name` / `Author Role` / `Author Short Bio` | Author box + sidebar card + footer |
+| `Author Photo URL` | Author box, sidebar, **Person schema** ka image |
+| `Logo Image URL` | Set karo → image logo; khaali chhodo → text logo (`Text Logo Short Name` = `RG`) |
+| `Facebook / X / Instagram / LinkedIn / YouTube / WhatsApp URL` | Top bar + author box + footer + **Person schema `sameAs`** (khaali = icon hide) |
+| `Newsletter Subscribe URL` | Sidebar newsletter form + header Subscribe button (khaali = WhatsApp/RSS CTA) |
+| `Primary Color`, `Gradient Partner Color`, `Dark Color` | Poora theme recolour |
+| `Default Meta Description` / `Default Share Image URL` | Fallback SEO + og:image |
+
+### C) Pages banao — **Pages → New page** (Custom permalink me ye slug daalo)
+
+`about`, `contact`, `privacy-policy`, `disclaimer`, `terms`
+(Footer + menu inhi slugs pe linked hain: `/p/about.html` etc.)
+
+### D) Menu edit karo — **Layout**
+
+`Main Menu` (desktop) aur `Mobile Menu` (drawer) widgets me links badlo.
+Default labels: **Startups, Business, Technology, AI, Marketing, Success Story**.
+
+### E) Posts me labels lagao
+
+Har post me label do — `Startups`, `Business`, `Technology`, `AI`, `Marketing`, `Success Story`.
+Label se hi **category chip, breadcrumb, tags, related posts, schema `articleSection`** bante hain.
+
+### F) AdSense
+
+**Layout → Sidebar → Advertisement → Edit** → apna AdSense code paste karo.
 
 ---
 
-## 4. Performance (fast) kyun hai
+## 3. Features
 
-| Optimization | Detail |
-|---|---|
-| 424 KB obfuscated credit-lock JS **removed** | Page weight ~40% kam |
-| Unused Facebook SDK **removed** | Ek external request kam |
-| Remixicon CDN **removed** (sirf 4 icons the — Font Awesome me replace) | Ek CSS request kam |
-| **Font preconnect** + `display=swap` | Fonts faster load |
-| **Lazy loading** saare thumbnail images pe | Homepage fast |
-| Sirf 3 external requests (jQuery, Google Fonts, Font Awesome) | CDN cached |
-| All JS bottom me, non-blocking | Content pehle dikhta hai |
+**Design / UX**
+- Sticky nav + shrinking header, full-screen search overlay, mobile drawer menu
+- Homepage: **Featured hero (1 big + 2 side)** → **Latest Stories grid**
+- **Trending ticker** (auto, blog feed se), reading progress bar, back-to-top
+- Scroll-reveal animations, card hover zoom, skeleton loaders, **dark mode** (localStorage + system preference, `prefers-reduced-motion` respected)
+- Post page: breadcrumb, category chips, reading time, auto **Table of Contents**, share buttons (WhatsApp / X / Facebook / LinkedIn / Telegram / Copy), author box, prev-next pager, **related posts** (label feed se), inline comment form
+- Custom **404** page, label/search/archive headers with `noindex`
 
-PageSpeed target: **Mobile 80+** (Blogger ke default infrastructure ke saath).
+**SEO**
+- Per-page `<title>` logic (home / post / page / label / search / archive)
+- Meta description (post → blog → theme fallback), canonical, robots (search & archive = `noindex, follow`)
+- Open Graph + Twitter Cards, `theme-color`, favicon, viewport
+- **JSON-LD**: `WebSite` + `SearchAction`, `Person` (Roushan Gupta, `sameAs` socials), `BlogPosting`, `BreadcrumbList` (post + label)
+- Semantic HTML + `itemprop` microdata, lazy images, no render-blocking library
 
----
-
-## 5. Customize kaise kare (Layout se, bina code chhue)
-
-| Kya badalna hai | Kahan |
-|---|---|
-| Hero section (naam + text + "Read Blog" button) | **Layout → Main Intro → Edit** (title = heading, caption = text) |
-| Hero background image | **Layout → Main Intro → pehli image (bg) → Edit** |
-| 3 decorative images hero ke paas | **Layout → Main Intro → Image 1-4 → Edit** |
-| Main Menu (Home/Business/Tech/AI/About/Contact) | **Layout → Main Menu → Edit** |
-| Top bar menu | **Layout → Scrolling Menu → Edit** |
-| Footer menu + copyright | **Layout → Footer Navigation → Edit** (copyright ke liye Theme → Edit HTML → `copyright-area`) |
-| Counters (150 Articles / 5000 Readers / 5 Years / 100 Topics) | **Layout → Achievements** |
-| About box / Contact box | **Layout → Sidebar → About Roushan / Get in Touch → Edit** |
-| Popular posts (week/month/sab ka time) | **Layout → Sidebar → Popular Posts → Edit** |
-| Categories / Tags lists | **Layout → Sidebar → Categories / Tags → Edit** |
-| Colors (teal/navy/text) | **Theme → Customize** — Theme Colors group |
-
-### Logo: text vs image
-Ab header me **text logo** hai (blog title = "Roushan Gupta | Roushan Kumar").
-Apna image logo chahiye to: **Layout → Header (Roushan Blog (Header)) → Edit** → image upload karo (placement: *Instead of title and description*).
+**Widgets included (Layout me editable)**
+Header (logo) • Main Menu • Mobile Menu • Blog • About Roushan Gupta • Trending Now (Popular Posts) • Categories • Newsletter • Browse Topics • Advertisement • Footer About / Quick Links / Categories / Stay Connected • Attribution
 
 ---
 
-## 6. Troubleshooting
+## 4. Verification (jo tests is build pe chalaye gaye)
 
-| Problem | Solution |
+| Check | Result |
 |---|---|
-| Upload error "could not be parsed" | File ko Notepad/VS Code me kholo, **Save As → UTF-8** karke dobara upload karo. Word me kabhi kholo mat. |
-| Hero me purana text dikh raha hai | Layout → Main Intro → Edit (title/caption) change karo |
-| Related posts nahi dikh rahe | Post me label lagao (label ke bina random posts aate hain) |
-| Table of Contents khali | Post me H2/H3 headings honi chahiye |
-| Counters 0 dikh rahe hain | Layout → Achievements → numbers change karo (animation 0 se count hoti hai) |
-| Post pe badi image share nahi ho rahi | Post me featured image lagao (1200x630 best) |
+| XML well-formed (`xml.etree` parse) | ✅ pass |
+| Skin: 1 skin, 28 variables, saare `$(var)` resolve | ✅ pass |
+| Widgets: 15 widgets, sab me `main` includable, unique ids; 11 sections | ✅ pass |
+| `<b:include>` → sab includables defined (missing = 0) | ✅ pass |
+| HTML tags balance (6 view render) | ✅ 0 mismatch / 0 unclosed |
+| JS: `node --check` + DOM-stub execution (drawer, search, dark mode, copy link, comment iframe, TOC, reading time, ticker, related) | ✅ no runtime error |
+| JSONP feed renderers (real payload + empty/broken payload) | ✅ escaping + fallback OK |
+| JSON-LD: 4 blocks × 2 scenarios (with/without labels, image, socials) | ✅ 8/8 valid JSON |
+| Rendered views: home / post / page / label / search / 404 | ✅ titles, meta, robots, cards, comments nesting, pager sab sahi |
+
+**Preview:** `preview/` folder (repo ke bahar) me isi theme ka rendered HTML + CSS + JS static server pe
+chalaya gaya tha, design dekhne ke liye.
 
 ---
 
-## 7. Files
+## 5. Chhoti si baat
 
-| File | Kaam |
-|---|---|
-| **`Roushan-Blog-Theme.xml`** | ⬅️ **YE hi file Blogger me upload karo** (v2.0, Sian design, complete SEO) |
-| `Sian Free Version 1.0.xml` | Original Sian template (reference ke liye — ispe modify karke upar wala banaya hai) |
-| `build/build_v2.py` | Conversion script (reproducibility ke liye) |
-| `preview/` | Purane v1.1 design ka preview (reference) |
+- Theme me `b:css='false'` aur `b:js='false'` set hai — isse Blogger ka unused default CSS/JS bundle load
+  nahi hota (fast PageSpeed). Iska matlab **JS-dependent Blogger gadgets** (Blog Archive, Contact Form,
+  Followers) kaam nahi karenge. Agar aapko wo chahiye, to `<html ...>` tag me `b:js='false'` hata do.
+- Blogger ka default blue **Navbar** gadget theme me maujood hai lekin render nahi hota (Layout me dikhega, blog pe nahi).
 
-**Credit note:** Design *Sian* free Blogger template (SoraTemplates) pe based hai aur iske liye significantly modified/rebranded hai.
+- Footer credit (`Designed with ♥ by Roushan Gupta`) aur `Powered by Blogger` link rakho — Blogger terms ke hisaab se attribution zaroori hai.
+- Post ka **pehla image** automatically card/hero image banta hai (Blogger ka featured image). Image 16:9 ya 1200×630 rakho to sabse accha dikhega.
