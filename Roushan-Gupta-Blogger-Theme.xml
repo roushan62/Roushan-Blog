@@ -1,0 +1,1941 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='True' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+
+<!-- ================================================================== -->
+<!--  ROUSHAN GUPTA :: LIGHT BLOGGER THEME (v1.0)                        -->
+<!--                                                                     -->
+<!--  Clean, professional, light & white personal blog theme.            -->
+<!--  Style inspirations: StartupTalky (card grids, featured hero,       -->
+<!--  category sections, author boxes, social share) + Skill India       -->
+<!--  (minimal institutional layout, clear typography, organized         -->
+<!--  information blocks, easy navigation).                              -->
+<!--                                                                     -->
+<!--  QUICK EDIT MAP (search these tags in this file):                   -->
+<!--   [EDIT-1 LOGO]      : header text logo / image logo                -->
+<!--   [EDIT-2 MENU]      : header + footer navigation links             -->
+<!--   [EDIT-3 COLOR]     : accent color (also editable in Theme         -->
+<!--                        Designer > Advanced, no code needed)         -->
+<!--   [EDIT-4 AUTHOR]    : author photo, bio, role                      -->
+<!--   [EDIT-5 SOCIAL]    : social profile URLs (schema + icons)         -->
+<!--   [EDIT-6 SEARCH]    : Google Search Console verification meta tag  -->
+<!--   [EDIT-7 ANALYTICS] : Google Analytics 4 tracking snippet          -->
+<!--   [EDIT-8 CATEGORIES]: homepage category sections + footer labels   -->
+<!--   [EDIT-9 ADS]       : AdSense ad slot placeholders                 -->
+<!--   [EDIT-10 NEWSLETTER]: newsletter form action URL                  -->
+<!--                                                                     -->
+<!--  No external CSS/JS libraries. One Google Fonts request.            -->
+<!-- ================================================================== -->
+
+<meta charset='UTF-8'/>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+<!-- Blogger essentials: favicon, feed links, openid, meta description
+     (description is emitted automatically when you enable it in
+     Settings > Meta tags > Description) -->
+<b:include data='blog' name='all-head-content'/>
+
+<!-- ================================================================== -->
+<!-- TITLE                                                               -->
+<!-- Homepage: Blog Title + Description (tagline). Inner pages:          -->
+<!-- Page Title + Blog Title. Blog Title/Description are set in          -->
+<!-- Settings > Basic.                                                    -->
+<!-- ================================================================== -->
+<title><b:if cond='data:view.isHomepage'><data:blog.title/><b:if cond='data:blog.description'> | <data:blog.description/></b:if><b:elseif cond='data:view.isError'/>Page Not Found | <data:blog.title/><b:else/><data:view.title/> | <data:blog.title/></b:if></title>
+
+<!-- Canonical URL of the current page -->
+<link expr:href='data:view.url.canonical' rel='canonical'/>
+
+<!-- Meta description (falls back gracefully when nothing is set) -->
+<b:if cond='data:view.description'>
+  <meta expr:content='data:view.description' name='description'/>
+</b:if>
+
+<!-- Author credit on every page -->
+<meta content='Roushan Gupta' name='author'/>
+
+<!-- Robots: keep search results, archives and error pages out of the index -->
+<b:if cond='data:view.isError'>
+  <meta content='noindex, nofollow' name='robots'/>
+</b:if>
+<b:if cond='data:view.isSearch and not data:view.isLabelSearch'>
+  <meta content='noindex, follow' name='robots'/>
+</b:if>
+<b:if cond='data:view.isArchive'>
+  <meta content='noindex, follow' name='robots'/>
+</b:if>
+
+<!-- Browser UI color (matches the accent color) : [EDIT-3 COLOR] -->
+<meta content='#2563EB' name='theme-color'/>
+
+<!-- ================================================================== -->
+<!-- OPEN GRAPH                                                          -->
+<!-- og:site_name uses your Blog Title (your brand name).                -->
+<!-- ================================================================== -->
+<meta expr:content='data:blog.title' property='og:site_name'/>
+<meta expr:content='data:view.title' property='og:title'/>
+<meta expr:content='data:view.url.canonical' property='og:url'/>
+<b:if cond='data:view.isPost'>
+  <meta content='article' property='og:type'/>
+<b:else/>
+  <meta content='website' property='og:type'/>
+</b:if>
+<b:if cond='data:view.description'>
+  <meta expr:content='data:view.description' property='og:description'/>
+</b:if>
+<b:if cond='data:view.featuredImage'>
+  <meta expr:content='resizeImage(data:view.featuredImage, 1200, "1200:630")' property='og:image'/>
+  <meta content='1200' property='og:image:width'/>
+  <meta content='630' property='og:image:height'/>
+</b:if>
+
+<!-- ================================================================== -->
+<!-- TWITTER CARD                                                        -->
+<!-- Replace both @handles with your real X (Twitter) handle : [EDIT-5 SOCIAL]  -->
+<!-- ================================================================== -->
+<meta content='summary_large_image' name='twitter:card'/>
+<meta content='@roushan' name='twitter:site'/>
+<meta content='@roushan' name='twitter:creator'/>
+<meta expr:content='data:view.title' name='twitter:title'/>
+<b:if cond='data:view.description'>
+  <meta expr:content='data:view.description' name='twitter:description'/>
+</b:if>
+<b:if cond='data:view.featuredImage'>
+  <meta expr:content='resizeImage(data:view.featuredImage, 1200, "1200:630")' name='twitter:image'/>
+</b:if>
+
+<!-- ================================================================== -->
+<!-- [EDIT-6 SEARCH] Google Search Console verification.                 -->
+<!-- 1. Search Console > Add Property > HTML tag > copy the content=""  -->
+<!-- 2. Uncomment the meta tag below and paste the code inside quotes.  -->
+<!-- ================================================================== -->
+<!--
+<meta content='PASTE-YOUR-SEARCH-CONSOLE-CODE-HERE' name='google-site-verification'/>
+-->
+
+<!-- ================================================================== -->
+<!-- [EDIT-7 ANALYTICS] Google Analytics 4 tracking snippet.             -->
+<!-- 1. Analytics > Admin > Data streams > Web > Tag instructions       -->
+<!-- 2. Replace G-XXXXXXXXXX with your Measurement ID.                  -->
+<!-- 3. Uncomment the two script tags below.                            -->
+<!-- ================================================================== -->
+<!--
+<script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'/>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+
+<!-- ================================================================== -->
+<!-- FONTS : Inter (single family, single request, swap = no invisible  -->
+<!-- text). Preconnected for a faster handshake.                         -->
+<!-- ================================================================== -->
+<link href='https://fonts.googleapis.com' rel='preconnect'/>
+<link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap' rel='stylesheet'/>
+
+<!-- ================================================================== -->
+<!-- JSON-LD : Person (Roushan Gupta) + WebSite (with SearchAction).     -->
+<!-- [EDIT-4 AUTHOR] update the bio line.                                -->
+<!-- [EDIT-5 SOCIAL] replace every sameAs URL with your real profiles.   -->
+<!-- ================================================================== -->
+<script type='application/ld+json'>
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "<data:blog.homepageUrl/>#person",
+  "name": "Roushan Gupta",
+  "url": "<data:blog.homepageUrl/>",
+  "image": "https://BLOGGER-PROFILE-PHOTO-URL.jpg",
+  "description": "Roushan Gupta is a blogger who writes about startups, business, technology, AI and digital marketing.",
+  "sameAs": [
+    "https://twitter.com/roushan",
+    "https://www.facebook.com/roushangupta",
+    "https://www.instagram.com/roushangupta",
+    "https://www.linkedin.com/in/roushangupta",
+    "https://www.youtube.com/@roushangupta"
+  ]
+}
+</script>
+<script type='application/ld+json'>
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "<data:blog.homepageUrl/>#website",
+  "url": "<data:blog.homepageUrl/>",
+  "name": "<data:blog.title/>",
+  "publisher": { "@id": "<data:blog.homepageUrl/>#person" },
+  "inLanguage": "en",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "<data:blog.searchUrl/>?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<b:skin><![CDATA[/*
+==============================================================
+ ROUSHAN GUPTA :: LIGHT BLOGGER THEME  ::  STYLESHEET
+--------------------------------------------------------------
+ [EDIT-3 COLOR] You can change the whole accent color without
+ touching any code: Theme > Customize > Advanced > Colors.
+==============================================================
+*/
+
+/* Variable definitions
+<Group description="Colors" selector="body">
+  <Variable name="accent.color" description="Accent Color (links, buttons, tags)" type="color" default="#2563EB" value="#2563EB"/>
+  <Variable name="accent.dark.color" description="Accent Hover (darker)" type="color" default="#1D4ED8" value="#1D4ED8"/>
+  <Variable name="accent.tint.color" description="Accent Tint (soft backgrounds)" type="color" default="#EFF4FF" value="#EFF4FF"/>
+  <Variable name="body.background.color" description="Page Background" type="color" default="#FFFFFF" value="#FFFFFF"/>
+  <Variable name="body.background.alt" description="Alternate Section Background" type="color" default="#F7F8FA" value="#F7F8FA"/>
+  <Variable name="body.text.color" description="Text Color" type="color" default="#1A1A1A" value="#1A1A1A"/>
+  <Variable name="body.muted.color" description="Muted Text Color" type="color" default="#5F6B7A" value="#5F6B7A"/>
+  <Variable name="border.color" description="Borders" type="color" default="#E5E8EE" value="#E5E8EE"/>
+</Group>
+<Group description="Fonts" selector="body">
+  <Variable name="body.font" description="Body Font" type="font" default="normal 400 16px Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" value="normal 400 16px Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"/>
+  <Variable name="heading.font" description="Heading Font" type="font" default="normal 700 30px Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" value="normal 700 30px Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"/>
+</Group>
+*/
+
+/* =========================================================
+   1. DESIGN TOKENS
+   ========================================================= */
+:root{
+  --accent:$(accent.color);
+  --accent-dark:$(accent.dark.color);
+  --tint:$(accent.tint.color);
+  --bg:$(body.background.color);
+  --bg-alt:$(body.background.alt);
+  --ink:$(body.text.color);
+  --muted:$(body.muted.color);
+  --line:$(border.color);
+  --card-border:#E9EDF3;
+  --shadow-sm:0 1px 2px rgba(16,24,40,.05),0 1px 3px rgba(16,24,40,.06);
+  --shadow-md:0 10px 30px rgba(16,24,40,.10);
+  --radius:14px;
+  --radius-lg:18px;
+  --container:1160px;
+  --header-h:68px;
+}
+
+/* =========================================================
+   2. RESET & BASE
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{font:$(body.font);margin:0;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;height:auto;border:0}
+a{color:var(--accent);text-decoration:none;transition:color .18s ease}
+a:hover{color:var(--accent-dark)}
+h1,h2,h3,h4,h5,h6{font:$(heading.font);line-height:1.28;margin:0 0 .5em;color:var(--ink);letter-spacing:-.011em}
+p{margin:0 0 1em}
+ul,ol{margin:0;padding:0}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input,textarea{font:inherit}
+svg{display:block}
+.container{max-width:var(--container);margin:0 auto;padding:0 20px}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--accent);color:#fff;padding:10px 18px;border-radius:0 0 10px 0;z-index:999}
+.skip-link:focus{left:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+::selection{background:var(--tint);color:var(--accent-dark)}
+
+/* =========================================================
+   3. SHARED UI (buttons, chips, section headings, cards)
+   ========================================================= */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 22px;border-radius:10px;font-size:14.5px;font-weight:600;line-height:1.2;transition:all .18s ease;border:1px solid transparent}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-dark);color:#fff;transform:translateY(-1px);box-shadow:0 6px 16px rgba(37,99,235,.25)}
+.btn-outline{background:var(--bg);color:var(--ink);border-color:var(--line)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-sm{padding:9px 16px;font-size:13.5px}
+.chip{display:inline-block;padding:4px 12px;border-radius:999px;background:var(--tint);color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.02em}
+.section-title{display:flex;align-items:center;font-size:clamp(21px,3vw,26px);font-weight:800;margin:0 0 6px}
+.section-title::before{content:"";display:inline-block;width:5px;height:24px;border-radius:3px;background:var(--accent);margin-right:12px;flex:none}
+.section-sub{color:var(--muted);font-size:15px;margin:0 0 24px}
+.section-head{margin-bottom:26px}
+.section-head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.section-head-row .section-sub{margin:0}
+.view-all{font-size:14px;font-weight:600;color:var(--accent);white-space:nowrap}
+.view-all:hover{color:var(--accent-dark)}
+
+/* =========================================================
+   4. HEADER (sticky, white, light border)  [EDIT-1 LOGO]
+   ========================================================= */
+.site-header{position:sticky;top:0;z-index:120;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);transition:box-shadow .2s ease}
+.site-header.scrolled{box-shadow:0 4px 18px rgba(16,24,40,.07)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:var(--header-h)}
+.site-logo{display:inline-flex;align-items:center;font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;white-space:nowrap}
+.site-logo::after{content:".";color:var(--accent)}
+.site-logo:hover{color:var(--ink)}
+.site-logo img{max-height:40px;width:auto}
+.main-nav{display:none}
+.nav-list{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-list a{display:block;padding:9px 13px;border-radius:8px;font-size:14.5px;font-weight:500;color:#3D4756}
+.nav-list a:hover{color:var(--accent);background:var(--tint)}
+.header-actions{display:flex;align-items:center;gap:6px}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;color:#3D4756;transition:all .18s ease}
+.icon-btn:hover{background:var(--tint);color:var(--accent)}
+.icon-btn svg{width:21px;height:21px}
+.nav-toggle{display:inline-flex}
+@media (min-width:1024px){.main-nav{display:block}.nav-toggle{display:none}}
+
+/* Mobile drawer */
+.drawer{position:fixed;inset:0;z-index:200;visibility:hidden;pointer-events:none}
+.drawer.open{visibility:visible;pointer-events:auto}
+.drawer-backdrop{position:absolute;inset:0;background:rgba(15,23,42,.45);opacity:0;transition:opacity .25s ease}
+.drawer.open .drawer-backdrop{opacity:1}
+.drawer-panel{position:absolute;top:0;left:0;bottom:0;width:min(320px,86vw);background:var(--bg);box-shadow:var(--shadow-md);transform:translateX(-100%);transition:transform .25s ease;display:flex;flex-direction:column}
+.drawer.open .drawer-panel{transform:translateX(0)}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line)}
+.drawer-brand{font-size:18px;font-weight:800}
+.drawer-brand::after{content:".";color:var(--accent)}
+.drawer-nav{list-style:none;padding:8px 12px;overflow-y:auto;flex:1}
+.drawer-nav a{display:block;padding:13px 14px;border-radius:10px;font-size:15.5px;font-weight:500;color:#2B3440;border-bottom:1px solid #F1F4F8}
+.drawer-nav a:hover{color:var(--accent);background:var(--tint)}
+.drawer-foot{padding:16px 20px;border-top:1px solid var(--line);display:flex;gap:10px}
+
+/* Search overlay */
+.search-overlay{position:fixed;inset:0;z-index:210;background:rgba(255,255,255,.98);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px;visibility:hidden;opacity:0;transition:opacity .2s ease,visibility .2s ease}
+.search-overlay.open{visibility:visible;opacity:1}
+.search-close{position:absolute;top:22px;right:24px}
+.search-box{width:min(640px,100%);text-align:center}
+.search-form{display:flex;gap:10px;margin-top:26px}
+.search-form input{flex:1;padding:14px 18px;border:2px solid var(--line);border-radius:12px;font-size:16px;background:#fff;transition:border-color .18s ease}
+.search-form input:focus{outline:none;border-color:var(--accent)}
+.search-hint{margin-top:14px;font-size:13px;color:var(--muted)}
+
+/* =========================================================
+   5. TOP AD STRIP  [EDIT-9 ADS]
+   ========================================================= */
+.header-ad-wrap{padding:14px 0 2px}
+.header-ad-wrap .widget{margin:0 auto;max-width:var(--container)}
+.ad-slot{margin:24px auto;text-align:center}
+.ad-label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#98A2B3;margin-bottom:8px}
+.ad-placeholder{display:flex;align-items:center;justify-content:center;background:var(--bg-alt);border:1.5px dashed #CBD5E1;border-radius:12px;color:#8A97AB;font-size:13px;padding:8px}
+.ad-728x90 .ad-placeholder{width:728px;max-width:100%;height:90px;margin:0 auto}
+.ad-300x250 .ad-placeholder{width:300px;height:250px;margin:0 auto}
+.ad-inread .ad-placeholder{min-height:110px;max-width:728px;margin:0 auto}
+
+/* =========================================================
+   6. PAGE LAYOUT (main + sidebar)
+   ========================================================= */
+.page-body{padding:30px 0 56px}
+.content-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:44px}
+@media (min-width:1024px){
+  .has-sidebar .content-grid{grid-template-columns:minmax(0,1fr) 330px}
+}
+.site-main{min-width:0}
+
+/* =========================================================
+   7. POST GRID & CARDS (3 / 2 / 1 responsive)
+   ========================================================= */
+.listing-head{margin-bottom:30px}
+.post-grid{display:grid;grid-template-columns:1fr;gap:24px}
+@media (min-width:640px){.post-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.post-grid{grid-template-columns:repeat(3,1fr)}.has-sidebar .post-grid{grid-template-columns:repeat(2,1fr)}}
+.card{background:#fff;border:1px solid var(--card-border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:#DCE3EC}
+.card-thumb{position:relative;display:block;overflow:hidden;background:var(--bg-alt)}
+.card-thumb img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .35s ease}
+.card:hover .card-thumb img{transform:scale(1.045)}
+.card-cat{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.94);color:var(--accent);font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:999px;letter-spacing:.02em}
+.card-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.card-meta{font-size:12.5px;color:var(--muted);margin-bottom:9px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card-title{font-size:17.5px;font-weight:700;line-height:1.42;margin:0 0 8px}
+.card-title a{color:var(--ink)}
+.card-title a:hover{color:var(--accent)}
+.card-snippet{font-size:14px;color:var(--muted);line-height:1.65;margin:0 0 16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid #F1F4F8;padding-top:13px}
+.card-author{font-size:12.5px;color:var(--muted);font-weight:500}
+.card-more{font-size:13px;font-weight:700;color:var(--accent)}
+.card-more:hover{color:var(--accent-dark)}
+
+/* Hero card (first post on the homepage) */
+.hero-card{grid-column:1/-1;flex-direction:column;margin-bottom:6px}
+@media (min-width:768px){.hero-card{flex-direction:row}.hero-card .hero-thumb{width:56%;flex:none}.hero-card .hero-body{padding:32px 34px}}
+.hero-thumb{position:relative;display:block;overflow:hidden;background:var(--bg-alt)}
+.hero-thumb img{width:100%;height:100%;aspect-ratio:16/9;object-fit:cover}
+@media (min-width:768px){.hero-thumb img{aspect-ratio:auto;min-height:100%}}
+.hero-body{padding:24px 22px;display:flex;flex-direction:column;justify-content:center}
+.hero-cat{position:absolute;top:14px;left:14px;background:var(--accent);color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px}
+.hero-title{font-size:clamp(22px,3.4vw,32px);font-weight:800;line-height:1.25;margin:12px 0 10px}
+.hero-title a{color:var(--ink)}
+.hero-title a:hover{color:var(--accent)}
+.hero-snippet{font-size:15px;color:var(--muted);line-height:1.7;margin:0 0 18px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.hero-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+/* Pagination */
+.pagination{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:40px;flex-wrap:wrap}
+
+/* No results */
+.no-results{background:#fff;border:1px solid var(--card-border);border-radius:var(--radius);box-shadow:var(--shadow-sm);text-align:center;padding:56px 24px}
+.no-results-emoji{font-size:40px;margin-bottom:12px}
+.no-results h3{font-size:20px;font-weight:800}
+.no-results p{color:var(--muted);font-size:14.5px}
+.no-results .search-form{max-width:420px;margin:18px auto 0}
+
+/* =========================================================
+   8. BREADCRUMB
+   ========================================================= */
+.breadcrumb{margin-bottom:20px}
+.breadcrumb-list{list-style:none;display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:13px}
+.breadcrumb-list li{display:flex;align-items:center;gap:6px;color:var(--muted);max-width:100%}
+.breadcrumb-list li:not(:last-child)::after{content:"›";color:#AAB4C2;margin-left:2px}
+.breadcrumb-list a{color:var(--muted);font-weight:500}
+.breadcrumb-list a:hover{color:var(--accent)}
+.crumb-current{font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:260px}
+
+/* =========================================================
+   9. SINGLE POST
+   ========================================================= */
+.post{background:#fff}
+.post-labels{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.post-title{font-size:clamp(25px,4vw,38px);font-weight:800;line-height:1.22;margin:0 0 14px;letter-spacing:-.02em}
+.post-meta{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:13.5px;color:var(--muted);margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.post-byline{font-weight:500}
+.post-author{font-weight:700;color:var(--ink)}
+.meta-dot{color:#C3CBD6}
+.post-comments-link{color:var(--muted);font-weight:600}
+.post-comments-link:hover{color:var(--accent)}
+.post-readtime:empty{display:none}
+.post-featured{margin:0 0 28px}
+.post-featured img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--card-border);box-shadow:var(--shadow-sm)}
+
+/* Table of contents (auto, filled by JS) */
+.toc-box{background:var(--bg-alt);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 28px}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.toc-title{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);display:flex;align-items:center;gap:8px}
+.toc-title::before{content:"";width:16px;height:16px;flex:none;background:var(--accent);-webkit-mask:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cline x1='8' y1='6' x2='20' y2='6'/%3E%3Cline x1='8' y1='12' x2='20' y2='12'/%3E%3Cline x1='8' y1='18' x2='20' y2='18'/%3E%3Ccircle cx='4' cy='6' r='1'/%3E%3Ccircle cx='4' cy='12' r='1'/%3E%3Ccircle cx='4' cy='18' r='1'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cline x1='8' y1='6' x2='20' y2='6'/%3E%3Cline x1='8' y1='12' x2='20' y2='12'/%3E%3Cline x1='8' y1='18' x2='20' y2='18'/%3E%3Ccircle cx='4' cy='6' r='1'/%3E%3Ccircle cx='4' cy='12' r='1'/%3E%3Ccircle cx='4' cy='18' r='1'/%3E%3C/svg%3E") center/contain no-repeat}
+.toc-toggle{font-size:12.5px;font-weight:700;color:var(--accent);padding:4px 10px;border-radius:8px;background:#fff;border:1px solid var(--line)}
+.toc-list{margin:12px 0 0;padding-left:0;list-style:none;font-size:14px}
+.toc-list li{margin:2px 0}
+.toc-list a{color:#3D4756;display:block;padding:5px 10px;border-radius:8px}
+.toc-list a:hover{color:var(--accent);background:#fff}
+.toc-list .toc-h3{margin-left:18px;font-size:13.5px}
+.toc-box.collapsed .toc-list{display:none}
+
+/* Post body typography */
+.post-body{font-size:17px;line-height:1.85;color:#2B3440;word-wrap:break-word}
+.post-body p{margin:0 0 1.35em}
+.post-body h2{font-size:25px;font-weight:800;margin:1.7em 0 .6em;scroll-margin-top:calc(var(--header-h) + 20px)}
+.post-body h3{font-size:20px;font-weight:700;margin:1.6em 0 .55em;scroll-margin-top:calc(var(--header-h) + 20px)}
+.post-body h4{font-size:17px;font-weight:700;margin:1.5em 0 .5em}
+.post-body a{text-decoration:underline;text-underline-offset:3px}
+.post-body img{border-radius:12px;margin:.4em 0}
+.post-body .separator{margin:1.6em 0}
+.post-body blockquote{margin:1.8em 0;padding:18px 24px;background:var(--tint);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;color:#33415C;font-size:16px}
+.post-body blockquote p:last-child{margin-bottom:0}
+.post-body ul,.post-body ol{margin:1.2em 0 1.2em 1.4em}
+.post-body li{margin:.4em 0}
+.post-body pre{background:#0F172A;color:#E2E8F0;padding:18px 20px;border-radius:12px;overflow-x:auto;font-size:14px;line-height:1.6}
+.post-body code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;background:#F1F5F9;color:#B42318;padding:2px 7px;border-radius:6px}
+.post-body pre code{background:none;color:inherit;padding:0}
+.post-body table{width:100%;border-collapse:collapse;margin:1.6em 0;font-size:15px;display:block;overflow-x:auto}
+.post-body th,.post-body td{border:1px solid var(--line);padding:10px 14px;text-align:left}
+.post-body th{background:var(--bg-alt);font-weight:700}
+.post-body iframe{max-width:100%;border-radius:12px}
+.post-body hr{border:0;border-top:1px solid var(--line);margin:2.4em 0}
+
+/* Share buttons */
+.post-share{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:34px 0 26px;padding:18px 20px;background:var(--bg-alt);border:1px solid var(--line);border-radius:12px}
+.share-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ink)}
+.share-buttons{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.share-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid var(--line);color:#4B5565;position:relative;transition:all .18s ease}
+.share-btn svg{width:17px;height:17px}
+.share-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-2px)}
+.share-btn .share-tip{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:11.5px;font-weight:600;padding:5px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s ease}
+.share-btn.copied .share-tip{opacity:1}
+
+/* Tags */
+.post-tags{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:34px;font-size:13px}
+.tags-label{font-weight:700;color:var(--muted)}
+.tag{display:inline-block;padding:5px 13px;background:#fff;border:1px solid var(--line);border-radius:999px;color:#3D4756;font-weight:500}
+.tag:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Author box  [EDIT-4 AUTHOR] */
+.author-box{display:flex;gap:22px;background:#fff;border:1px solid var(--card-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:26px;margin-bottom:38px}
+.author-avatar{width:88px;height:88px;border-radius:50%;flex:none;object-fit:cover;border:3px solid var(--tint)}
+.author-name{font-size:18px;font-weight:800;margin:0 0 2px}
+.author-role{font-size:12.5px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px}
+.author-bio{font-size:14.5px;color:var(--muted);line-height:1.7;margin:0 0 14px}
+.author-social{display:flex;gap:8px}
+.author-social a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);color:#4B5565;transition:all .18s ease}
+.author-social a:hover{border-color:var(--accent);color:var(--accent);background:var(--tint)}
+.author-social svg{width:16px;height:16px}
+
+/* Related posts (filled by JS) */
+.related-wrap{margin-bottom:38px}
+.related-grid{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:600px){.related-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.has-sidebar .related-grid{grid-template-columns:repeat(3,1fr)}.has-sidebar .related-grid .card-snippet{display:none}}
+
+/* =========================================================
+   10. COMMENTS (Blogger native, threaded + flat)
+   ========================================================= */
+.comments-wrap{background:#fff;border:1px solid var(--card-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:8px 26px 26px;margin-bottom:10px}
+@media (max-width:640px){.comments-wrap{padding:6px 16px 18px}}
+.comments-title{font-size:19px;font-weight:800;padding:18px 0 6px;display:flex;align-items:center;gap:10px}
+.comments-title::before{content:"";width:5px;height:22px;border-radius:3px;background:var(--accent)}
+.no-new-comments{background:var(--bg-alt);border:1px solid var(--line);border-radius:10px;padding:14px 18px;color:var(--muted);font-size:14.5px}
+.comments .comment-thread ol{list-style:none;margin:0;padding:0}
+.comments .comment-thread ol ol{margin-left:22px;padding-left:14px;border-left:2px solid #EEF1F6}
+.comments .comment{display:flex;gap:13px;padding:18px 0;border-bottom:1px solid #F1F4F8;list-style:none}
+.comments .comment:last-child{border-bottom:0}
+.avatar-image-container{width:42px;height:42px;border-radius:50%;overflow:hidden;flex:none;background:var(--bg-alt)}
+.avatar-image-container img{width:100%;height:100%;object-fit:cover}
+.comment-block{flex:1;min-width:0}
+.comment-header{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+.comment-header .user,.comment-author{font-weight:700;font-size:14.5px;color:var(--ink)}
+.comment-header .user a{color:var(--ink)}
+.datetime,.comment-timestamp{font-size:12.5px;color:var(--muted)}
+.comment-timestamp a{color:var(--muted)}
+.comment-timestamp a:hover{color:var(--accent)}
+.comment-content,.comment-body{font-size:15px;color:#2B3440;line-height:1.75}
+.comment-body.deleted{font-style:italic;color:#98A2B2}
+.comment-actions{margin-top:6px;font-size:13px}
+.comment-actions a,.continue a{color:var(--accent);font-weight:600;margin-right:12px}
+.comment-actions a:hover,.continue a:hover{color:var(--accent-dark)}
+.loadmore a{display:inline-block;margin-top:14px;font-weight:700;font-size:14px;color:var(--accent)}
+.paging-control-container{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:14px 0;font-size:13.5px}
+.comment-range-text{color:var(--muted)}
+.paging-control-container a{color:var(--accent);font-weight:600}
+.comment-form{margin-top:22px}
+.comment-form h4{font-size:16px;font-weight:800;margin-bottom:6px}
+.comment-form p{font-size:13.5px;color:var(--muted)}
+#comment-editor{border:1px solid var(--line);border-radius:12px;background:#fff;margin-top:8px}
+#comment-popup{position:fixed;top:50%;left:50%;width:100px;height:20px;margin:-10px 0 0 -50px;z-index:9999}
+
+/* =========================================================
+   11. SIDEBAR WIDGETS
+   ========================================================= */
+.site-sidebar{min-width:0}
+.sidebar .widget{background:#fff;border:1px solid var(--card-border);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:22px;margin-bottom:22px}
+.widget-title{font-size:16px;font-weight:800;margin:0 0 16px;padding-bottom:12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+.widget-title::before{content:"";width:4px;height:18px;border-radius:2px;background:var(--accent)}
+/* About widget */
+.rg-about{text-align:center}
+.rg-about-avatar{width:86px;height:86px;border-radius:50%;margin:4px auto 14px;display:block;object-fit:cover;border:3px solid var(--tint)}
+.rg-about-name{font-size:17px;font-weight:800;margin:0 0 4px}
+.rg-about-bio{font-size:13.5px;color:var(--muted);line-height:1.7;margin:0 0 14px}
+.rg-social{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.rg-social a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);color:#4B5565;transition:all .18s ease}
+.rg-social a:hover{border-color:var(--accent);color:var(--accent);background:var(--tint)}
+.rg-social svg{width:16px;height:16px}
+/* Popular posts */
+.pp-list{list-style:none;margin:0}
+.pp-item{display:flex;gap:13px;align-items:flex-start;padding:11px 0;border-bottom:1px solid #F1F4F8}
+.pp-item:last-child{border-bottom:0;padding-bottom:2px}
+.pp-item:first-child{padding-top:2px}
+.pp-thumb{flex:none;width:64px;height:64px;border-radius:10px;overflow:hidden;background:var(--bg-alt)}
+.pp-thumb img{width:100%;height:100%;object-fit:cover}
+.pp-title{display:block;font-size:14px;font-weight:600;line-height:1.5;color:var(--ink);margin-bottom:3px}
+.pp-title:hover{color:var(--accent)}
+.pp-date{font-size:12px;color:var(--muted)}
+/* Labels (categories) */
+.label-list{display:flex;flex-wrap:wrap;gap:8px}
+.label-item{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;background:var(--bg-alt);border:1px solid transparent;border-radius:999px;font-size:13px;font-weight:600;color:#3D4756;transition:all .18s ease}
+.label-item:hover{background:var(--tint);border-color:var(--accent);color:var(--accent)}
+.label-count{background:#fff;border-radius:999px;font-size:11px;font-weight:700;color:var(--muted);padding:1px 8px;min-width:22px;text-align:center}
+/* Recent posts (filled by JS) */
+.rg-recent-list{list-style:none;margin:0}
+.rg-recent-item{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #F1F4F8}
+.rg-recent-item:last-child{border-bottom:0}
+.rg-recent-item img{width:54px;height:54px;border-radius:10px;object-fit:cover;flex:none;background:var(--bg-alt)}
+.rg-recent-item .pp-title{-webkit-line-clamp:2;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}
+/* Newsletter widget */
+.rg-newsletter p{font-size:13.5px;color:var(--muted);margin:0 0 14px}
+.rg-newsletter-form{display:flex;flex-direction:column;gap:10px}
+.rg-newsletter-form input{padding:11px 14px;border:1.5px solid var(--line);border-radius:10px;font-size:14px;background:#fff;width:100%}
+.rg-newsletter-form input:focus{outline:none;border-color:var(--accent)}
+.rg-newsletter-form .btn{width:100%}
+.rg-newsletter-note{font-size:11.5px;color:#98A2B3;margin:10px 0 0;text-align:center}
+
+/* =========================================================
+   12. HOMEPAGE CATEGORY SECTIONS (filled by JS)
+   ========================================================= */
+.home-cats{background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0 60px}
+.home-cats[hidden]{display:none}
+.cat-section{margin-bottom:44px}
+.cat-section:last-child{margin-bottom:0}
+.cat-section .section-title{font-size:19px}
+.cat-grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media (min-width:640px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.cat-grid{grid-template-columns:repeat(4,1fr)}}
+
+/* Newsletter strip */
+.home-newsletter{padding:60px 0}
+.nl-card{background:var(--tint);border:1px solid #DCE7FF;border-radius:22px;padding:44px 26px;text-align:center;max-width:760px;margin:0 auto}
+.nl-title{font-size:clamp(21px,3vw,27px);font-weight:800;margin:0 0 8px;justify-content:center}
+.nl-title::before{display:none}
+.nl-text{color:#3D4E6B;font-size:15px;margin:0 auto 22px;max-width:520px}
+.nl-form{display:flex;gap:10px;max-width:460px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.nl-form input{flex:1;min-width:220px;padding:13px 18px;border:1.5px solid #CBDCFF;border-radius:12px;font-size:15px;background:#fff}
+.nl-form input:focus{outline:none;border-color:var(--accent)}
+.nl-note{font-size:12px;color:#7A8AA6;margin:14px 0 0}
+
+/* =========================================================
+   13. FOOTER  [EDIT-2 MENU] [EDIT-5 SOCIAL]
+   ========================================================= */
+.site-footer{background:var(--bg-alt);border-top:1px solid var(--line);padding:52px 0 0;margin-top:20px}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:36px;padding-bottom:44px}
+@media (min-width:640px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media (min-width:1024px){.footer-grid{grid-template-columns:1.35fr 1fr 1fr 1fr}}
+.footer-logo{font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.footer-logo::after{content:".";color:var(--accent)}
+.footer-logo:hover{color:var(--ink)}
+.footer-bio{font-size:14px;color:var(--muted);line-height:1.75;margin:14px 0 18px;max-width:300px}
+.footer-title{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;margin:0 0 16px;color:var(--ink)}
+.footer-links{list-style:none}
+.footer-links li{margin:9px 0}
+.footer-links a{font-size:14.5px;color:var(--muted);font-weight:500}
+.footer-links a:hover{color:var(--accent)}
+.footer-social{display:flex;gap:9px;flex-wrap:wrap}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:#fff;border:1px solid var(--line);color:#4B5565;transition:all .18s ease}
+.footer-social a:hover{border-color:var(--accent);color:var(--accent);background:var(--tint);transform:translateY(-2px)}
+.footer-social svg{width:17px;height:17px}
+.footer-contact{font-size:14.5px;color:var(--muted);line-height:1.9}
+.footer-contact a{color:var(--muted);font-weight:500}
+.footer-contact a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--line);padding:18px 0;background:#F2F4F7}
+.footer-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.footer-bottom-inner p{margin:0}
+.copyright b{color:var(--ink)}
+.powered-by a{color:var(--muted);font-weight:600}
+.powered-by a:hover{color:var(--accent)}
+
+/* =========================================================
+   14. 404 PAGE
+   ========================================================= */
+.error-404{text-align:center;padding:60px 10px 30px}
+.error-code{font-size:clamp(76px,16vw,130px);font-weight:800;line-height:1;color:var(--accent);margin:0;letter-spacing:-.04em}
+.error-title{font-size:clamp(22px,4vw,30px);font-weight:800;margin:10px 0 10px}
+.error-text{color:var(--muted);font-size:15.5px;max-width:460px;margin:0 auto 26px}
+.error-404 .search-form{max-width:440px;margin:0 auto 26px}
+.error-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* =========================================================
+   15. BACK TO TOP & MISC
+   ========================================================= */
+.back-top{position:fixed;right:18px;bottom:18px;z-index:110;width:46px;height:46px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(37,99,235,.35);opacity:0;visibility:hidden;transform:translateY(12px);transition:all .25s ease}
+.back-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+.back-top:hover{background:var(--accent-dark);color:#fff}
+.back-top svg{width:20px;height:20px}
+body.drawer-open{overflow:hidden}
+]]></b:skin>
+
+</head>
+<body>
+
+<!-- Page-type classes (used by CSS + JS) -->
+<b:class cond='data:view.isSingleItem' name='has-sidebar'/>
+<b:class cond='data:view.isHomepage' name='view-home'/>
+<b:class cond='data:view.isPost' name='view-post'/>
+<b:class cond='data:view.isPage' name='view-page'/>
+<b:class cond='data:view.isSearch' name='view-search'/>
+<b:class cond='data:view.isArchive' name='view-archive'/>
+<b:class cond='data:view.isError' name='view-error'/>
+
+<a class='skip-link' href='#main-content'>Skip to main content</a>
+
+<!-- ================================================================
+     STICKY HEADER : white, light bottom border, shadow on scroll
+     ================================================================ -->
+<header class='site-header' id='site-header'>
+  <div class='container header-inner'>
+
+    <!-- [EDIT-1 LOGO] Text logo = your Blog Title (Settings > Basic).
+         To use an image logo instead, replace <data:blog.title/> with:
+         <img alt='BLOG NAME' src='YOUR-LOGO-IMAGE-URL'/>                  -->
+    <a class='site-logo' expr:href='data:blog.homepageUrl'><data:blog.title/></a>
+
+    <!-- [EDIT-2 MENU] Desktop navigation. Edit the links below.
+         Label pages:  /search/label/LABEL-NAME
+         Static pages: /p/your-page-slug.html                              -->
+    <nav aria-label='Main navigation' class='main-nav' id='main-nav'>
+      <ul class='nav-list' id='nav-list'>
+        <li><a expr:href='data:blog.homepageUrl'>Home</a></li>
+        <li><a href='/search/label/Startups'>Startups</a></li>
+        <li><a href='/search/label/Business'>Business</a></li>
+        <li><a href='/search/label/Technology'>Technology</a></li>
+        <li><a href='/search/label/AI'>AI</a></li>
+        <li><a href='/p/about.html'>About</a></li>
+        <li><a href='/p/contact.html'>Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class='header-actions'>
+      <button aria-label='Search this blog' class='icon-btn' id='search-open' type='button'>
+        <svg aria-hidden='true' fill='none' stroke='currentColor' stroke-linecap='round' stroke-width='2' viewBox='0 0 24 24'><circle cx='11' cy='11' r='7'/><path d='m21 21-4.3-4.3'/></svg>
+      </button>
+      <button aria-controls='mobile-drawer' aria-expanded='false' aria-label='Open menu' class='icon-btn nav-toggle' id='nav-toggle' type='button'>
+        <svg aria-hidden='true' fill='none' stroke='currentColor' stroke-linecap='round' stroke-width='2' viewBox='0 0 24 24'><path d='M4 7h16M4 12h16M4 17h16'/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================================================================
+     TOP AD STRIP (728x90 leaderboard)  [EDIT-9 ADS]
+     Paste your AdSense code: Layout > "Advertisement (728x90)" > Edit.
+     Delete the gadget there to remove this strip completely.
+     ================================================================ -->
+<div class='container header-ad-wrap'>
+  <b:section class='header-ad' id='header-ad' maxwidgets='1' showaddelement='yes'>
+    <b:widget id='HTML5' locked='false' title='Advertisement (728x90)' type='HTML' version='2' visible='true'>
+      <b:widget-settings>
+        <b:widget-setting name='content'>&lt;div class="ad-slot ad-728x90"&gt;&lt;span class="ad-label"&gt;Advertisement&lt;/span&gt;&lt;div class="ad-placeholder"&gt;Ad Space 728x90 &amp;#8212; paste your AdSense code via Layout &amp;#8594; Advertisement (728x90)&lt;/div&gt;&lt;/div&gt;</b:widget-setting>
+      </b:widget-settings>
+      <b:includable id='main'>
+        <div class='widget-content'>
+          <data:content/>
+        </div>
+      </b:includable>
+    </b:widget>
+  </b:section>
+</div>
+
+<!-- ================================================================
+     MAIN CONTENT AREA
+     Homepage + search/label/archive : full width card grid.
+     Post/page : article + sidebar (CSS grid switches automatically).
+     ================================================================ -->
+<div class='container page-body'>
+  <div class='content-grid' id='content-grid'>
+
+    <main class='site-main' id='main-content'>
+      <b:section class='main-section' id='main' maxwidgets='1' showaddelement='no'>
+        <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2'>
+
+          <!-- ==================================================================
+               MAIN : dispatches to the right view
+               homepage / search / label / archive  -> listingView (card grid)
+               error                               -> errorView   (custom 404)
+               post / static page                  -> singleView  (article)
+               ================================================================== -->
+          <b:includable id='main'>
+            <b:if cond='data:view.isError'>
+              <b:include name='errorView'/>
+            <b:elseif cond='data:view.isMultipleItems'/>
+              <b:include name='listingView'/>
+            <b:else/>
+              <b:include name='singleView'/>
+            </b:if>
+          </b:includable>
+
+          <!-- ==================================================================
+               LISTING VIEW : 3/2/1 responsive card grid + pagination.
+               On the homepage the newest post is rendered as a large hero card.
+               ================================================================== -->
+          <b:includable id='listingView'>
+            <header class='listing-head'>
+              <b:if cond='data:view.isHomepage'>
+                <h2 class='section-title'>Latest Articles</h2>
+                <p class='section-sub'>Fresh stories, guides and insights — written to the point.</p>
+              <b:elseif cond='data:view.isLabelSearch'/>
+                <nav aria-label='Breadcrumb' class='breadcrumb'>
+                  <ol class='breadcrumb-list'>
+                    <li><a expr:href='data:blog.homepageUrl'>Home</a></li>
+                    <li aria-current='page' class='crumb-current'><data:view.search.label/></li>
+                  </ol>
+                </nav>
+                <h1 class='section-title'>Category: <data:view.search.label/></h1>
+                <p class='section-sub'>All articles filed under this category.</p>
+              <b:elseif cond='data:view.isSearch'/>
+                <nav aria-label='Breadcrumb' class='breadcrumb'>
+                  <ol class='breadcrumb-list'>
+                    <li><a expr:href='data:blog.homepageUrl'>Home</a></li>
+                    <li aria-current='page' class='crumb-current'>Search</li>
+                  </ol>
+                </nav>
+                <h1 class='section-title'>Search Results</h1>
+                <b:if cond='data:view.search.query'>
+                  <p class='section-sub'>Showing results for &#8220;<b><data:view.search.query/></b>&#8221;</p>
+                </b:if>
+              <b:else/>
+                <nav aria-label='Breadcrumb' class='breadcrumb'>
+                  <ol class='breadcrumb-list'>
+                    <li><a expr:href='data:blog.homepageUrl'>Home</a></li>
+                    <li aria-current='page' class='crumb-current'>Archive</li>
+                  </ol>
+                </nav>
+                <h1 class='section-title'><data:view.title/></h1>
+                <p class='section-sub'>Posts published in this period.</p>
+              </b:if>
+            </header>
+
+            <b:if cond='data:posts.empty'>
+              <div class='no-results'>
+                <p class='no-results-emoji' aria-hidden='true'>&#128269;</p>
+                <h3>No posts found</h3>
+                <p>Try a different keyword, or browse the latest articles from the homepage.</p>
+                <form class='search-form' expr:action='data:blog.searchUrl' method='get' role='search'>
+                  <input aria-label='Search this blog' autocomplete='off' name='q' placeholder='Search again...' type='search'/>
+                  <button class='btn btn-primary' type='submit'>Search</button>
+                </form>
+              </div>
+            <b:else/>
+              <div class='post-grid'>
+                <b:loop index='i' values='data:posts' var='post'>
+                  <b:if cond='data:view.isHomepage and data:i == 0'>
+                    <b:include data='post' name='heroCard'/>
+                  <b:else/>
+                    <b:include data='post' name='postCard'/>
+                  </b:if>
+                </b:loop>
+              </div>
+            </b:if>
+
+            <!-- Pagination (older / newer pages of posts) -->
+            <nav aria-label='Pagination' class='pagination'>
+              <b:if cond='data:newerPageUrl'>
+                <a class='btn btn-outline' expr:href='data:newerPageUrl' expr:title='data:newerPageTitle'>&#8592; Newer Posts</a>
+              </b:if>
+              <b:if cond='data:olderPageUrl'>
+                <a class='btn btn-primary' expr:href='data:olderPageUrl' expr:title='data:olderPageTitle'>Load More Posts &#8594;</a>
+              </b:if>
+            </nav>
+          </b:includable>
+
+          <!-- ==================================================================
+               POST CARD : grid item (image, category tag, date, title, snippet)
+               ================================================================== -->
+          <b:includable id='postCard' var='post'>
+            <article class='card'>
+              <a aria-hidden='true' class='card-thumb' expr:href='data:post.url' tabindex='-1'>
+                <b:if cond='data:post.featuredImage'>
+                  <img decoding='async' expr:alt='data:post.title' expr:src='resizeImage(data:post.featuredImage, 640, "16:9")' height='360' loading='lazy' width='640'/>
+                <b:else/>
+                  <img decoding='async' expr:alt='data:post.title' height='360' loading='lazy' src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2NDAgMzYwJyB3aWR0aD0nNjQwJyBoZWlnaHQ9JzM2MCc+PHJlY3Qgd2lkdGg9JzY0MCcgaGVpZ2h0PSczNjAnIGZpbGw9JyNFRUYyRjcnLz48ZyBmaWxsPScjQzdEMkUxJz48Y2lyY2xlIGN4PSczMjAnIGN5PScxNTInIHI9JzI2Jy8+PHBhdGggZD0nTTI0MCAyMzJsNTYtNjQgNDAgNDYgMjgtMzIgNTYgNTB6Jy8+PC9nPjx0ZXh0IHg9JzMyMCcgeT0nMjkyJyBmb250LWZhbWlseT0nQXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWYnIGZvbnQtc2l6ZT0nMjAnIGZvbnQtd2VpZ2h0PSc2MDAnIGZpbGw9JyM4QTk3QUInIHRleHQtYW5jaG9yPSdtaWRkbGUnPlJvdXNoYW4gR3VwdGE8L3RleHQ+PC9zdmc+' width='640'/>
+                </b:if>
+                <b:loop index='li' values='data:post.labels' var='label'>
+                  <b:if cond='data:li == 0'>
+                    <span class='card-cat'><data:label.name/></span>
+                  </b:if>
+                </b:loop>
+              </a>
+              <div class='card-body'>
+                <div class='card-meta'>
+                  <time class='card-date' expr:datetime='data:post.date.iso8601'><b:eval expr='format(data:post.date, "MMM dd, YYYY")'/></time>
+                  <b:if cond='data:post.numberOfComments &gt; 0'>
+                    <span aria-hidden='true'>&#8226;</span>
+                    <a class='card-comments' expr:href='data:post.commentsUrl'><data:post.numberOfComments/> Comments</a>
+                  </b:if>
+                </div>
+                <h3 class='card-title'>
+                  <a expr:href='data:post.url'>
+                    <b:if cond='data:post.title'><data:post.title/><b:else/>Untitled Post</b:if>
+                  </a>
+                </h3>
+                <b:if cond='data:post.snippets.long'>
+                  <p class='card-snippet'><b:eval expr='snippet(data:post.snippets.long, {length: 130, links: false, linebreaks: false, ellipsis: true})'/></p>
+                </b:if>
+                <div class='card-foot'>
+                  <span class='card-author'>By Roushan Gupta</span>
+                  <a class='card-more' expr:href='data:post.url'>Read More &#8594;</a>
+                </div>
+              </div>
+            </article>
+          </b:includable>
+
+          <!-- ==================================================================
+               HERO CARD : newest post, rendered large on the homepage
+               ================================================================== -->
+          <b:includable id='heroCard' var='post'>
+            <article class='card hero-card'>
+              <a aria-hidden='true' class='hero-thumb' expr:href='data:post.url' tabindex='-1'>
+                <b:if cond='data:post.featuredImage'>
+                  <img decoding='async' expr:alt='data:post.title' expr:src='resizeImage(data:post.featuredImage, 960, "16:9")' fetchpriority='high' height='540' width='960'/>
+                <b:else/>
+                  <img decoding='async' expr:alt='data:post.title' fetchpriority='high' height='540' src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2NDAgMzYwJyB3aWR0aD0nNjQwJyBoZWlnaHQ9JzM2MCc+PHJlY3Qgd2lkdGg9JzY0MCcgaGVpZ2h0PSczNjAnIGZpbGw9JyNFRUYyRjcnLz48ZyBmaWxsPScjQzdEMkUxJz48Y2lyY2xlIGN4PSczMjAnIGN5PScxNTInIHI9JzI2Jy8+PHBhdGggZD0nTTI0MCAyMzJsNTYtNjQgNDAgNDYgMjgtMzIgNTYgNTB6Jy8+PC9nPjx0ZXh0IHg9JzMyMCcgeT0nMjkyJyBmb250LWZhbWlseT0nQXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWYnIGZvbnQtc2l6ZT0nMjAnIGZvbnQtd2VpZ2h0PSc2MDAnIGZpbGw9JyM4QTk3QUInIHRleHQtYW5jaG9yPSdtaWRkbGUnPlJvdXNoYW4gR3VwdGE8L3RleHQ+PC9zdmc+' width='960'/>
+                </b:if>
+                <b:loop index='li' values='data:post.labels' var='label'>
+                  <b:if cond='data:li == 0'>
+                    <span class='hero-cat'><data:label.name/></span>
+                  </b:if>
+                </b:loop>
+              </a>
+              <div class='hero-body'>
+                <div class='card-meta'>
+                  <time class='card-date' expr:datetime='data:post.date.iso8601'><b:eval expr='format(data:post.date, "MMM dd, YYYY")'/></time>
+                  <span aria-hidden='true'>&#8226;</span>
+                  <span class='card-author'>By Roushan Gupta</span>
+                </div>
+                <h2 class='hero-title'>
+                  <a expr:href='data:post.url'>
+                    <b:if cond='data:post.title'><data:post.title/><b:else/>Untitled Post</b:if>
+                  </a>
+                </h2>
+                <b:if cond='data:post.snippets.long'>
+                  <p class='hero-snippet'><b:eval expr='snippet(data:post.snippets.long, {length: 220, links: false, linebreaks: false, ellipsis: true})'/></p>
+                </b:if>
+                <div class='hero-foot'>
+                  <a class='btn btn-primary' expr:href='data:post.url'>Read Full Story</a>
+                  <b:if cond='data:post.numberOfComments &gt; 0'>
+                    <a class='post-comments-link' expr:href='data:post.commentsUrl'><data:post.numberOfComments/> Comments</a>
+                  </b:if>
+                </div>
+              </div>
+            </article>
+          </b:includable>
+
+          <!-- ==================================================================
+               404 VIEW : clean custom error page
+               ================================================================== -->
+          <b:includable id='errorView'>
+            <section class='error-404'>
+              <p class='error-code'>404</p>
+              <h1 class='error-title'>Page Not Found</h1>
+              <p class='error-text'>Sorry, the page you are looking for does not exist, has been moved, or is temporarily unavailable.</p>
+              <form class='search-form' expr:action='data:blog.searchUrl' method='get' role='search'>
+                <input aria-label='Search this blog' autocomplete='off' name='q' placeholder='Search the blog...' type='search'/>
+                <button class='btn btn-primary' type='submit'>Search</button>
+              </form>
+              <div class='error-actions'>
+                <a class='btn btn-primary' expr:href='data:blog.homepageUrl'>Back to Homepage</a>
+                <a class='btn btn-outline' href='/search'>Browse All Posts</a>
+              </div>
+            </section>
+          </b:includable>
+
+          <!-- ==================================================================
+               SINGLE VIEW : one post or one static page
+               featured image > byline (Written by Roushan Gupta + date +
+               reading time) > auto TOC > body > share > tags > author box >
+               related posts > comments > JSON-LD schemas
+               ================================================================== -->
+          <b:includable id='singleView'>
+            <b:loop values='data:posts' var='post'>
+              <article class='post'>
+
+                <b:include data='post' name='breadcrumbNav'/>
+
+                <b:if cond='data:view.isPost'>
+                  <b:if cond='data:post.labels'>
+                    <div class='post-labels'>
+                      <b:loop values='data:post.labels' var='label'>
+                        <a class='chip' expr:href='data:label.url'><data:label.name/></a>
+                      </b:loop>
+                    </div>
+                  </b:if>
+                </b:if>
+
+                <h1 class='post-title'>
+                  <b:if cond='data:post.title'><data:post.title/><b:else/>Untitled</b:if>
+                </h1>
+
+                <div class='post-meta'>
+                  <span class='post-byline'>Written by <span class='post-author'>Roushan Gupta</span></span>
+                  <span aria-hidden='true' class='meta-dot'>&#8226;</span>
+                  <time class='post-date' expr:datetime='data:post.date.iso8601'><b:eval expr='format(data:post.date, "MMMM dd, YYYY")'/></time>
+                  <b:if cond='data:view.isPost'>
+                    <span aria-hidden='true' class='meta-dot'>&#8226;</span>
+                    <span class='post-readtime' id='read-time'></span>
+                  </b:if>
+                  <b:if cond='data:post.numberOfComments &gt; 0'>
+                    <span aria-hidden='true' class='meta-dot'>&#8226;</span>
+                    <a class='post-comments-link' expr:href='data:post.commentsUrl'><data:post.numberOfComments/> Comments</a>
+                  </b:if>
+                </div>
+
+                <b:if cond='data:post.featuredImage'>
+                  <figure class='post-featured'>
+                    <img decoding='async' expr:alt='data:post.title' expr:src='resizeImage(data:post.featuredImage, 1200, "16:9")' fetchpriority='high' height='675' width='1200'/>
+                  </figure>
+                </b:if>
+
+                <!-- Auto table of contents (built from H2/H3 by the theme JS) -->
+                <b:if cond='data:view.isPost'>
+                  <div class='toc-box' hidden='hidden' id='toc-box'>
+                    <div class='toc-head'>
+                      <span class='toc-title'>Table of Contents</span>
+                      <button aria-expanded='true' class='toc-toggle' id='toc-toggle' type='button'>Hide</button>
+                    </div>
+                    <ol class='toc-list' id='toc-list'></ol>
+                  </div>
+                </b:if>
+
+                <div class='post-body' id='post-body'>
+                  <data:post.body/>
+                </div>
+
+                <b:if cond='data:view.isPost'>
+
+                  <!-- In-article ad slot  [EDIT-9 ADS] : paste your AdSense
+                       in-article unit between the divs below               -->
+                  <div class='ad-slot ad-inread'>
+                    <span class='ad-label'>Advertisement</span>
+                    <!-- [EDIT-9 ADS] paste AdSense code here -->
+                  </div>
+
+                  <!-- Social share : WhatsApp, Facebook, X, LinkedIn,
+                       Telegram, Copy Link (URLs are set by JS)             -->
+                  <div class='post-share'>
+                    <span class='share-label'>Share this article</span>
+                    <div class='share-buttons' id='share-buttons'>
+                      <a aria-label='Share on WhatsApp' class='share-btn' data-share='wa' href='#' rel='noopener nofollow' target='_blank'>
+                        <svg aria-hidden='true' fill='currentColor' viewBox='0 0 24 24'><path d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z'/></svg>
+                      </a>
+                      <a aria-label='Share on Facebook' class='share-btn' data-share='fb' href='#' rel='noopener nofollow' target='_blank'>
+                        <svg aria-hidden='true' fill='currentColor' viewBox='0 0 24 24'><path d='M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073Z'/></svg>
+                      </a>
+                      <a aria-label='Share on X (Twitter)' class='share-btn' data-share='x' href='#' rel='noopener nofollow' target='_blank'>
+                        <svg aria-hidden='true' fill='currentColor' viewBox='0 0 24 24'><path d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644Z'/></svg>
+                      </a>
+                      <a aria-label='Share on LinkedIn' class='share-btn' data-share='li' href='#' rel='noopener nofollow' target='_blank'>
+                        <svg aria-hidden='true' fill='currentColor' viewBox='0 0 24 24'><path d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0Z'/></svg>
+                      </a>
+                      <a aria-label='Share on Telegram' class='share-btn' data-share='tg' href='#' rel='noopener nofollow' target='_blank'>
+                        <svg aria-hidden='true' fill='currentColor' viewBox='0 0 24 24'><path d='M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z'/></svg>
+                      </a>
+                      <button aria-label='Copy link' class='share-btn' data-share='copy' id='copy-link' type='button'>
+                        <svg aria-hidden='true' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24'><rect height='13' rx='2' width='13' x='9' y='9'/><path d='M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1'/></svg>
+                        <span class='share-tip'>Link copied!</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Post tags -->
+                  <b:if cond='data:post.labels'>
+                    <div class='post-tags'>
+                      <span class='tags-label'>Tags:</span>
+                      <b:loop values='data:post.labels' var='label'>
+                        <a class='tag' expr:href='data:label.url'>#<data:label.name/></a>
+                      </b:loop>
+                    </div>
+                  </b:if>
+
+                  <!-- Author bio box  [EDIT-4 AUTHOR] : replace the avatar src
+                       with your photo URL and edit the bio text below.       -->
+                  <aside class='author-box'>
+                    <img alt='Roushan Gupta' class='author-avatar' decoding='async' height='88' src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMjAgMTIwJyB3aWR0aD0nMTIwJyBoZWlnaHQ9JzEyMCc+PHJlY3Qgd2lkdGg9JzEyMCcgaGVpZ2h0PScxMjAnIHJ4PSc2MCcgZmlsbD0nI0VGRjRGRicvPjx0ZXh0IHg9JzYwJyB5PSc3NScgZm9udC1mYW1pbHk9J0FyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmJyBmb250LXNpemU9JzQ2JyBmb250LXdlaWdodD0nNzAwJyBmaWxsPScjMjU2M0VCJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJz5SRzwvdGV4dD48L3N2Zz4=' width='88'/>
+                    <div class='author-info'>
+                      <p class='author-name'>Roushan Gupta</p>
+                      <p class='author-role'>Founder &#38; Editor</p>
+                      <p class='author-bio'>Hi, I am Roushan Gupta. I write practical, no-fluff guides and stories about startups, business, technology, AI and digital marketing. I built this blog to share what actually works.</p>
+                      <!-- [EDIT-5 SOCIAL] author social icons -->
+                      <div class='author-social'>
+                        <a aria-label='X (Twitter)' href='https://twitter.com/roushan' rel='noopener nofollow' target='_blank'>
+                          <svg aria-hidden='true' fill='currentColor' viewBox='0 0 24 24'><path d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644Z'/></svg>
+                        </a>
+                        <a aria-label='Facebook' href='https://www.facebook.com/roushangupta' rel='noopener nofollow' target='_blank'>
+                          <svg aria-hidden='true' fill='currentColor' viewBox='0 0 24 24'><path d='M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073Z'/></svg>
+                        </a>
+                        <a aria-label='Instagram' href='https://www.instagram.com/roushangupta' rel='noopener nofollow' target='_blank'>
+                          <svg aria-hidden='true' fill='currentColor' viewBox='0 0 24 24'><path d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z'/></svg>
+                        </a>
+                        <a aria-label='LinkedIn' href='https://www.linkedin.com/in/roushangupta' rel='noopener nofollow' target='_blank'>
+                          <svg aria-hidden='true' fill='currentColor' viewBox='0 0 24 24'><path d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0Z'/></svg>
+                        </a>
+                        <a aria-label='YouTube' href='https://www.youtube.com/@roushangupta' rel='noopener nofollow' target='_blank'>
+                          <svg aria-hidden='true' fill='currentColor' viewBox='0 0 24 24'><path d='M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z'/></svg>
+                        </a>
+                      </div>
+                    </div>
+                  </aside>
+
+                  <!-- Related posts (filled from your label feed by JS) -->
+                  <div class='related-wrap' hidden='hidden' id='related-wrap'>
+                    <div class='section-head'>
+                      <h2 class='section-title'>You May Also Like</h2>
+                    </div>
+                    <div class='related-grid' id='related-grid'></div>
+                  </div>
+                </b:if>
+
+                <!-- Comments (Blogger native: threaded or flat, embedded form) -->
+                <b:if cond='data:post.allowComments'>
+                  <div class='comments-wrap' id='comments-wrap'>
+                    <b:include data='post' name='commentPicker'/>
+                  </div>
+                </b:if>
+
+                <!-- JSON-LD : BlogPosting (posts only) -->
+                <b:if cond='data:view.isPost'>
+                  <b:include data='post' name='postSchema'/>
+                </b:if>
+                <b:include data='post' name='breadcrumbSchema'/>
+
+              </article>
+            </b:loop>
+          </b:includable>
+
+          <!-- ==================================================================
+               BREADCRUMB (visible) : Home > Category > Post title
+               ================================================================== -->
+          <b:includable id='breadcrumbNav' var='post'>
+            <nav aria-label='Breadcrumb' class='breadcrumb'>
+              <ol class='breadcrumb-list'>
+                <li><a expr:href='data:blog.homepageUrl'>Home</a></li>
+                <b:loop index='bi' values='data:post.labels' var='label'>
+                  <b:if cond='data:bi == 0'>
+                    <li><a expr:href='data:label.url'><data:label.name/></a></li>
+                  </b:if>
+                </b:loop>
+                <li aria-current='page' class='crumb-current'>
+                  <b:if cond='data:post.title'><data:post.title/><b:else/>Untitled</b:if>
+                </li>
+              </ol>
+            </nav>
+          </b:includable>
+
+          <!-- ==================================================================
+               JSON-LD : BlogPosting schema for the current post
+               [EDIT-4 AUTHOR] update the publisher logo URL once.
+               ================================================================== -->
+          <b:includable id='postSchema' var='post'>
+            <script type='application/ld+json'>
+            {
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "@id": "<data:post.absoluteUrl/>#article",
+              "mainEntityOfPage": { "@type": "WebPage", "@id": "<data:post.absoluteUrl/>" },
+              "url": "<data:post.absoluteUrl/>",
+              "headline": "<data:post.title/>",
+              "datePublished": "<data:post.date.iso8601/>",
+              "dateModified": "<data:post.lastUpdated.iso8601/>",
+              "inLanguage": "en",
+              <b:if cond='data:post.featuredImage'>"image": { "@type": "ImageObject", "url": "<b:eval expr='resizeImage(data:post.featuredImage, 1200, "1200:630")'/>", "width": 1200, "height": 630 },</b:if>
+              <b:if cond='data:view.description'>"description": "<data:view.description/>",</b:if>
+              <b:if cond='data:post.labels'>"articleSection": "<b:loop index='si' values='data:post.labels' var='label'><b:if cond='data:si == 0'><data:label.name/></b:if></b:loop>",</b:if>
+              "commentCount": <data:post.numberOfComments/>,
+              "author": {
+                "@type": "Person",
+                "name": "Roushan Gupta",
+                "url": "<data:blog.homepageUrl/>",
+                "sameAs": ["https://twitter.com/roushan", "https://www.facebook.com/roushangupta", "https://www.instagram.com/roushangupta", "https://www.linkedin.com/in/roushangupta", "https://www.youtube.com/@roushangupta"]
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "<data:blog.title/>",
+                "logo": { "@type": "ImageObject", "url": "https://YOUR-LOGO-IMAGE-URL.png" }
+              }
+            }
+            </script>
+          </b:includable>
+
+          <!-- ==================================================================
+               JSON-LD : BreadcrumbList schema
+               ================================================================== -->
+          <b:includable id='breadcrumbSchema' var='post'>
+            <script type='application/ld+json'>
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "<data:blog.homepageUrl/>" }
+                <b:if cond='data:post.labels'>
+                ,{ "@type": "ListItem", "position": 2, "name": "<b:loop index='bi' values='data:post.labels' var='label'><b:if cond='data:bi == 0'><data:label.name/></b:if></b:loop>", "item": "<b:loop index='bi' values='data:post.labels' var='label'><b:if cond='data:bi == 0'><data:label.url/></b:if></b:loop>" },
+                { "@type": "ListItem", "position": 3, "name": "<data:post.title/>", "item": "<data:post.absoluteUrl/>" }
+                <b:else/>
+                ,{ "@type": "ListItem", "position": 2, "name": "<data:post.title/>", "item": "<data:post.absoluteUrl/>" }
+                </b:if>
+              ]
+            }
+            </script>
+          </b:includable>
+
+          <!-- ==================================================================
+               COMMENTS : Blogger native comment system (v2 widget markup).
+               commentPicker chooses threaded or flat comments depending on
+               your Settings > Comments configuration. Both modules use the
+               official embedded comment form (modern "contempo" skin).
+               ================================================================== -->
+
+          <!-- Chooses the comment module type -->
+          <b:includable id='commentPicker' var='post'>
+            <b:if cond='data:post.showThreadedComments'>
+              <b:include data='post' name='threadedComments'/>
+            <b:else/>
+              <b:include data='post' name='comments'/>
+            </b:if>
+          </b:includable>
+
+          <!-- Threaded comments (default on Blogger) -->
+          <b:includable id='threadedComments' var='post'>
+            <section aria-label='Comments' class='comments threaded' id='comments'>
+              <a name='comments'/>
+              <h3 class='comments-title'>
+                <data:messages.comments/>
+                <b:if cond='data:post.numberOfComments &gt; 0'>(<data:post.numberOfComments/>)</b:if>
+              </h3>
+              <div class='comments-content'>
+                <b:if cond='data:post.embedCommentForm'>
+                  <b:include data='post' name='threadedCommentJs'/>
+                </b:if>
+                <div id='comment-holder'>
+                  <data:post.commentHtml/>
+                </div>
+              </div>
+              <div class='comments-form-area'>
+                <b:if cond='data:post.embedCommentForm'>
+                  <b:if cond='data:post.allowNewComments'>
+                    <b:include data='post' name='commentForm'/>
+                  <b:else/>
+                    <p class='no-new-comments'><data:post.noNewCommentsText/></p>
+                  </b:if>
+                <b:else/>
+                  <b:if cond='data:post.allowComments'>
+                    <b:include data='post' name='addComments'/>
+                  </b:if>
+                </b:if>
+              </div>
+            </section>
+          </b:includable>
+
+          <!-- Official threaded-comments script (reply buttons etc.) -->
+          <b:includable id='threadedCommentJs' var='post'>
+            <b:template-script inline='true' name='threaded_comments'/>
+            <script type='text/javascript'>
+              blogger.widgets.blog.initThreadedComments(<data:post.commentJso/>, <data:post.commentMsgs/>, <data:post.commentConfig/>);
+            </script>
+          </b:includable>
+
+          <!-- Flat / cumulative comments -->
+          <b:includable id='comments' var='post'>
+            <section aria-label='Comments' class='comments' id='comments'>
+              <a name='comments'/>
+              <b:if cond='data:post.allowComments'>
+                <h3 class='comments-title'>
+                  <data:messages.comments/>
+                  <b:if cond='data:post.numberOfComments &gt; 0'>(<data:post.numberOfComments/>)</b:if>
+                </h3>
+                <div expr:id='data:widget.instanceId + "_comments-block-wrapper"'>
+                  <b:include cond='data:post.comments' data='post.comments' name='commentList'/>
+                </div>
+                <b:if cond='data:post.commentPagingRequired'>
+                  <div class='paging-control-container'>
+                    <b:if cond='data:post.hasOlderLinks'>
+                      <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'><data:messages.oldest/></a>
+                      <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'><data:messages.older/></a>
+                    </b:if>
+                    <span class='comment-range-text'><data:post.commentRangeText/></span>
+                    <b:if cond='data:post.hasNewerLinks'>
+                      <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'><data:messages.newer/></a>
+                      <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'><data:messages.newest/></a>
+                    </b:if>
+                  </div>
+                </b:if>
+                <div class='comments-form-area'>
+                  <b:if cond='data:post.embedCommentForm'>
+                    <b:if cond='data:post.allowNewComments'>
+                      <b:include data='post' name='commentForm'/>
+                    <b:else/>
+                      <p class='no-new-comments'><data:post.noNewCommentsText/></p>
+                    </b:if>
+                  <b:else/>
+                    <b:if cond='data:post.allowComments'>
+                      <b:include data='post' name='addComments'/>
+                    </b:if>
+                  </b:if>
+                </div>
+                <b:if cond='data:showCmtPopup'>
+                  <div id='comment-popup'>
+                    <iframe allowtransparency='true' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'/>
+                  </div>
+                </b:if>
+              </b:if>
+            </section>
+          </b:includable>
+
+          <!-- Flat comments list -->
+          <b:includable id='commentList' var='comments'>
+            <ol class='commentlist'>
+              <b:loop values='data:comments' var='comment'>
+                <li class='comment' expr:id='"c" + data:comment.id'>
+                  <b:include data='comment' name='commentItem'/>
+                </li>
+              </b:loop>
+            </ol>
+          </b:includable>
+
+          <!-- One flat comment -->
+          <b:includable id='commentItem' var='comment'>
+            <div class='comment-block'>
+              <b:include cond='data:blog.enabledCommentProfileImages' data='comment' name='commentAuthorAvatar'/>
+              <div class='comment-main'>
+                <div class='comment-header'>
+                  <b:if cond='data:comment.authorUrl'>
+                    <a class='comment-author' expr:href='data:comment.authorUrl' rel='nofollow'><data:comment.author/></a>
+                  <b:else/>
+                    <span class='comment-author'><data:comment.author/></span>
+                  </b:if>
+                  <span class='comment-timestamp'>
+                    <a expr:href='data:comment.url' rel='nofollow'><data:comment.timestamp/></a>
+                  </span>
+                </div>
+                <div expr:class='"comment-body" + (data:comment.isDeleted ? " deleted" : "")'>
+                  <data:comment.body/>
+                </div>
+              </div>
+            </div>
+          </b:includable>
+
+          <!-- Comment avatar (flat comments) -->
+          <b:includable id='commentAuthorAvatar' var='comment'>
+            <b:if cond='data:comment.authorAvatarImage'>
+              <div class='avatar-image-container'>
+                <img decoding='async' expr:alt='data:comment.author' expr:src='resizeImage(data:comment.authorAvatarImage, 84, "1:1")' height='42' loading='lazy' width='42'/>
+              </div>
+            </b:if>
+          </b:includable>
+
+          <!-- Embedded comment form (official iframe, modern skin) -->
+          <b:includable id='commentForm' var='post'>
+            <div class='comment-form'>
+              <a name='comment-form'/>
+              <h4 id='comment-post-message'><data:messages.postAComment/></h4>
+              <b:if cond='data:this.messages.blogComment != ""'>
+                <p><data:this.messages.blogComment/></p>
+              </b:if>
+              <b:include data='post' name='commentFormIframeSrc'/>
+              <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: "90px"' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+              <data:post.cmtfpIframe/>
+              <script type='text/javascript'>
+                BLOG_CMT_createIframe('<data:post.appRpcRelayPath/>');
+              </script>
+            </div>
+          </b:includable>
+
+          <!-- Threaded comment form (same official form) -->
+          <b:includable id='threadedCommentForm' var='post'>
+            <b:include data='post' name='commentForm'/>
+          </b:includable>
+
+          <!-- Hidden anchor that provides the form URL to Blogger's iframe -->
+          <b:includable id='commentFormIframeSrc' var='post'>
+            <a expr:href='data:post.commentFormIframeSrc appendParams {skin: "contempo"}' id='comment-editor-src' style='display:none'/>
+          </b:includable>
+
+          <!-- "Post a comment" link (used when the form is not embedded) -->
+          <b:includable id='addComments' var='post'>
+            <a class='btn btn-outline btn-sm' expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'><data:messages.postAComment/></a>
+          </b:includable>
+
+        </b:widget>
+      </b:section>
+    </main>
+
+    <!-- ================================================================
+         SIDEBAR (posts and pages only)
+         Widgets are editable from Layout > Sidebar.
+         ================================================================ -->
+    <b:if cond='data:view.isSingleItem or data:view.isLayoutMode'>
+      <aside class='site-sidebar' id='sidebar'>
+        <b:section class='sidebar' id='sidebar' showaddelement='yes'>
+
+          <!-- [EDIT-4 AUTHOR] About widget: edit photo, bio and links via
+               Layout > Sidebar > About Roushan Gupta > Edit               -->
+          <b:widget id='HTML1' locked='false' title='About Roushan Gupta' type='HTML' version='2' visible='true'>
+            <b:widget-settings>
+              <b:widget-setting name='content'>&lt;div class="rg-about"&gt;&lt;img class="rg-about-avatar" alt="Roushan Gupta" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMjAgMTIwJyB3aWR0aD0nMTIwJyBoZWlnaHQ9JzEyMCc+PHJlY3Qgd2lkdGg9JzEyMCcgaGVpZ2h0PScxMjAnIHJ4PSc2MCcgZmlsbD0nI0VGRjRGRicvPjx0ZXh0IHg9JzYwJyB5PSc3NScgZm9udC1mYW1pbHk9J0FyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmJyBmb250LXNpemU9JzQ2JyBmb250LXdlaWdodD0nNzAwJyBmaWxsPScjMjU2M0VCJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJz5SRzwvdGV4dD48L3N2Zz4=" width="86" height="86" /&gt;&lt;p class="rg-about-name"&gt;Roushan Gupta&lt;/p&gt;&lt;p class="rg-about-bio"&gt;Practical guides and honest stories about startups, business, technology, AI and digital marketing.&lt;/p&gt;&lt;div class="rg-social"&gt;&lt;a aria-label="X (Twitter)" href="https://twitter.com/roushan" rel="noopener nofollow" target="_blank"&gt;&lt;svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"&gt;&lt;path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644Z" /&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a aria-label="Facebook" href="https://www.facebook.com/roushangupta" rel="noopener nofollow" target="_blank"&gt;&lt;svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"&gt;&lt;path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073Z" /&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a aria-label="Instagram" href="https://www.instagram.com/roushangupta" rel="noopener nofollow" target="_blank"&gt;&lt;svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"&gt;&lt;path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" /&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a aria-label="LinkedIn" href="https://www.linkedin.com/in/roushangupta" rel="noopener nofollow" target="_blank"&gt;&lt;svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"&gt;&lt;path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0Z" /&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a aria-label="YouTube" href="https://www.youtube.com/@roushangupta" rel="noopener nofollow" target="_blank"&gt;&lt;svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"&gt;&lt;path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main'>
+              <b:if cond='data:title'>
+                <h3 class='widget-title'><data:title/></h3>
+              </b:if>
+              <div class='widget-content'>
+                <data:content/>
+              </div>
+            </b:includable>
+          </b:widget>
+
+          <!-- Popular Posts (server rendered, no JS needed) -->
+          <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='2' visible='true'>
+            <b:widget-settings>
+              <b:widget-setting name='numItemsToShow'>5</b:widget-setting>
+              <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+              <b:widget-setting name='showSnippets'>false</b:widget-setting>
+              <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main'>
+              <b:if cond='data:title'>
+                <h3 class='widget-title'><data:title/></h3>
+              </b:if>
+              <div class='widget-content'>
+                <ul class='pp-list'>
+                  <b:loop values='data:posts' var='post'>
+                    <li class='pp-item'>
+                      <a class='pp-thumb' expr:href='data:post.url' tabindex='-1' aria-hidden='true'>
+                        <b:if cond='data:post.featuredImage'>
+                          <img decoding='async' expr:alt='data:post.title' expr:src='resizeImage(data:post.featuredImage, 128, "1:1")' height='64' loading='lazy' width='64'/>
+                        <b:else/>
+                          <img decoding='async' expr:alt='data:post.title' height='64' loading='lazy' src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJyB3aWR0aD0nMTAwJyBoZWlnaHQ9JzEwMCc+PHJlY3Qgd2lkdGg9JzEwMCcgaGVpZ2h0PScxMDAnIGZpbGw9JyNFRUYyRjcnLz48ZyBmaWxsPScjQzdEMkUxJz48Y2lyY2xlIGN4PSc1MCcgY3k9JzQyJyByPScxMicvPjxwYXRoIGQ9J00yOCA3MmwyMC0yNCAxNCAxNiAxMC0xMiAyMCAyMHonLz48L2c+PC9zdmc+' width='64'/>
+                        </b:if>
+                      </a>
+                      <div class='pp-text'>
+                        <a class='pp-title' expr:href='data:post.url'>
+                          <b:if cond='data:post.title'><data:post.title/><b:else/>Untitled Post</b:if>
+                        </a>
+                        <span class='pp-date'><b:eval expr='format(data:post.date, "MMM dd, YYYY")'/></span>
+                      </div>
+                    </li>
+                  </b:loop>
+                </ul>
+              </div>
+            </b:includable>
+          </b:widget>
+
+          <!-- Recent Posts (filled automatically from your feed by JS) -->
+          <b:widget id='HTML2' locked='false' title='Recent Posts' type='HTML' version='2' visible='true'>
+            <b:widget-settings>
+              <b:widget-setting name='content'>&lt;div class="rg-recent" id="rg-recent"&gt;&lt;/div&gt;</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main'>
+              <b:if cond='data:title'>
+                <h3 class='widget-title'><data:title/></h3>
+              </b:if>
+              <div class='widget-content'>
+                <data:content/>
+              </div>
+            </b:includable>
+          </b:widget>
+
+          <!-- Categories (Labels gadget) -->
+          <b:widget id='Label1' locked='false' title='Categories' type='Label' version='2' visible='true'>
+            <b:widget-settings>
+              <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+              <b:widget-setting name='display'>LIST</b:widget-setting>
+              <b:widget-setting name='selectedLabels'/>
+              <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main'>
+              <b:if cond='data:title'>
+                <h3 class='widget-title'><data:title/></h3>
+              </b:if>
+              <div class='widget-content'>
+                <div class='label-list'>
+                  <b:loop values='data:labels' var='label'>
+                    <a class='label-item' expr:href='data:label.url'>
+                      <span><data:label.name/></span>
+                      <span class='label-count'><data:label.count/></span>
+                    </a>
+                  </b:loop>
+                </div>
+              </div>
+            </b:includable>
+          </b:widget>
+
+          <!-- Newsletter  [EDIT-10 NEWSLETTER] replace action="#" with your
+               Mailchimp / Formspree / Google Forms action URL              -->
+          <b:widget id='HTML3' locked='false' title='Newsletter' type='HTML' version='2' visible='true'>
+            <b:widget-settings>
+              <b:widget-setting name='content'>&lt;div class="rg-newsletter"&gt;&lt;p&gt;Get the latest posts delivered straight to your inbox. No spam, unsubscribe anytime.&lt;/p&gt;&lt;form class="rg-newsletter-form" action="#" method="post"&gt;&lt;input aria-label="Your email address" name="email" placeholder="Your email address" required="required" type="email" /&gt;&lt;button class="btn btn-primary" type="submit"&gt;Subscribe&lt;/button&gt;&lt;/form&gt;&lt;p class="rg-newsletter-note"&gt;Powered by your newsletter provider&lt;/p&gt;&lt;/div&gt;</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main'>
+              <b:if cond='data:title'>
+                <h3 class='widget-title'><data:title/></h3>
+              </b:if>
+              <div class='widget-content'>
+                <data:content/>
+              </div>
+            </b:includable>
+          </b:widget>
+
+          <!-- Sidebar ad slot 300x250  [EDIT-9 ADS] -->
+          <b:widget id='HTML4' locked='false' title='Advertisement (300x250)' type='HTML' version='2' visible='true'>
+            <b:widget-settings>
+              <b:widget-setting name='content'>&lt;div class="ad-slot ad-300x250"&gt;&lt;span class="ad-label"&gt;Advertisement&lt;/span&gt;&lt;div class="ad-placeholder"&gt;Ad Space 300x250 &amp;#8212; paste your AdSense code via Layout &amp;#8594; Advertisement (300x250)&lt;/div&gt;&lt;/div&gt;</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main'>
+              <div class='widget-content'>
+                <data:content/>
+              </div>
+            </b:includable>
+          </b:widget>
+
+        </b:section>
+      </aside>
+    </b:if>
+
+  </div>
+</div>
+
+<!-- ================================================================
+     HOMEPAGE EXTRAS : category sections (JS from your label feeds)
+     + newsletter strip
+     ================================================================ -->
+<b:if cond='data:view.isHomepage or data:view.isLayoutMode'>
+  <section class='home-cats' hidden='hidden' id='home-cats'>
+    <div class='container'>
+      <div class='section-head section-head-row'>
+        <h2 class='section-title'>Browse by Category</h2>
+        <a class='view-all' href='/search'>View all posts &#8594;</a>
+      </div>
+      <div id='home-cats-grid'></div>
+    </div>
+  </section>
+
+  <!-- [EDIT-10 NEWSLETTER] replace action='#' with your email service URL -->
+  <section class='home-newsletter'>
+    <div class='container'>
+      <div class='nl-card'>
+        <h2 class='section-title nl-title'>Stay in the Loop</h2>
+        <p class='nl-text'>Join hundreds of readers getting practical startup, business, technology and AI insights — straight to their inbox.</p>
+        <form action='#' class='nl-form' method='post'>
+          <input aria-label='Your email address' name='email' placeholder='Your email address' required='required' type='email'/>
+          <button class='btn btn-primary' type='submit'>Subscribe Free</button>
+        </form>
+        <p class='nl-note'>No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+</b:if>
+
+<!-- ================================================================
+     FOOTER : 4 columns (About / Quick Links / Categories / Contact)
+     [EDIT-2 MENU] quick links   [EDIT-5 SOCIAL] social icons
+     [EDIT-8 CATEGORIES] category links
+     ================================================================ -->
+<footer class='site-footer'>
+  <div class='container footer-grid'>
+
+    <div class='footer-col footer-about'>
+      <a class='footer-logo' expr:href='data:blog.homepageUrl'><data:blog.title/></a>
+      <!-- [EDIT-4 AUTHOR] short footer bio -->
+      <p class='footer-bio'>Practical, well-researched stories and guides about startups, business, technology, AI and digital marketing — written by Roushan Gupta.</p>
+      <div class='footer-social'>
+        <a aria-label='X (Twitter)' href='https://twitter.com/roushan' rel='noopener nofollow' target='_blank'>
+          <svg aria-hidden='true' fill='currentColor' viewBox='0 0 24 24'><path d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644Z'/></svg>
+        </a>
+        <a aria-label='Facebook' href='https://www.facebook.com/roushangupta' rel='noopener nofollow' target='_blank'>
+          <svg aria-hidden='true' fill='currentColor' viewBox='0 0 24 24'><path d='M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073Z'/></svg>
+        </a>
+        <a aria-label='Instagram' href='https://www.instagram.com/roushangupta' rel='noopener nofollow' target='_blank'>
+          <svg aria-hidden='true' fill='currentColor' viewBox='0 0 24 24'><path d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z'/></svg>
+        </a>
+        <a aria-label='LinkedIn' href='https://www.linkedin.com/in/roushangupta' rel='noopener nofollow' target='_blank'>
+          <svg aria-hidden='true' fill='currentColor' viewBox='0 0 24 24'><path d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0Z'/></svg>
+        </a>
+        <a aria-label='YouTube' href='https://www.youtube.com/@roushangupta' rel='noopener nofollow' target='_blank'>
+          <svg aria-hidden='true' fill='currentColor' viewBox='0 0 24 24'><path d='M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z'/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class='footer-col'>
+      <h4 class='footer-title'>Quick Links</h4>
+      <!-- [EDIT-2 MENU] footer quick links -->
+      <ul class='footer-links'>
+        <li><a expr:href='data:blog.homepageUrl'>Home</a></li>
+        <li><a href='/p/about.html'>About Roushan</a></li>
+        <li><a href='/p/contact.html'>Contact</a></li>
+        <li><a href='/p/privacy-policy.html'>Privacy Policy</a></li>
+        <li><a href='/p/disclaimer.html'>Disclaimer</a></li>
+        <li><a href='/sitemap.xml'>Sitemap</a></li>
+      </ul>
+    </div>
+
+    <div class='footer-col'>
+      <h4 class='footer-title'>Categories</h4>
+      <!-- [EDIT-8 CATEGORIES] footer category links -->
+      <ul class='footer-links'>
+        <li><a href='/search/label/Startups'>Startups</a></li>
+        <li><a href='/search/label/Business'>Business</a></li>
+        <li><a href='/search/label/Technology'>Technology</a></li>
+        <li><a href='/search/label/AI'>AI</a></li>
+        <li><a href='/search/label/Marketing'>Marketing</a></li>
+      </ul>
+    </div>
+
+    <div class='footer-col'>
+      <h4 class='footer-title'>Get in Touch</h4>
+      <p class='footer-contact'>
+        Have a story tip, feedback or a collaboration idea?
+        <a href='/p/contact.html'>Reach out here &#8594;</a>
+        <br/><br/>
+        <!-- [EDIT] your email address -->
+        Email: <a href='mailto:hello@roushangupta.com'>hello@roushangupta.com</a>
+      </p>
+    </div>
+
+  </div>
+
+  <div class='footer-bottom'>
+    <div class='container footer-bottom-inner'>
+      <p class='copyright'>&#169; <span id='rg-year'>2026</span> <b>Roushan Gupta</b>. All Rights Reserved.</p>
+      <p class='powered-by'>Powered by <a href='https://www.blogger.com/' rel='nofollow'>Blogger</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button aria-label='Back to top' class='back-top' id='back-top' type='button'>
+  <svg aria-hidden='true' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.2' viewBox='0 0 24 24'><path d='M12 19V5m-7 7 7-7 7 7'/></svg>
+</button>
+
+<!-- Mobile navigation drawer -->
+<div aria-hidden='true' class='drawer' id='mobile-drawer'>
+  <div class='drawer-backdrop' data-close-drawer='true'/>
+  <nav aria-label='Mobile navigation' class='drawer-panel'>
+    <div class='drawer-head'>
+      <span class='drawer-brand'><data:blog.title/></span>
+      <button aria-label='Close menu' class='icon-btn' data-close-drawer='true' type='button'>
+        <svg aria-hidden='true' fill='none' stroke='currentColor' stroke-linecap='round' stroke-width='2' viewBox='0 0 24 24'><path d='M6 6l12 12M18 6L6 18'/></svg>
+      </button>
+    </div>
+    <ul class='drawer-nav' id='drawer-nav'></ul>
+  </nav>
+</div>
+
+<!-- Full screen search overlay -->
+<div aria-hidden='true' class='search-overlay' id='search-overlay'>
+  <button aria-label='Close search' class='icon-btn search-close' id='search-close' type='button'>
+    <svg aria-hidden='true' fill='none' stroke='currentColor' stroke-linecap='round' stroke-width='2' viewBox='0 0 24 24'><path d='M6 6l12 12M18 6L6 18'/></svg>
+  </button>
+  <div class='search-box'>
+    <h2 class='section-title' style='justify-content:center;margin:0'>Search the Blog</h2>
+    <form class='search-form' expr:action='data:blog.searchUrl' method='get' role='search'>
+      <input aria-label='Search this blog' autocomplete='off' id='search-input' name='q' placeholder='Search articles, topics, guides...' type='search'/>
+      <button class='btn btn-primary' type='submit'>Search</button>
+    </form>
+    <p class='search-hint'>Press Enter to search &#8226; ESC to close</p>
+  </div>
+</div>
+
+<!-- ================================================================
+     THEME CONFIG (read by the script below)
+     [EDIT-8 CATEGORIES] : labels used for the homepage category
+     sections. Use EXACT label names (case sensitive) you apply to
+     your posts. Remove or add entries as you like.
+     ================================================================ -->
+<script>
+  window.RG_CONFIG = {
+    homeUrl: '<data:blog.homepageUrl/>',
+    categories: ['Startups', 'Business', 'Technology', 'AI', 'Marketing']
+  };
+</script>
+
+<!-- ================================================================
+     THEME JAVASCRIPT (vanilla, no libraries)
+     sticky header shadow, mobile drawer, search overlay, back to
+     top, footer year, reading time, auto TOC, share links, copy
+     link, recent posts, related posts, homepage category sections
+     ================================================================ -->
+<script>
+//<![CDATA[
+(function () {
+  'use strict';
+
+  var CFG = window.RG_CONFIG || {};
+  var HOME = CFG.homeUrl || '/';
+  if (HOME.charAt(HOME.length - 1) !== '/') HOME += '/';
+  var CATS = (CFG.categories && CFG.categories.length) ? CFG.categories : [];
+
+  var PH169 = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA2NDAgMzYwJyB3aWR0aD0nNjQwJyBoZWlnaHQ9JzM2MCc+PHJlY3Qgd2lkdGg9JzY0MCcgaGVpZ2h0PSczNjAnIGZpbGw9JyNFRUYyRjcnLz48ZyBmaWxsPScjQzdEMkUxJz48Y2lyY2xlIGN4PSczMjAnIGN5PScxNTInIHI9JzI2Jy8+PHBhdGggZD0nTTI0MCAyMzJsNTYtNjQgNDAgNDYgMjgtMzIgNTYgNTB6Jy8+PC9nPjx0ZXh0IHg9JzMyMCcgeT0nMjkyJyBmb250LWZhbWlseT0nQXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWYnIGZvbnQtc2l6ZT0nMjAnIGZvbnQtd2VpZ2h0PSc2MDAnIGZpbGw9JyM4QTk3QUInIHRleHQtYW5jaG9yPSdtaWRkbGUnPlJvdXNoYW4gR3VwdGE8L3RleHQ+PC9zdmc+';
+  var PH11 = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJyB3aWR0aD0nMTAwJyBoZWlnaHQ9JzEwMCc+PHJlY3Qgd2lkdGg9JzEwMCcgaGVpZ2h0PScxMDAnIGZpbGw9JyNFRUYyRjcnLz48ZyBmaWxsPScjQzdEMkUxJz48Y2lyY2xlIGN4PSc1MCcgY3k9JzQyJyByPScxMicvPjxwYXRoIGQ9J00yOCA3MmwyMC0yNCAxNCAxNiAxMC0xMiAyMCAyMHonLz48L2c+PC9zdmc+';
+
+  function $(s, c) { return (c || document).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  /* ---------- sticky header shadow + back to top ---------- */
+  var header = $('#site-header');
+  var topBtn = $('#back-top');
+  function onScroll() {
+    var y = window.pageYOffset || 0;
+    if (header) header.classList.toggle('scrolled', y > 8);
+    if (topBtn) topBtn.classList.toggle('show', y > 600);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  if (topBtn) {
+    topBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ---------- mobile drawer (clones the desktop menu links) ---------- */
+  var drawer = $('#mobile-drawer');
+  var navToggle = $('#nav-toggle');
+  if (drawer && navToggle) {
+    var drawerNav = $('#drawer-nav');
+    var menuLinks = $$('#nav-list a');
+    if (drawerNav) {
+      menuLinks.forEach(function (a) {
+        var li = document.createElement('li');
+        li.appendChild(a.cloneNode(true));
+        drawerNav.appendChild(li);
+      });
+    }
+    function setDrawer(open) {
+      drawer.classList.toggle('open', open);
+      drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.classList.toggle('drawer-open', open);
+    }
+    navToggle.addEventListener('click', function () {
+      setDrawer(!drawer.classList.contains('open'));
+    });
+    $$('[data-close-drawer]').forEach(function (el) {
+      el.addEventListener('click', function () { setDrawer(false); });
+    });
+    drawer.addEventListener('click', function (e) {
+      if (e.target && e.target.closest && e.target.closest('a')) setDrawer(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setDrawer(false);
+    });
+  }
+
+  /* ---------- search overlay ---------- */
+  var overlay = $('#search-overlay');
+  var searchOpen = $('#search-open');
+  var searchInput = $('#search-input');
+  if (overlay && searchOpen) {
+    function setSearch(open) {
+      overlay.classList.toggle('open', open);
+      overlay.setAttribute('aria-hidden', open ? 'false' : 'true');
+      if (open && searchInput) {
+        searchInput.value = '';
+        setTimeout(function () { searchInput.focus(); }, 80);
+      }
+    }
+    searchOpen.addEventListener('click', function () { setSearch(true); });
+    var searchClose = $('#search-close');
+    if (searchClose) searchClose.addEventListener('click', function () { setSearch(false); });
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) setSearch(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setSearch(false);
+    });
+  }
+
+  /* ---------- footer year ---------- */
+  var yearEl = $('#rg-year');
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  /* ---------- reading time ---------- */
+  var postBody = $('#post-body');
+  var readTime = $('#read-time');
+  if (postBody && readTime) {
+    var words = (postBody.textContent || '').trim().split(/\s+/).filter(Boolean).length;
+    readTime.textContent = Math.max(1, Math.round(words / 200)) + ' min read';
+  }
+
+  /* ---------- automatic table of contents ---------- */
+  var tocBox = $('#toc-box');
+  var tocList = $('#toc-list');
+  var tocToggle = $('#toc-toggle');
+  if (tocBox && tocList && postBody) {
+    var heads = $$('h2, h3', postBody);
+    if (heads.length >= 3) {
+      heads.forEach(function (h, i) {
+        if (!h.id) h.id = 'section-' + (i + 1);
+        var li = document.createElement('li');
+        if (h.tagName === 'H3') li.className = 'toc-h3';
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = (h.textContent || '').trim();
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+      tocBox.removeAttribute('hidden');
+      if (tocToggle) {
+        tocToggle.addEventListener('click', function () {
+          var collapsed = tocBox.classList.toggle('collapsed');
+          tocToggle.textContent = collapsed ? 'Show' : 'Hide';
+          tocToggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+        });
+      }
+    }
+  }
+
+  /* ---------- social share links + copy link ---------- */
+  var pageUrl = location.href.split('#')[0];
+  var pageTitle = document.title;
+  var SHARE = {
+    wa: 'https://wa.me/?text=' + encodeURIComponent(pageTitle + ' ' + pageUrl),
+    fb: 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl),
+    x: 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(pageTitle),
+    li: 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(pageUrl),
+    tg: 'https://t.me/share/url?url=' + encodeURIComponent(pageUrl) + '&text=' + encodeURIComponent(pageTitle)
+  };
+  $$('#share-buttons a[data-share]').forEach(function (a) {
+    var key = a.getAttribute('data-share');
+    if (SHARE[key]) a.href = SHARE[key];
+  });
+  var copyBtn = $('#copy-link');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function () {
+      function feedback() {
+        copyBtn.classList.add('copied');
+        setTimeout(function () { copyBtn.classList.remove('copied'); }, 1800);
+      }
+      function fallbackCopy() {
+        var ta = document.createElement('textarea');
+        ta.value = pageUrl;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'absolute';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); feedback(); } catch (err) {}
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pageUrl).then(feedback).catch(fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
+    });
+  }
+
+  /* ---------- Blogger feed helpers ---------- */
+  function getFeed(path, cb) {
+    if (typeof fetch !== 'function') { cb(null); return; }
+    try {
+      fetch(HOME + path).then(function (r) {
+        return r.ok ? r.json() : null;
+      }).then(function (j) {
+        cb(j && j.feed && j.feed.entry ? j.feed.entry : null);
+      }).catch(function () { cb(null); });
+    } catch (err) { cb(null); }
+  }
+  function entryUrl(e) {
+    var u = '';
+    (e.link || []).forEach(function (l) {
+      if (l.rel === 'alternate') u = l.href;
+    });
+    return u;
+  }
+  function entryImg(e, w, h) {
+    var t = (e.media$thumbnail && e.media$thumbnail.url) ? e.media$thumbnail.url : '';
+    if (!t) return '';
+    var size = 'w' + w + '-h' + h + '-p-k-no-nu';
+    return t.replace(/\/s\d+(-c)?\//, '/' + size + '/').replace(/\/w\d+-h\d+([^\/]*)\//, '/' + size + '/').replace(/=s\d+(-c)?$/, '=' + size);
+  }
+  function entryDate(e) {
+    if (!e.published || !e.published.$t) return '';
+    var d = new Date(e.published.$t);
+    if (isNaN(d.getTime())) return '';
+    var M = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return M[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  }
+  function cardHtml(e) {
+    var u = entryUrl(e);
+    var t = (e.title && e.title.$t) ? e.title.$t : 'Untitled';
+    var img = entryImg(e, 480, 270);
+    var im = img
+      ? '<img src="' + esc(img) + '" alt="' + esc(t) + '" width="480" height="270" loading="lazy" decoding="async"/>'
+      : '<img src="' + PH169 + '" alt="' + esc(t) + '" width="480" height="270" loading="lazy" decoding="async"/>';
+    var cat = (e.category && e.category.length && e.category[0].term)
+      ? '<span class="card-cat">' + esc(e.category[0].term) + '</span>' : '';
+    return '<article class="card">' +
+      '<a class="card-thumb" href="' + esc(u) + '" tabindex="-1" aria-hidden="true">' + im + cat + '</a>' +
+      '<div class="card-body">' +
+      '<div class="card-meta"><time class="card-date">' + esc(entryDate(e)) + '</time></div>' +
+      '<h3 class="card-title"><a href="' + esc(u) + '">' + esc(t) + '</a></h3>' +
+      '<div class="card-foot"><span class="card-author">By Roushan Gupta</span>' +
+      '<a class="card-more" href="' + esc(u) + '">Read More \u2192</a></div>' +
+      '</div></article>';
+  }
+
+  /* ---------- recent posts (sidebar) ---------- */
+  var recentBox = $('#rg-recent');
+  if (recentBox) {
+    getFeed('feeds/posts/summary?alt=json&max-results=5', function (entries) {
+      var widget = recentBox.closest ? recentBox.closest('.widget') : null;
+      if (!entries || !entries.length) {
+        if (widget) widget.style.display = 'none';
+        return;
+      }
+      var ul = document.createElement('ul');
+      ul.className = 'rg-recent-list';
+      entries.slice(0, 5).forEach(function (e) {
+        var u = entryUrl(e);
+        var t = (e.title && e.title.$t) ? e.title.$t : 'Untitled';
+        var img = entryImg(e, 108, 108);
+        var li = document.createElement('li');
+        li.className = 'rg-recent-item';
+        li.innerHTML = (img
+          ? '<img src="' + esc(img) + '" alt="' + esc(t) + '" width="54" height="54" loading="lazy" decoding="async"/>'
+          : '<img src="' + PH11 + '" alt="' + esc(t) + '" width="54" height="54" loading="lazy" decoding="async"/>') +
+          '<div><a class="pp-title" href="' + esc(u) + '">' + esc(t) + '</a>' +
+          '<span class="pp-date">' + esc(entryDate(e)) + '</span></div>';
+        ul.appendChild(li);
+      });
+      recentBox.appendChild(ul);
+    });
+  }
+
+  /* ---------- related posts (by first label of the current post) ---------- */
+  var relatedWrap = $('#related-wrap');
+  var relatedGrid = $('#related-grid');
+  if (relatedWrap && relatedGrid && document.body.classList.contains('view-post')) {
+    var labelLink = $('.post-labels a') || $('.post-tags a');
+    var label = '';
+    if (labelLink) {
+      var m = (labelLink.getAttribute('href') || '').match(/\/search\/label\/([^\/?#]+)/);
+      if (m) {
+        try { label = decodeURIComponent(m[1]); } catch (err) { label = m[1]; }
+      }
+    }
+    if (label) {
+      getFeed('feeds/posts/summary/-/' + encodeURIComponent(label) + '?alt=json&max-results=8', function (entries) {
+        if (!entries) return;
+        var here = location.href.split('#')[0].split('?')[0];
+        var html = '';
+        var count = 0;
+        entries.forEach(function (e) {
+          var u = entryUrl(e);
+          if (!u || u.split('?')[0] === here || count >= 4) return;
+          html += cardHtml(e);
+          count++;
+        });
+        if (count > 0) {
+          relatedGrid.innerHTML = html;
+          relatedWrap.removeAttribute('hidden');
+        }
+      });
+    }
+  }
+
+  /* ---------- homepage category sections ---------- */
+  var catsSection = $('#home-cats');
+  var catsGrid = $('#home-cats-grid');
+  if (catsSection && catsGrid && CATS.length && document.body.classList.contains('view-home')) {
+    var finished = 0;
+    var renderedCount = 0;
+    CATS.forEach(function (cat) {
+      getFeed('feeds/posts/summary/-/' + encodeURIComponent(cat) + '?alt=json&max-results=4', function (entries) {
+        finished++;
+        if (entries && entries.length) {
+          renderedCount++;
+          var sec = document.createElement('div');
+          sec.className = 'cat-section';
+          var cards = '';
+          entries.slice(0, 4).forEach(function (e) { cards += cardHtml(e); });
+          sec.innerHTML =
+            '<div class="section-head section-head-row">' +
+            '<h3 class="section-title">' + esc(cat) + '</h3>' +
+            '<a class="view-all" href="' + esc(HOME + 'search/label/' + encodeURIComponent(cat)) + '">View all \u2192</a>' +
+            '</div>' +
+            '<div class="cat-grid">' + cards + '</div>';
+          catsGrid.appendChild(sec);
+        }
+        if (finished === CATS.length && renderedCount > 0) {
+          catsSection.removeAttribute('hidden');
+        }
+      });
+    });
+  }
+
+})();
+//]]>
+</script>
+
+</body>
+</html>
