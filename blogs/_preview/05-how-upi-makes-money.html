@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'/>
+<meta name='viewport' content='width=device-width, initial-scale=1'/>
+<title>How UPI Actually Makes Money: The Economics Behind India&#x27;s Free Payments | Roushan_Gupta</title>
+<meta name='description' content='Preview of the Blogger-ready article: How UPI Actually Makes Money: The Economics Behind India&#x27;s Free Payments'/>
+<link href='https://fonts.googleapis.com' rel='preconnect'/>
+<link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap' rel='stylesheet'/>
+<style>/*
+==============================================================
+ ROUSHAN GUPTA :: LIGHT BLOGGER THEME  ::  STYLESHEET
+--------------------------------------------------------------
+ [EDIT-3 COLOR] You can change the whole accent color without
+ touching any code: Theme > Customize > Advanced > Colors.
+==============================================================
+*/
+
+/* Variable definitions
+<Group description="Colors" selector="body">
+  <Variable name="accent.color" description="Accent Color (links, buttons, tags)" type="color" default="#2563EB" value="#2563EB"/>
+  <Variable name="accent.dark.color" description="Accent Hover (darker)" type="color" default="#1D4ED8" value="#1D4ED8"/>
+  <Variable name="accent.tint.color" description="Accent Tint (soft backgrounds)" type="color" default="#EFF4FF" value="#EFF4FF"/>
+  <Variable name="body.background.color" description="Page Background" type="color" default="#FFFFFF" value="#FFFFFF"/>
+  <Variable name="body.background.alt" description="Alternate Section Background" type="color" default="#F7F8FA" value="#F7F8FA"/>
+  <Variable name="body.text.color" description="Text Color" type="color" default="#1A1A1A" value="#1A1A1A"/>
+  <Variable name="body.muted.color" description="Muted Text Color" type="color" default="#5F6B7A" value="#5F6B7A"/>
+  <Variable name="border.color" description="Borders" type="color" default="#E5E8EE" value="#E5E8EE"/>
+</Group>
+<Group description="Fonts" selector="body">
+  <Variable name="body.font" description="Body Font" type="font" default="normal 400 16px Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" value="normal 400 16px Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"/>
+  <Variable name="heading.font" description="Heading Font" type="font" default="normal 700 30px Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" value="normal 700 30px Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"/>
+</Group>
+*/
+
+/* =========================================================
+   1. DESIGN TOKENS
+   ========================================================= */
+:root{
+  --accent:#2563EB;
+  --accent-dark:#1D4ED8;
+  --tint:#EFF4FF;
+  --bg:#FFFFFF;
+  --bg-alt:#F7F8FA;
+  --ink:#1A1A1A;
+  --muted:#5F6B7A;
+  --line:#E5E8EE;
+  --card-border:#E9EDF3;
+  --shadow-sm:0 1px 2px rgba(16,24,40,.05),0 1px 3px rgba(16,24,40,.06);
+  --shadow-md:0 10px 30px rgba(16,24,40,.10);
+  --radius:14px;
+  --radius-lg:18px;
+  --container:1160px;
+  --header-h:68px;
+}
+
+/* =========================================================
+   2. RESET & BASE
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{font:normal 400 16px Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;margin:0;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;height:auto;border:0}
+a{color:var(--accent);text-decoration:none;transition:color .18s ease}
+a:hover{color:var(--accent-dark)}
+h1,h2,h3,h4,h5,h6{font:normal 700 30px Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;line-height:1.28;margin:0 0 .5em;color:var(--ink);letter-spacing:-.011em}
+p{margin:0 0 1em}
+ul,ol{margin:0;padding:0}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input,textarea{font:inherit}
+svg{display:block}
+.container{max-width:var(--container);margin:0 auto;padding:0 20px}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--accent);color:#fff;padding:10px 18px;border-radius:0 0 10px 0;z-index:999}
+.skip-link:focus{left:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+::selection{background:var(--tint);color:var(--accent-dark)}
+
+/* =========================================================
+   3. SHARED UI (buttons, chips, section headings, cards)
+   ========================================================= */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 22px;border-radius:10px;font-size:14.5px;font-weight:600;line-height:1.2;transition:all .18s ease;border:1px solid transparent}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-dark);color:#fff;transform:translateY(-1px);box-shadow:0 6px 16px rgba(37,99,235,.25)}
+.btn-outline{background:var(--bg);color:var(--ink);border-color:var(--line)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-sm{padding:9px 16px;font-size:13.5px}
+.chip{display:inline-block;padding:4px 12px;border-radius:999px;background:var(--tint);color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.02em}
+.section-title{display:flex;align-items:center;font-size:clamp(21px,3vw,26px);font-weight:800;margin:0 0 6px}
+.section-title::before{content:"";display:inline-block;width:5px;height:24px;border-radius:3px;background:var(--accent);margin-right:12px;flex:none}
+.section-sub{color:var(--muted);font-size:15px;margin:0 0 24px}
+.section-head{margin-bottom:26px}
+.section-head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.section-head-row .section-sub{margin:0}
+.view-all{font-size:14px;font-weight:600;color:var(--accent);white-space:nowrap}
+.view-all:hover{color:var(--accent-dark)}
+
+/* =========================================================
+   4. HEADER (sticky, white, light border)  [EDIT-1 LOGO]
+   ========================================================= */
+.site-header{position:sticky;top:0;z-index:120;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);transition:box-shadow .2s ease}
+.site-header.scrolled{box-shadow:0 4px 18px rgba(16,24,40,.07)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:var(--header-h)}
+.site-logo{display:inline-flex;align-items:center;font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;white-space:nowrap}
+.site-logo::after{content:".";color:var(--accent)}
+.site-logo:hover{color:var(--ink)}
+.site-logo img{max-height:40px;width:auto}
+.main-nav{display:none}
+.nav-list{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-list a{display:block;padding:9px 13px;border-radius:8px;font-size:14.5px;font-weight:500;color:#3D4756}
+.nav-list a:hover{color:var(--accent);background:var(--tint)}
+.header-actions{display:flex;align-items:center;gap:6px}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;color:#3D4756;transition:all .18s ease}
+.icon-btn:hover{background:var(--tint);color:var(--accent)}
+.icon-btn svg{width:21px;height:21px}
+.nav-toggle{display:inline-flex}
+@media (min-width:1024px){.main-nav{display:block}.nav-toggle{display:none}}
+
+/* Mobile drawer */
+.drawer{position:fixed;inset:0;z-index:200;visibility:hidden;pointer-events:none}
+.drawer.open{visibility:visible;pointer-events:auto}
+.drawer-backdrop{position:absolute;inset:0;background:rgba(15,23,42,.45);opacity:0;transition:opacity .25s ease}
+.drawer.open .drawer-backdrop{opacity:1}
+.drawer-panel{position:absolute;top:0;left:0;bottom:0;width:min(320px,86vw);background:var(--bg);box-shadow:var(--shadow-md);transform:translateX(-100%);transition:transform .25s ease;display:flex;flex-direction:column}
+.drawer.open .drawer-panel{transform:translateX(0)}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line)}
+.drawer-brand{font-size:18px;font-weight:800}
+.drawer-brand::after{content:".";color:var(--accent)}
+.drawer-nav{list-style:none;padding:8px 12px;overflow-y:auto;flex:1}
+.drawer-nav a{display:block;padding:13px 14px;border-radius:10px;font-size:15.5px;font-weight:500;color:#2B3440;border-bottom:1px solid #F1F4F8}
+.drawer-nav a:hover{color:var(--accent);background:var(--tint)}
+.drawer-foot{padding:16px 20px;border-top:1px solid var(--line);display:flex;gap:10px}
+
+/* Search overlay */
+.search-overlay{position:fixed;inset:0;z-index:210;background:rgba(255,255,255,.98);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px;visibility:hidden;opacity:0;transition:opacity .2s ease,visibility .2s ease}
+.search-overlay.open{visibility:visible;opacity:1}
+.search-close{position:absolute;top:22px;right:24px}
+.search-box{width:min(640px,100%);text-align:center}
+.search-form{display:flex;gap:10px;margin-top:26px}
+.search-form input{flex:1;padding:14px 18px;border:2px solid var(--line);border-radius:12px;font-size:16px;background:#fff;transition:border-color .18s ease}
+.search-form input:focus{outline:none;border-color:var(--accent)}
+.search-hint{margin-top:14px;font-size:13px;color:var(--muted)}
+
+/* =========================================================
+   5. TOP AD STRIP  [EDIT-9 ADS]
+   ========================================================= */
+.header-ad-wrap{padding:14px 0 2px}
+.header-ad-wrap .widget{margin:0 auto;max-width:var(--container)}
+.ad-slot{margin:24px auto;text-align:center}
+.ad-label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#98A2B3;margin-bottom:8px}
+.ad-placeholder{display:flex;align-items:center;justify-content:center;background:var(--bg-alt);border:1.5px dashed #CBD5E1;border-radius:12px;color:#8A97AB;font-size:13px;padding:8px}
+.ad-728x90 .ad-placeholder{width:728px;max-width:100%;height:90px;margin:0 auto}
+.ad-300x250 .ad-placeholder{width:300px;height:250px;margin:0 auto}
+.ad-inread .ad-placeholder{min-height:110px;max-width:728px;margin:0 auto}
+
+/* =========================================================
+   6. PAGE LAYOUT (main + sidebar)
+   ========================================================= */
+.page-body{padding:30px 0 56px}
+.content-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:44px}
+@media (min-width:1024px){
+  .has-sidebar .content-grid{grid-template-columns:minmax(0,1fr) 330px}
+}
+.site-main{min-width:0}
+
+/* =========================================================
+   7. POST GRID & CARDS (3 / 2 / 1 responsive)
+   ========================================================= */
+.listing-head{margin-bottom:30px}
+.post-grid{display:grid;grid-template-columns:1fr;gap:24px}
+@media (min-width:640px){.post-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.post-grid{grid-template-columns:repeat(3,1fr)}.has-sidebar .post-grid{grid-template-columns:repeat(2,1fr)}}
+.card{background:#fff;border:1px solid var(--card-border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:#DCE3EC}
+.card-thumb{position:relative;display:block;overflow:hidden;background:var(--bg-alt)}
+.card-thumb img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .35s ease}
+.card:hover .card-thumb img{transform:scale(1.045)}
+.card-cat{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.94);color:var(--accent);font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:999px;letter-spacing:.02em}
+.card-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.card-meta{font-size:12.5px;color:var(--muted);margin-bottom:9px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card-title{font-size:17.5px;font-weight:700;line-height:1.42;margin:0 0 8px}
+.card-title a{color:var(--ink)}
+.card-title a:hover{color:var(--accent)}
+.card-snippet{font-size:14px;color:var(--muted);line-height:1.65;margin:0 0 16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid #F1F4F8;padding-top:13px}
+.card-author{font-size:12.5px;color:var(--muted);font-weight:500}
+.card-more{font-size:13px;font-weight:700;color:var(--accent)}
+.card-more:hover{color:var(--accent-dark)}
+
+/* Hero card (first post on the homepage) */
+.hero-card{grid-column:1/-1;flex-direction:column;margin-bottom:6px}
+@media (min-width:768px){.hero-card{flex-direction:row}.hero-card .hero-thumb{width:56%;flex:none}.hero-card .hero-body{padding:32px 34px}}
+.hero-thumb{position:relative;display:block;overflow:hidden;background:var(--bg-alt)}
+.hero-thumb img{width:100%;height:100%;aspect-ratio:16/9;object-fit:cover}
+@media (min-width:768px){.hero-thumb img{aspect-ratio:auto;min-height:100%}}
+.hero-body{padding:24px 22px;display:flex;flex-direction:column;justify-content:center}
+.hero-cat{position:absolute;top:14px;left:14px;background:var(--accent);color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px}
+.hero-title{font-size:clamp(22px,3.4vw,32px);font-weight:800;line-height:1.25;margin:12px 0 10px}
+.hero-title a{color:var(--ink)}
+.hero-title a:hover{color:var(--accent)}
+.hero-snippet{font-size:15px;color:var(--muted);line-height:1.7;margin:0 0 18px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.hero-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+/* Pagination */
+.pagination{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:40px;flex-wrap:wrap}
+
+/* No results */
+.no-results{background:#fff;border:1px solid var(--card-border);border-radius:var(--radius);box-shadow:var(--shadow-sm);text-align:center;padding:56px 24px}
+.no-results-emoji{font-size:40px;margin-bottom:12px}
+.no-results h3{font-size:20px;font-weight:800}
+.no-results p{color:var(--muted);font-size:14.5px}
+.no-results .search-form{max-width:420px;margin:18px auto 0}
+
+/* =========================================================
+   8. BREADCRUMB
+   ========================================================= */
+.breadcrumb{margin-bottom:20px}
+.breadcrumb-list{list-style:none;display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:13px}
+.breadcrumb-list li{display:flex;align-items:center;gap:6px;color:var(--muted);max-width:100%}
+.breadcrumb-list li:not(:last-child)::after{content:"›";color:#AAB4C2;margin-left:2px}
+.breadcrumb-list a{color:var(--muted);font-weight:500}
+.breadcrumb-list a:hover{color:var(--accent)}
+.crumb-current{font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:260px}
+
+/* =========================================================
+   9. SINGLE POST
+   ========================================================= */
+.post{background:#fff}
+.post-labels{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.post-title{font-size:clamp(25px,4vw,38px);font-weight:800;line-height:1.22;margin:0 0 14px;letter-spacing:-.02em}
+.post-meta{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:13.5px;color:var(--muted);margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.post-byline{font-weight:500}
+.post-author{font-weight:700;color:var(--ink)}
+.meta-dot{color:#C3CBD6}
+.post-comments-link{color:var(--muted);font-weight:600}
+.post-comments-link:hover{color:var(--accent)}
+.post-readtime:empty{display:none}
+.post-featured{margin:0 0 28px}
+.post-featured img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--card-border);box-shadow:var(--shadow-sm)}
+
+/* Table of contents (auto, filled by JS) */
+.toc-box{background:var(--bg-alt);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 28px}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.toc-title{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);display:flex;align-items:center;gap:8px}
+.toc-title::before{content:"";width:16px;height:16px;flex:none;background:var(--accent);-webkit-mask:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cline x1='8' y1='6' x2='20' y2='6'/%3E%3Cline x1='8' y1='12' x2='20' y2='12'/%3E%3Cline x1='8' y1='18' x2='20' y2='18'/%3E%3Ccircle cx='4' cy='6' r='1'/%3E%3Ccircle cx='4' cy='12' r='1'/%3E%3Ccircle cx='4' cy='18' r='1'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cline x1='8' y1='6' x2='20' y2='6'/%3E%3Cline x1='8' y1='12' x2='20' y2='12'/%3E%3Cline x1='8' y1='18' x2='20' y2='18'/%3E%3Ccircle cx='4' cy='6' r='1'/%3E%3Ccircle cx='4' cy='12' r='1'/%3E%3Ccircle cx='4' cy='18' r='1'/%3E%3C/svg%3E") center/contain no-repeat}
+.toc-toggle{font-size:12.5px;font-weight:700;color:var(--accent);padding:4px 10px;border-radius:8px;background:#fff;border:1px solid var(--line)}
+.toc-list{margin:12px 0 0;padding-left:0;list-style:none;font-size:14px}
+.toc-list li{margin:2px 0}
+.toc-list a{color:#3D4756;display:block;padding:5px 10px;border-radius:8px}
+.toc-list a:hover{color:var(--accent);background:#fff}
+.toc-list .toc-h3{margin-left:18px;font-size:13.5px}
+.toc-box.collapsed .toc-list{display:none}
+
+/* Post body typography */
+.post-body{font-size:17px;line-height:1.85;color:#2B3440;word-wrap:break-word}
+.post-body p{margin:0 0 1.35em}
+.post-body h2{font-size:25px;font-weight:800;margin:1.7em 0 .6em;scroll-margin-top:calc(var(--header-h) + 20px)}
+.post-body h3{font-size:20px;font-weight:700;margin:1.6em 0 .55em;scroll-margin-top:calc(var(--header-h) + 20px)}
+.post-body h4{font-size:17px;font-weight:700;margin:1.5em 0 .5em}
+.post-body a{text-decoration:underline;text-underline-offset:3px}
+.post-body img{border-radius:12px;margin:.4em 0}
+.post-body .separator{margin:1.6em 0}
+.post-body blockquote{margin:1.8em 0;padding:18px 24px;background:var(--tint);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;color:#33415C;font-size:16px}
+.post-body blockquote p:last-child{margin-bottom:0}
+.post-body ul,.post-body ol{margin:1.2em 0 1.2em 1.4em}
+.post-body li{margin:.4em 0}
+.post-body pre{background:#0F172A;color:#E2E8F0;padding:18px 20px;border-radius:12px;overflow-x:auto;font-size:14px;line-height:1.6}
+.post-body code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;background:#F1F5F9;color:#B42318;padding:2px 7px;border-radius:6px}
+.post-body pre code{background:none;color:inherit;padding:0}
+.post-body table{width:100%;border-collapse:collapse;margin:1.6em 0;font-size:15px;display:block;overflow-x:auto}
+.post-body th,.post-body td{border:1px solid var(--line);padding:10px 14px;text-align:left}
+.post-body th{background:var(--bg-alt);font-weight:700}
+.post-body iframe{max-width:100%;border-radius:12px}
+.post-body hr{border:0;border-top:1px solid var(--line);margin:2.4em 0}
+
+/* Share buttons */
+.post-share{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:34px 0 26px;padding:18px 20px;background:var(--bg-alt);border:1px solid var(--line);border-radius:12px}
+.share-label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ink)}
+.share-buttons{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.share-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid var(--line);color:#4B5565;position:relative;transition:all .18s ease}
+.share-btn svg{width:17px;height:17px}
+.share-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-2px)}
+.share-btn .share-tip{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:11.5px;font-weight:600;padding:5px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s ease}
+.share-btn.copied .share-tip{opacity:1}
+
+/* Tags */
+.post-tags{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:34px;font-size:13px}
+.tags-label{font-weight:700;color:var(--muted)}
+.tag{display:inline-block;padding:5px 13px;background:#fff;border:1px solid var(--line);border-radius:999px;color:#3D4756;font-weight:500}
+.tag:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Author box  [EDIT-4 AUTHOR] */
+.author-box{display:flex;gap:22px;background:#fff;border:1px solid var(--card-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:26px;margin-bottom:38px}
+.author-avatar{width:88px;height:88px;border-radius:50%;flex:none;object-fit:cover;border:3px solid var(--tint)}
+.author-name{font-size:18px;font-weight:800;margin:0 0 2px}
+.author-role{font-size:12.5px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px}
+.author-bio{font-size:14.5px;color:var(--muted);line-height:1.7;margin:0 0 14px}
+.author-social{display:flex;gap:8px}
+.author-social a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);color:#4B5565;transition:all .18s ease}
+.author-social a:hover{border-color:var(--accent);color:var(--accent);background:var(--tint)}
+.author-social svg{width:16px;height:16px}
+
+/* Related posts (filled by JS) */
+.related-wrap{margin-bottom:38px}
+.related-grid{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:600px){.related-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.has-sidebar .related-grid{grid-template-columns:repeat(3,1fr)}.has-sidebar .related-grid .card-snippet{display:none}}
+
+/* =========================================================
+   10. COMMENTS (Blogger native, threaded + flat)
+   ========================================================= */
+.comments-wrap{background:#fff;border:1px solid var(--card-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:8px 26px 26px;margin-bottom:10px}
+@media (max-width:640px){.comments-wrap{padding:6px 16px 18px}}
+.comments-title{font-size:19px;font-weight:800;padding:18px 0 6px;display:flex;align-items:center;gap:10px}
+.comments-title::before{content:"";width:5px;height:22px;border-radius:3px;background:var(--accent)}
+.no-new-comments{background:var(--bg-alt);border:1px solid var(--line);border-radius:10px;padding:14px 18px;color:var(--muted);font-size:14.5px}
+.comments .comment-thread ol{list-style:none;margin:0;padding:0}
+.comments .comment-thread ol ol{margin-left:22px;padding-left:14px;border-left:2px solid #EEF1F6}
+.comments .comment{display:flex;gap:13px;padding:18px 0;border-bottom:1px solid #F1F4F8;list-style:none}
+.comments .comment:last-child{border-bottom:0}
+.avatar-image-container{width:42px;height:42px;border-radius:50%;overflow:hidden;flex:none;background:var(--bg-alt)}
+.avatar-image-container img{width:100%;height:100%;object-fit:cover}
+.comment-block{flex:1;min-width:0}
+.comment-header{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+.comment-header .user,.comment-author{font-weight:700;font-size:14.5px;color:var(--ink)}
+.comment-header .user a{color:var(--ink)}
+.datetime,.comment-timestamp{font-size:12.5px;color:var(--muted)}
+.comment-timestamp a{color:var(--muted)}
+.comment-timestamp a:hover{color:var(--accent)}
+.comment-content,.comment-body{font-size:15px;color:#2B3440;line-height:1.75}
+.comment-body.deleted{font-style:italic;color:#98A2B2}
+.comment-actions{margin-top:6px;font-size:13px}
+.comment-actions a,.continue a{color:var(--accent);font-weight:600;margin-right:12px}
+.comment-actions a:hover,.continue a:hover{color:var(--accent-dark)}
+.loadmore a{display:inline-block;margin-top:14px;font-weight:700;font-size:14px;color:var(--accent)}
+.paging-control-container{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:14px 0;font-size:13.5px}
+.comment-range-text{color:var(--muted)}
+.paging-control-container a{color:var(--accent);font-weight:600}
+.comment-form{margin-top:22px}
+.comment-form h4{font-size:16px;font-weight:800;margin-bottom:6px}
+.comment-form p{font-size:13.5px;color:var(--muted)}
+#comment-editor{border:1px solid var(--line);border-radius:12px;background:#fff;margin-top:8px}
+#comment-popup{position:fixed;top:50%;left:50%;width:100px;height:20px;margin:-10px 0 0 -50px;z-index:9999}
+
+/* =========================================================
+   11. SIDEBAR WIDGETS
+   ========================================================= */
+.site-sidebar{min-width:0}
+.sidebar .widget{background:#fff;border:1px solid var(--card-border);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:22px;margin-bottom:22px}
+.widget-title{font-size:16px;font-weight:800;margin:0 0 16px;padding-bottom:12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+.widget-title::before{content:"";width:4px;height:18px;border-radius:2px;background:var(--accent)}
+/* About widget */
+.rg-about{text-align:center}
+.rg-about-avatar{width:86px;height:86px;border-radius:50%;margin:4px auto 14px;display:block;object-fit:cover;border:3px solid var(--tint)}
+.rg-about-name{font-size:17px;font-weight:800;margin:0 0 4px}
+.rg-about-bio{font-size:13.5px;color:var(--muted);line-height:1.7;margin:0 0 14px}
+.rg-social{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.rg-social a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);color:#4B5565;transition:all .18s ease}
+.rg-social a:hover{border-color:var(--accent);color:var(--accent);background:var(--tint)}
+.rg-social svg{width:16px;height:16px}
+/* Popular posts */
+.pp-list{list-style:none;margin:0}
+.pp-item{display:flex;gap:13px;align-items:flex-start;padding:11px 0;border-bottom:1px solid #F1F4F8}
+.pp-item:last-child{border-bottom:0;padding-bottom:2px}
+.pp-item:first-child{padding-top:2px}
+.pp-thumb{flex:none;width:64px;height:64px;border-radius:10px;overflow:hidden;background:var(--bg-alt)}
+.pp-thumb img{width:100%;height:100%;object-fit:cover}
+.pp-title{display:block;font-size:14px;font-weight:600;line-height:1.5;color:var(--ink);margin-bottom:3px}
+.pp-title:hover{color:var(--accent)}
+.pp-date{font-size:12px;color:var(--muted)}
+/* Labels (categories) */
+.label-list{display:flex;flex-wrap:wrap;gap:8px}
+.label-item{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;background:var(--bg-alt);border:1px solid transparent;border-radius:999px;font-size:13px;font-weight:600;color:#3D4756;transition:all .18s ease}
+.label-item:hover{background:var(--tint);border-color:var(--accent);color:var(--accent)}
+.label-count{background:#fff;border-radius:999px;font-size:11px;font-weight:700;color:var(--muted);padding:1px 8px;min-width:22px;text-align:center}
+/* Recent posts (filled by JS) */
+.rg-recent-list{list-style:none;margin:0}
+.rg-recent-item{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #F1F4F8}
+.rg-recent-item:last-child{border-bottom:0}
+.rg-recent-item img{width:54px;height:54px;border-radius:10px;object-fit:cover;flex:none;background:var(--bg-alt)}
+.rg-recent-item .pp-title{-webkit-line-clamp:2;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}
+/* Newsletter widget */
+.rg-newsletter p{font-size:13.5px;color:var(--muted);margin:0 0 14px}
+.rg-newsletter-form{display:flex;flex-direction:column;gap:10px}
+.rg-newsletter-form input{padding:11px 14px;border:1.5px solid var(--line);border-radius:10px;font-size:14px;background:#fff;width:100%}
+.rg-newsletter-form input:focus{outline:none;border-color:var(--accent)}
+.rg-newsletter-form .btn{width:100%}
+.rg-newsletter-note{font-size:11.5px;color:#98A2B3;margin:10px 0 0;text-align:center}
+
+/* =========================================================
+   12. HOMEPAGE CATEGORY SECTIONS (filled by JS)
+   ========================================================= */
+.home-cats{background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0 60px}
+.home-cats[hidden]{display:none}
+.cat-section{margin-bottom:44px}
+.cat-section:last-child{margin-bottom:0}
+.cat-section .section-title{font-size:19px}
+.cat-grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media (min-width:640px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.cat-grid{grid-template-columns:repeat(4,1fr)}}
+
+/* Newsletter strip */
+.home-newsletter{padding:60px 0}
+.nl-card{background:var(--tint);border:1px solid #DCE7FF;border-radius:22px;padding:44px 26px;text-align:center;max-width:760px;margin:0 auto}
+.nl-title{font-size:clamp(21px,3vw,27px);font-weight:800;margin:0 0 8px;justify-content:center}
+.nl-title::before{display:none}
+.nl-text{color:#3D4E6B;font-size:15px;margin:0 auto 22px;max-width:520px}
+.nl-form{display:flex;gap:10px;max-width:460px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.nl-form input{flex:1;min-width:220px;padding:13px 18px;border:1.5px solid #CBDCFF;border-radius:12px;font-size:15px;background:#fff}
+.nl-form input:focus{outline:none;border-color:var(--accent)}
+.nl-note{font-size:12px;color:#7A8AA6;margin:14px 0 0}
+
+/* =========================================================
+   13. FOOTER  [EDIT-2 MENU] [EDIT-5 SOCIAL]
+   ========================================================= */
+.site-footer{background:var(--bg-alt);border-top:1px solid var(--line);padding:52px 0 0;margin-top:20px}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:36px;padding-bottom:44px}
+@media (min-width:640px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media (min-width:1024px){.footer-grid{grid-template-columns:1.35fr 1fr 1fr 1fr}}
+.footer-logo{font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.footer-logo::after{content:".";color:var(--accent)}
+.footer-logo:hover{color:var(--ink)}
+.footer-bio{font-size:14px;color:var(--muted);line-height:1.75;margin:14px 0 18px;max-width:300px}
+.footer-title{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;margin:0 0 16px;color:var(--ink)}
+.footer-links{list-style:none}
+.footer-links li{margin:9px 0}
+.footer-links a{font-size:14.5px;color:var(--muted);font-weight:500}
+.footer-links a:hover{color:var(--accent)}
+.footer-social{display:flex;gap:9px;flex-wrap:wrap}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:#fff;border:1px solid var(--line);color:#4B5565;transition:all .18s ease}
+.footer-social a:hover{border-color:var(--accent);color:var(--accent);background:var(--tint);transform:translateY(-2px)}
+.footer-social svg{width:17px;height:17px}
+.footer-contact{font-size:14.5px;color:var(--muted);line-height:1.9}
+.footer-contact a{color:var(--muted);font-weight:500}
+.footer-contact a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--line);padding:18px 0;background:#F2F4F7}
+.footer-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.footer-bottom-inner p{margin:0}
+.copyright b{color:var(--ink)}
+.powered-by a{color:var(--muted);font-weight:600}
+.powered-by a:hover{color:var(--accent)}
+
+/* =========================================================
+   14. 404 PAGE
+   ========================================================= */
+.error-404{text-align:center;padding:60px 10px 30px}
+.error-code{font-size:clamp(76px,16vw,130px);font-weight:800;line-height:1;color:var(--accent);margin:0;letter-spacing:-.04em}
+.error-title{font-size:clamp(22px,4vw,30px);font-weight:800;margin:10px 0 10px}
+.error-text{color:var(--muted);font-size:15.5px;max-width:460px;margin:0 auto 26px}
+.error-404 .search-form{max-width:440px;margin:0 auto 26px}
+.error-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* =========================================================
+   15. BACK TO TOP & MISC
+   ========================================================= */
+.back-top{position:fixed;right:18px;bottom:18px;z-index:110;width:46px;height:46px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(37,99,235,.35);opacity:0;visibility:hidden;transform:translateY(12px);transition:all .25s ease}
+.back-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+.back-top:hover{background:var(--accent-dark);color:#fff}
+.back-top svg{width:20px;height:20px}
+body.drawer-open{overflow:hidden}
+</style>
+<style>/* Extra styles for the local preview only. Nothing here needs to go into
+   Blogger - every tag used inside the article body is already styled by
+   the theme (.post-body h2/h3/p/ul/ol/table/blockquote/code/strong). */
+.copy-note{background:#EFF4FF;border:1px dashed #2563EB;border-radius:12px;padding:14px 18px;margin:0 0 26px;font-size:14px;color:#33415C}
+.copy-note strong{color:#1D4ED8}
+.preview-bar{position:sticky;top:0;z-index:300;display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#1A1A1A;color:#fff;padding:10px 18px;font-size:13px}
+.preview-bar a{color:#93B4FF;font-weight:600;text-decoration:none}
+.preview-bar a:hover{text-decoration:underline}
+.preview-bar .pb-label{font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:11px;color:#9AA5B4}
+.preview-bar .pb-file{font-family:ui-monospace,Menlo,Consolas,monospace;color:#7DD3A0}
+</style>
+</head>
+<body>
+<div class='preview-bar'>
+  <span class='pb-label'>Preview</span>
+  <span class='pb-file'>05-how-upi-makes-money.html</span>
+  <a href='../blogpage.html'>&larr; Back to all 10 blogs</a>
+</div>
+<div class='page-body'>
+  <div class='container'>
+    <div class='content-grid' style='grid-template-columns:minmax(0,1fr)'>
+      <main class='site-main'>
+        <article class='post'>
+          <nav aria-label='Breadcrumb' class='breadcrumb'>
+            <ol class='breadcrumb-list'>
+              <li><a href='../blogpage.html'>Home</a></li>
+              <li><a href='#'>Fintech</a></li>
+              <li aria-current='page' class='crumb-current'>How UPI Actually Makes Money: The Economics Behind India&#x27;s Free Payments</li>
+            </ol>
+          </nav>
+          <div class='post-labels'><a class='tag' href='#'>#Fintech</a><a class='tag' href='#'>#Business</a></div>
+          <h1 class='post-title'>How UPI Actually Makes Money: The Economics Behind India&#x27;s Free Payments</h1>
+          <div class='post-meta'>
+            <span class='post-byline'>Written by <span class='post-author'>Roushan Gupta</span></span>
+            <span class='meta-dot'>&#8226;</span>
+            <span>8 min read</span>
+            <span class='meta-dot'>&#8226;</span>
+            <span>1,752 words</span>
+          </div>
+          <div class='toc-box'>
+            <div class='toc-head'><span class='toc-title'>Table of Contents</span>
+              <span class='toc-toggle' style='pointer-events:none'>auto-generated by your theme</span></div>
+            <ol class='toc-list' id='toc-list'></ol>
+          </div>
+          <div class='post-body' id='post-body'>
+<p>On 25 August 2026, the Unified Payments Interface turned ten. In the financial year 2025–26 it carried 241.62 billion transactions worth about ₹314 trillion — an increase of more than 4,000 times in value since its first year. In July 2026 alone, UPI processed a record 23.66 billion transactions worth nearly ₹30 lakh crore, according to data from the National Payments Corporation of India.</p>
+
+<p>And the customer paid nothing for any of it.</p>
+
+<p>This is the part that confuses people outside India: how does a payments system process over 760 million transactions a day for free? A credit card swipe charges a merchant 1.5% to 3%. A UPI scan charges most merchants zero. Both move money. Only one of them charges for it.</p>
+
+<p>Here is the actual economics, and why the two systems were never competing in the first place.</p>
+
+<h2>UPI vs Credit Cards: At a Glance</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>UPI</th>
+      <th>Credit Cards</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Whose money moves</td>
+      <td>Your own money, from your bank account</td>
+      <td>The bank's money, lent to you for a billing cycle</td>
+    </tr>
+    <tr>
+      <td>Merchant fee (typical)</td>
+      <td>Zero on person-to-merchant payments</td>
+      <td>Roughly 1.5% to 3% (MDR)</td>
+    </tr>
+    <tr>
+      <td>Customer fee</td>
+      <td>None</td>
+      <td>Annual fee, late fee, 36–42% annualised interest on unpaid balances</td>
+    </tr>
+    <tr>
+      <td>Who earns</td>
+      <td>Nobody directly on the transaction; banks earn on float, cross-sell and volume</td>
+      <td>Issuing bank, network and acquirer split the MDR, plus interest income</td>
+    </tr>
+    <tr>
+      <td>Transaction size sweet spot</td>
+      <td>₹20 to ₹5,000</td>
+      <td>₹2,000 and above</td>
+    </tr>
+    <tr>
+      <td>Scale in India (2025–26)</td>
+      <td>241.62 billion transactions, about ₹314 trillion</td>
+      <td>A small fraction of that volume, but far higher value per transaction</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Key Takeaways</h2>
+
+<ul>
+  <li>Credit cards are a lending business disguised as a payments business. Most of the profit comes from interest and fees, not from the swipe.</li>
+  <li>UPI is a public-utility rail. It was designed for financial inclusion, and it deliberately does not try to earn on each transaction.</li>
+  <li>UPI's monthly volume crossed 23 billion transactions in 2026 — roughly 760 million transactions a day — at an average value around ₹12,000 to ₹13,000 per transaction.</li>
+  <li>Because UPI transactions are so small and so free, no private company could have built the economics on merchant fees alone. The scale is the strategy.</li>
+  <li>UPI is not killing credit cards. RuPay credit cards linked to UPI now carry around ₹10,000 crore of credit transactions a month — the two systems are merging.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Editor's Note:</strong> Volume and value figures come from NPCI's published monthly data as reported in 2026. Fee structures are set by the RBI and the NPCI and have changed several times — always check the latest circular before relying on a specific MDR number.</p>
+</blockquote>
+
+<h2>First, a Correction: These Are Not the Same Product</h2>
+
+<p>Comparing UPI to a credit card is like comparing a road to a car loan. One is infrastructure for moving money you already have. The other is a credit facility that happens to have a payment mechanism attached.</p>
+
+<p>Understanding this is the key to the whole economics question. When you tap a credit card, three things happen at once:</p>
+
+<ol>
+  <li>The merchant receives money (minus a fee).</li>
+  <li>The bank lends you that money for up to roughly 45–50 days.</li>
+  <li>If you do not repay in full, the bank earns interest at an annualised rate that typically lands between 36% and 42%.</li>
+</ol>
+
+<p>When you scan a UPI QR code, only the first thing happens. There is no loan, so there is no interest to earn.</p>
+
+<h2>Where Credit Card Money Actually Comes From</h2>
+
+<h3>1. The merchant discount rate</h3>
+
+<p>When a customer swipes, the merchant typically pays around 1.5% to 3% of the bill. That is split between the issuing bank (which gets the largest share), the card network, and the acquiring bank that installed the machine. On a ₹10,000 purchase, roughly ₹200 disappears before the shopkeeper sees the money.</p>
+
+<h3>2. Interest on revolving balances</h3>
+
+<p>This is the real engine. A customer who pays only the minimum due can end up paying 36–42% annualised. A single revolving customer is often worth more to a bank than several hundred merchants' swipe fees.</p>
+
+<h3>3. Fees</h3>
+
+<p>Annual fees, joining fees, late payment fees, cash withdrawal fees, foreign currency markup, EMI conversion charges. Individually small, collectively enormous.</p>
+
+<h3>4. Rewards as a marketing budget</h3>
+
+<p>Cashback and air miles are not generosity. They are a customer acquisition cost that also increases how often people use the card — and every use either earns MDR or pushes someone closer to revolving.</p>
+
+<h2>Where UPI Money Comes From (Or Doesn't)</h2>
+
+<h3>The merchant pays nothing</h3>
+
+<p>Person-to-merchant UPI payments carry zero MDR. This was a deliberate policy choice, not an oversight — the goal was to make digital acceptance possible for a tea stall, not just for a shopping mall.</p>
+
+<h3>So who earns?</h3>
+
+<p>Several parties, indirectly:</p>
+
+<ul>
+  <li><strong>Banks</strong> earn on the float, on the savings accounts they now hold, and on cross-selling. A customer who opens an account for UPI is a customer who can later be sold a loan, insurance or a credit card.</li>
+  <li><strong>Payment apps</strong> earn on lending layered on top, on merchant subscriptions, on bill payments, insurance distribution and advertising inside the app. The payments themselves are the customer acquisition channel.</li>
+  <li><strong>Merchants</strong> earn by accepting more customers, selling faster, and avoiding cash handling — which is why they accept zero fees willingly.</li>
+  <li><strong>The economy</strong> earns through formalisation. Every digital transaction creates a record, and records create creditworthiness.</li>
+</ul>
+
+<h3>Where the government stepped in</h3>
+
+<p>UPI's zero-fee model put real financial pressure on the banks that operate it, since they bear the infrastructure cost without per-transaction revenue. The government has periodically provided subsidies to offset transaction-processing costs for smaller banks and operators, recognising that the benefit is systemic rather than commercial. This is exactly what a public utility looks like: costs socialised, benefits socialised.</p>
+
+<h2>The Scale Numbers, and Why They Matter</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Period</th>
+      <th>Transactions</th>
+      <th>Value</th>
+      <th>Context</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>First year of UPI</td>
+      <td>A few million</td>
+      <td>Minimal</td>
+      <td>Launched August 2016</td>
+    </tr>
+    <tr>
+      <td>FY 2025–26</td>
+      <td>241.62 billion</td>
+      <td>About ₹314 trillion</td>
+      <td>Over 4,000-fold growth in value since inception</td>
+    </tr>
+    <tr>
+      <td>July 2026</td>
+      <td>23.66 billion</td>
+      <td>About ₹30 lakh crore</td>
+      <td>Record month; roughly 763 million transactions a day</td>
+    </tr>
+    <tr>
+      <td>June 2026</td>
+      <td>22.72 billion</td>
+      <td>₹28.92 lakh crore</td>
+      <td>Lower only because June has 30 days</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Do the arithmetic on July 2026: ₹30 lakh crore across 23.66 billion transactions gives an average transaction value of roughly ₹12,600 — and that average is pulled up by large person-to-person transfers. The everyday tea-stall payment is often under ₹100.</p>
+
+<p>Now apply a 1.5% card-style fee to a ₹30 transaction. You get 45 paise. No private company can run a nationwide real-time settlement network on 45 paise per transaction. The only way to make it work is to remove the fee and monetise something else — which is precisely the design choice India made.</p>
+
+<h2>Why Credit Cards Still Win Where They Win</h2>
+
+<p>UPI's dominance has not erased credit cards, because credit cards solve a different problem:</p>
+
+<ul>
+  <li><strong>Credit.</strong> A ₹60,000 phone purchase on EMI is a loan, not a payment. UPI cannot do that from a savings account.</li>
+  <li><strong>Large tickets and travel.</strong> Hotels, airlines and international merchants prefer cards for chargeback protection and pre-authorisation.</li>
+  <li><strong>Rewards economics.</strong> For someone who spends ₹1 lakh a month and pays in full, a good card genuinely returns value that UPI does not.</li>
+  <li><strong>Credit building.</strong> A well-used card builds a credit history, which lowers the cost of a future home loan.</li>
+</ul>
+
+<h2>The Convergence Nobody Predicted</h2>
+
+<p>The most interesting development is not competition but merger. RuPay credit cards can now be linked directly to UPI, so a customer can scan any UPI QR code and pay from their credit line. According to NPCI's leadership, credit transactions through this route run around ₹10,000 crore a month, with credit lines on UPI accounting for a small but growing slice.</p>
+
+<p>This changes the economics fundamentally:</p>
+
+<ol>
+  <li>The merchant still pays nothing on the UPI leg.</li>
+  <li>The bank now earns interest on the balance, because it is a credit transaction.</li>
+  <li>Credit cards get UPI's distribution — hundreds of millions of QR codes instead of a few million card machines.</li>
+</ol>
+
+<p>In other words, India did not defeat credit cards. It gave them a rail they could never have built themselves.</p>
+
+<h2>What This Means for a Merchant in 2026</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Your situation</th>
+      <th>Best primary rail</th>
+      <th>Why</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Small shop, average bill under ₹500</td>
+      <td>UPI QR</td>
+      <td>Zero fees, instant settlement, no machine needed</td>
+    </tr>
+    <tr>
+      <td>Restaurant or retail, average bill ₹1,000–5,000</td>
+      <td>UPI primary, card as backup</td>
+      <td>Fees on cards eat 1.5–3% of thin margins</td>
+    </tr>
+    <tr>
+      <td>Jewellery, electronics, travel</td>
+      <td>Card and EMI</td>
+      <td>Customers need credit; you need the sale</td>
+    </tr>
+    <tr>
+      <td>Online store</td>
+      <td>UPI first, cards, then net banking</td>
+      <td>UPI has the lowest failure rate at checkout</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is UPI really free for merchants?</h3>
+<p>For person-to-merchant payments, yes — there is no MDR. Some specific categories, wallet-to-bank transfers and certain credit-line transactions carry charges. The rules are set by NPCI and the RBI and have been revised several times.</p>
+
+<h3>Who owns UPI?</h3>
+<p>UPI is owned and operated by the National Payments Corporation of India, an umbrella organisation promoted by the Reserve Bank of India and the Indian Banks' Association. It is not a private company.</p>
+
+<h3>Do banks lose money on UPI?</h3>
+<p>On the transaction alone, they earn nothing and bear the processing cost — which is why the government has provided periodic subsidies. They recover value through deposits, cross-selling and the broader formalisation of the economy.</p>
+
+<h3>Why can't other countries copy UPI?</h3>
+<p>They are trying, and several have. But copying requires three things at once: a national identity and mobile infrastructure, banks willing to share a common rail, and a regulator able to force interoperability. India had all three.</p>
+
+<h3>Will UPI start charging fees?</h3>
+<p>Person-to-person UPI has always been free. Person-to-merchant has zero MDR as a policy choice. Any future change would be a political and economic decision, not a technical one — and it would be fiercely resisted by merchants.</p>
+
+<h2>Final Word</h2>
+
+<p>Ten years after launch, UPI has proved something that most payment economics textbooks said was impossible: a real-time national payments network can run at enormous scale with no per-transaction fee, because the returns are systemic rather than commercial.</p>
+
+<p>Credit cards still earn more per transaction by a factor of hundreds. UPI still moves more money than anything else in the country. Both models work — they just answer different questions. One asks, "How do I monetise this payment?" The other asks, "How do I make payments so cheap that everyone uses them?"</p>
+
+<p>India chose the second question, and got a payments revolution instead of a payments business.</p>
+
+<p><em>Follow the blog for more explainers on fintech, business and the Indian economy.</em></p>
+          </div>
+        </article>
+      </main>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var pb=document.getElementById('post-body'), list=document.getElementById('toc-list');
+  var heads=pb.querySelectorAll('h2, h3');
+  heads.forEach(function(h,i){
+    if(!h.id) h.id='section-'+(i+1);
+    var li=document.createElement('li');
+    if(h.tagName==='H3') li.className='toc-h3';
+    var a=document.createElement('a'); a.href='#'+h.id; a.textContent=h.textContent.trim();
+    li.appendChild(a); list.appendChild(li);
+  });
+})();
+</script>
+</body>
+</html>
