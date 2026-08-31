@@ -4,10 +4,13 @@
   <head>
     <meta content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1' name='viewport'/>
     <title><data:view.title.escaped/></title>
+    <meta content='Roushan Gupta' name='author'/>
+    <meta content='Startups, Business, Technology, AI, Marketing, Funding, Entrepreneurship' name='keywords'/>
     <b:include data='blog' name='all-head-content'/>
   <b:if cond='data:view.isHomepage'>
  <script type='application/ld+json'>{&quot;@context&quot;:&quot;http://schema.org&quot;,&quot;@type&quot;:&quot;WebSite&quot;,&quot;name&quot;:&quot;<data:view.title.escaped/>&quot;,&quot;url&quot;:&quot;<data:view.url.canonical/>&quot;,&quot;potentialAction&quot;:{&quot;@type&quot;:&quot;SearchAction&quot;,&quot;target&quot;:&quot;<data:view.url.canonical/>search?q={search_term_string}&quot;,&quot;query-input&quot;:&quot;required name=search_term_string&quot;}}</script>
     </b:if>
+    <script type='application/ld+json'>{&quot;@context&quot;:&quot;https://schema.org&quot;,&quot;@type&quot;:&quot;Person&quot;,&quot;name&quot;:&quot;Roushan Gupta&quot;,&quot;url&quot;:&quot;<data:blog.homepageUrl.canonical.jsonEscaped/>&quot;,&quot;jobTitle&quot;:&quot;Founder &amp; Writer&quot;,&quot;description&quot;:&quot;Roushan Gupta writes on startups, business, technology, AI and marketing.&quot;}</script>
     <!-- Google Fonts -->
     <link href='//fonts.googleapis.com/css?family=Nunito:400,500,600,700,800.900|Poppins:400,400i,500,500i,700,700i|Indie+Flower' media='all' rel='stylesheet' type='text/css'/>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' rel='stylesheet'/>
@@ -16,11 +19,12 @@
 <b:skin version='1.0.0'><![CDATA[/* 
 -----------------------------------------------
 Blogger Template Style
-Name:        Dizee
-License:     Free Version
-Version:     1.0
-Author:      Sora Templates
-Author Url:  https://www.soratemplates.com/
+Name:        Roushan Gupta Blog (Dizee base)
+License:     Personal — Roushan Gupta
+Version:     1.1
+Author:      Roushan Gupta
+Author Url:  /
+Niche:       Startups · Business · Technology · AI · Marketing
 ----------------------------------------------- */
 
 /*
@@ -653,7 +657,7 @@ margin:0
     font-size:11px;
     color:#fff;
     background-color:$(dark.color);
-    text-transform:uppercase;
+    t
     text-align:center;
     font-weight:700;
     cursor:pointer;
@@ -5024,6 +5028,212 @@ float: left;
 #editorial-box {
     clear: both;
 }
+
+/* =========================================================
+   Roushan Gupta — StartupTalky-style blogging extras
+   Keeps Dizee colors, type, and layout. No third-party credit lock.
+   ========================================================= */
+.rg-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: $(body.text.two);
+    margin: 0 0 14px;
+    line-height: 1.6;
+}
+.rg-breadcrumb a {
+    color: $(title.color);
+    font-weight: 500;
+}
+.rg-breadcrumb a:hover {
+    color: $(main.color);
+}
+.rg-breadcrumb .sep {
+    color: #c5c9d3;
+    font-weight: 400;
+}
+.rg-breadcrumb .current {
+    color: $(body.text.color);
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.rg-readtime:before {
+    content: '\f017';
+    font-family: FontAwesome;
+    font-weight: 400;
+    margin: 0 4px 0 0;
+}
+.rg-readtime {
+    display: inline-block;
+    margin: 0 10px 0 0;
+    color: $(body.text.two);
+    font-size: 11px;
+    text-transform: capitalize;
+}
+.rg-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 22px;
+    padding: 0;
+    list-style: none;
+}
+.rg-topics a {
+    display: inline-block;
+    height: 32px;
+    line-height: 30px;
+    padding: 0 14px;
+    border: 1px solid #e6eaf2;
+    border-radius: 20px;
+    background: #fff;
+    color: $(title.color);
+    font-size: 12px;
+    font-weight: 600;
+    transition: all .17s ease;
+}
+.rg-topics a:hover,
+.rg-topics a.is-active {
+    background: $(main.color);
+    border-color: $(main.color);
+    color: #fff;
+}
+.item .rg-topics {
+    display: none;
+}
+.rg-author-box {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    background: #f7f9fd;
+    border: 1px solid #e8eef8;
+    border-radius: 12px;
+    padding: 22px;
+    margin: 10px 0 28px;
+    clear: both;
+}
+.rg-author-avatar {
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: $(main.color);
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+    font-family: Nunito, sans-serif;
+    line-height: 72px;
+    text-align: center;
+}
+.rg-author-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+}
+.rg-author-info h4 {
+    font-size: 16px;
+    color: $(title.color);
+    margin: 0 0 6px;
+}
+.rg-author-info h4 span {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    color: $(main.color);
+    margin: 0 0 4px;
+}
+.rg-author-info p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: $(body.text.color);
+    margin: 0 0 10px;
+}
+.rg-author-social a {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+    background: #fff;
+    color: $(title.color);
+    border: 1px solid #e6eaf2;
+    margin-right: 6px;
+    font-size: 12px;
+    transition: all .17s ease;
+}
+.rg-author-social a:hover {
+    background: $(main.color);
+    border-color: $(main.color);
+    color: #fff;
+}
+.share-links li.telegram a {
+    background-color: #229ed9;
+}
+.share-links li.copy-link a {
+    background-color: $(dark.color);
+}
+.share-links li.copy-link a.copied {
+    background-color: #16a34a;
+}
+.social .telegram a:before {
+    content: '\f2c6';
+}
+.social .copy-link a:before {
+    content: '\f0c5';
+}
+.rg-sitemap h4 {
+    font-size: 16px;
+    margin: 18px 0 8px;
+    color: $(title.color);
+}
+.rg-sitemap ul {
+    padding: 0 0 0 18px;
+    margin: 0 0 12px;
+}
+.rg-sitemap li {
+    list-style: disc;
+    margin: 4px 0;
+}
+.rg-sitemap li a {
+    color: $(title.color);
+}
+.rg-sitemap li a:hover {
+    color: $(main.color);
+}
+.item-post .post-header .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 0;
+}
+.copyright-area #mycontent,
+#footer-copyright .copyright-area a#mycontent {
+    color: $(main.color);
+    font-weight: 600;
+}
+@media (max-width: 680px) {
+    .rg-author-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .rg-breadcrumb .current {
+        white-space: normal;
+    }
+}
+
 ]]></b:skin>
 <style>
 .firstcharacter{
@@ -5582,7 +5792,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
     noThumbnail = "https://4.bp.blogspot.com/-O3EpVMWcoKw/WxY6-6I4--I/AAAAAAAAB2s/KzC0FqUQtkMdw7VzT6oOR_8vbZO6EJc-ACK4BGAYYCw/s1600/nth.png",
     postPerPage = 8,
     commentsSystem = "blogger",
-    disqusShortname = "soratemplates";
+    disqusShortname = "roushangupta";
 //]]>
 </script>
 
@@ -5750,7 +5960,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
           <b:widget-setting name='text-0'>disqusShortname</b:widget-setting>
           <b:widget-setting name='link-2'>8</b:widget-setting>
           <b:widget-setting name='text-3'>postPerPage</b:widget-setting>
-          <b:widget-setting name='link-0'>soratemplates</b:widget-setting>
+          <b:widget-setting name='link-0'>roushangupta</b:widget-setting>
           <b:widget-setting name='text-2'>postPerPage</b:widget-setting>
           <b:widget-setting name='text-4'>postPerPage</b:widget-setting>
         </b:widget-settings>
@@ -5784,7 +5994,7 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
   <div class='wow animate__animated animate__backInDown' id='header-wrap'>
     <div class='container row'>
       <b:section class='header-logo' id='header-logo' maxwidgets='1' name='Header Logo' showaddelement='yes'>
-        <b:widget id='Header1' locked='true' title='Dizee (Header)' type='Header' version='2' visible='true'>
+        <b:widget id='Header1' locked='true' title='Roushan Gupta' type='Header' version='2' visible='true'>
           <b:widget-settings>
             <b:widget-setting name='displayUrl'>https://blogger.googleusercontent.com/img/a/AVvXsEgQaH657TkVdrNDiGLbY6-MT5vaYKYVOzijozpMx2Czh4yRlVS1iIyDsIDPBFsZdGDu1UKW1GWsFpiGacKrnINDiUaYL_-bsFbZ6QniUFCA1z7tcmdWNPqLZN0Sm4K7jESZOpHj01sEQOpfZhxNRyoG_u1iPlA3bm84sFY5o92AIaX2a3tZb-FGALdd2VmJ=s120</b:widget-setting>
             <b:widget-setting name='displayHeight'>38</b:widget-setting>
@@ -5869,33 +6079,31 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
       <b:section class='main-menu' id='main-menu' maxwidgets='1' name='Main Menu' showaddelement='yes'>
          <b:widget id='LinkList74' locked='true' title='Menu Widget' type='LinkList' version='2' visible='true'>
            <b:widget-settings>
-             <b:widget-setting name='text-10'>_Web Documentation</b:widget-setting>
              <b:widget-setting name='sorting'>NONE</b:widget-setting>
-             <b:widget-setting name='link-1'>#</b:widget-setting>
-             <b:widget-setting name='link-2'>#</b:widget-setting>
-             <b:widget-setting name='link-12'>https://www.soratemplates.com/2026/04/dizee-blogger-templates.html</b:widget-setting>
-             <b:widget-setting name='link-0'>/</b:widget-setting>
-             <b:widget-setting name='link-11'>#</b:widget-setting>
-             <b:widget-setting name='link-10'>https://www.sorabloggingtips.com/2026/04/how-to-setup-dizee-blogger-template.html</b:widget-setting>
-             <b:widget-setting name='text-9'>Documentation</b:widget-setting>
-             <b:widget-setting name='link-9'>#</b:widget-setting>
-             <b:widget-setting name='text-8'>_Error Page</b:widget-setting>
-             <b:widget-setting name='link-7'>https://www.sorabloggingtips.com/2017/01/how-to-add-sitemap-widget-in-blogspot-blogs.html</b:widget-setting>
-             <b:widget-setting name='link-8'>https://dizee-soratemplates.blogspot.com/soratemplates</b:widget-setting>
-             <b:widget-setting name='link-5'>#</b:widget-setting>
-             <b:widget-setting name='link-6'>https://dizee-soratemplates.blogspot.com/p/page-markup-and-typography.html</b:widget-setting>
-             <b:widget-setting name='link-3'>#</b:widget-setting>
-             <b:widget-setting name='link-4'>#</b:widget-setting>
-             <b:widget-setting name='text-1'>Features</b:widget-setting>
              <b:widget-setting name='text-0'>Home</b:widget-setting>
-             <b:widget-setting name='text-3'>__DropDown 1</b:widget-setting>
-             <b:widget-setting name='text-2'>_Multi DropDown</b:widget-setting>
-             <b:widget-setting name='text-5'>__DropDown 3</b:widget-setting>
-             <b:widget-setting name='text-4'>__DropDown 2</b:widget-setting>
-             <b:widget-setting name='text-7'>_SiteMap</b:widget-setting>
-             <b:widget-setting name='text-6'>_ShortCodes</b:widget-setting>
-             <b:widget-setting name='text-11'>_Video Documentation</b:widget-setting>
-             <b:widget-setting name='text-12'>Download This Template</b:widget-setting>
+             <b:widget-setting name='link-0'>/</b:widget-setting>
+             <b:widget-setting name='text-1'>News</b:widget-setting>
+             <b:widget-setting name='link-1'>/search/label/News</b:widget-setting>
+             <b:widget-setting name='text-2'>Startups</b:widget-setting>
+             <b:widget-setting name='link-2'>/search/label/Startups</b:widget-setting>
+             <b:widget-setting name='text-3'>_Startup Stories</b:widget-setting>
+             <b:widget-setting name='link-3'>/search/label/Startups</b:widget-setting>
+             <b:widget-setting name='text-4'>_Funding</b:widget-setting>
+             <b:widget-setting name='link-4'>/search/label/Funding</b:widget-setting>
+             <b:widget-setting name='text-5'>Lists</b:widget-setting>
+             <b:widget-setting name='link-5'>/search/label/Lists</b:widget-setting>
+             <b:widget-setting name='text-6'>Learning</b:widget-setting>
+             <b:widget-setting name='link-6'>/search/label/Learning</b:widget-setting>
+             <b:widget-setting name='text-7'>Technology</b:widget-setting>
+             <b:widget-setting name='link-7'>/search/label/Technology</b:widget-setting>
+             <b:widget-setting name='text-8'>_AI</b:widget-setting>
+             <b:widget-setting name='link-8'>/search/label/AI</b:widget-setting>
+             <b:widget-setting name='text-9'>_Marketing</b:widget-setting>
+             <b:widget-setting name='link-9'>/search/label/Marketing</b:widget-setting>
+             <b:widget-setting name='text-10'>About</b:widget-setting>
+             <b:widget-setting name='link-10'>/p/about.html</b:widget-setting>
+             <b:widget-setting name='text-11'>Contact</b:widget-setting>
+             <b:widget-setting name='link-11'>/p/contact.html</b:widget-setting>
            </b:widget-settings>
            <b:includable id='main'>
             <b:include name='content'/>
@@ -5923,12 +6131,12 @@ var monthFormat = ["January", "February", "March", "April", "May", "June", "July
 
   <b:if cond='data:view.isHomepage'> 
    <b:section class='wow animate__animated animate__jackInTheBox' id='intro-author-heading' maxwidgets='2' name='Headline Text 03' showaddelement='no'>
-      <b:widget id='HTML1' locked='true' title='Find out more about what we do' type='HTML' version='2' visible='true'>
+      <b:widget id='HTML1' locked='true' title='Insights on startups, business, technology and AI' type='HTML' version='2' visible='true'>
         <b:widget-settings>
-          <b:widget-setting name='content'><![CDATA[It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.
+          <b:widget-setting name='content'><![CDATA[Roushan Gupta covers startup stories, funding news, business playbooks, technology and AI — written for founders, operators and curious readers.
+Clear explainers, ranked lists and practical takeaways so you can ship better products and make sharper decisions.
  <div class="small-button">
-<a class="button medium" href="#">Learn Methods</a>
+<a class="button medium" href="/search/label/Startups">Explore Stories</a>
 </div>]]></b:widget-setting>
         </b:widget-settings>
         <b:includable id='main'>
@@ -6003,6 +6211,18 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             </b:widget-settings>
             <b:includable id='main' var='this'>
               <b:include name='searchMessage'/>
+              <b:if cond='data:view.isMultipleItems'>
+                <ul class='rg-topics'>
+                  <li><a href='/search/label/News'>News</a></li>
+                  <li><a href='/search/label/Startups'>Startups</a></li>
+                  <li><a href='/search/label/Funding'>Funding</a></li>
+                  <li><a href='/search/label/Lists'>Lists</a></li>
+                  <li><a href='/search/label/Learning'>Learning</a></li>
+                  <li><a href='/search/label/Technology'>Technology</a></li>
+                  <li><a href='/search/label/AI'>AI</a></li>
+                  <li><a href='/search/label/Marketing'>Marketing</a></li>
+                </ul>
+              </b:if>
               <div class='blog-posts hfeed'>
                 <b:class cond='data:view.isMultipleItems' name='index-post-wrap'/>
                 <b:class cond='data:view.isSingleItem' name='item-post-wrap'/>
@@ -6015,8 +6235,25 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
               <b:include cond='data:view.isMultipleItems' name='postPagination'/>
               <b:include name='feedLinks'/>
             </b:includable>
-            <b:includable id='aboutPostAuthor'>
-              <b:comment>Disabled</b:comment>  
+            <b:includable id='aboutPostAuthor' var='post'>
+              <div class='rg-author-box'>
+                <div class='rg-author-avatar'>
+                  <b:if cond='data:post.author.authorPhoto'>
+                    <img expr:alt='data:post.author.name' expr:src='resizeImage(data:post.author.authorPhoto, 80, &quot;1:1&quot;)'/>
+                    <b:else/>
+                    <span>RG</span>
+                  </b:if>
+                </div>
+                <div class='rg-author-info'>
+                  <h4><span>Written by</span> <b:if cond='data:post.author.name'><data:post.author.name/><b:else/>Roushan Gupta</b:if></h4>
+                  <p>Roushan Gupta writes on startups, business, technology, AI and marketing — founder stories, funding news, ranked lists and practical playbooks.</p>
+                  <div class='rg-author-social'>
+                    <a aria-label='Home' expr:href='data:blog.homepageUrl'><i class='fa fa-globe'/></a>
+                    <a aria-label='Twitter' href='https://twitter.com/' rel='noopener' target='_blank'><i class='fa fa-twitter'/></a>
+                    <a aria-label='LinkedIn' href='https://www.linkedin.com/' rel='noopener' target='_blank'><i class='fa fa-linkedin'/></a>
+                  </div>
+                </div>
+              </div>
             </b:includable>
             <b:includable id='addComments'>
               <a expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
@@ -6258,7 +6495,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                 <div class='post-meta'>
 <b:include data='post' name='postAuthor'/>
                   <b:include data='post' name='postTimestamp'/>
-                  
+                  <b:if cond='data:view.isPost'><span class='rg-readtime'>1 min read</span></b:if>
                 </div>
             </b:includable>
             <b:includable id='homePageLink'>
@@ -6354,6 +6591,15 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             </b:includable>
             <b:includable id='postBreadcrumbs' var='post'>
               <!-- Post Breadcrumbs -->
+              <nav class='rg-breadcrumb' aria-label='Breadcrumb'>
+                <a expr:href='data:blog.homepageUrl'><data:messages.home/></a>
+                <span class='sep'>/</span>
+                <b:if cond='data:post.labels'>
+                  <a expr:href='data:post.labels.first.url'><data:post.labels.first.name/></a>
+                  <span class='sep'>/</span>
+                </b:if>
+                <span class='current'><data:post.title/></span>
+              </nav>
               <script type='application/ld+json'>
               {
                 &quot;@context&quot;: &quot;http://schema.org&quot;,
@@ -6433,6 +6679,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
               <div class='post-footer'>
                 <!-- Post Labels and Share Buttons -->
                 <b:include data='post' name='footerBylines'/>
+                <b:include cond='data:view.isPost' name='aboutPostAuthor'/>
                 <b:include data='post' name='postRelated'/>
               </div>
             </b:includable>
@@ -6543,12 +6790,14 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                   <ul class='share-links social social-color'>
                     <b:class cond='data:blog.isMobileRequest' name='is-mobile'/>
                     <li class='facebook-f'><a class='facebook' expr:href='&quot;https://www.facebook.com/sharer.php?u=&quot; + data:post.url' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=650, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'/></li>
-                    <li class='x-twitter'><a class='x-twitter' expr:href='&quot;https://twitter.com/intent/tweet?via=templatesyard&amp;url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=450, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'/></li>
+                    <li class='x-twitter'><a class='x-twitter' expr:href='&quot;https://twitter.com/intent/tweet?via=roushangupta&amp;url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=450, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'/></li>
                     <li class='pinterest-p'><a class='pinterest' expr:href='&quot;https://www.pinterest.com/pin/create/button/?url=&quot; + data:post.url + &quot;&amp;media=&quot; + data:post.featuredImage + &quot;&amp;description=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=735, height=750, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'/></li> 
                                   <li class='linkedin'><a class='linkedin' expr:href='&quot;https://www.linkedin.com/shareArticle?url=&quot; + data:post.url' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=950, height=650, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'/></li>
                     <li class='whatsapp whatsapp-desktop'><a class='whatsapp' expr:href='&quot;https://web.whatsapp.com/send?text=&quot; + data:post.title + &quot; | &quot; + data:post.url' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=900, height=550, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'/></li>
                     <li class='whatsapp whatsapp-mobile'><a class='whatsapp' expr:href='&quot;https://api.whatsapp.com/send?text=&quot; + data:post.title + &quot; | &quot; + data:post.url' rel='nofollow' target='_blank'/></li> 
                     <li class='email'><a class='email' expr:href='&quot;mailto:?subject=&quot; + data:post.title + &quot;&amp;body=&quot; + data:post.url' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=500, height=400, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'/></li>
+                    <li class='telegram'><a class='telegram' expr:href='&quot;https://t.me/share/url?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=450, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow'/></li>
+                    <li class='copy-link'><a class='copy-link' expr:href='data:post.url' rel='nofollow' title='Copy link'/></li>
                   </ul>
                 </div>
               </b:if>
@@ -7103,7 +7352,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
           </b:widget>
           <b:widget id='HTML7' locked='false' title='Projects' type='HTML' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='content'>3/Health/post-list</b:widget-setting>
+              <b:widget-setting name='content'>4/Startups/post-list</b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -7145,7 +7394,7 @@ height: 100%;
             <b:widget-settings>
               <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
               <b:widget-setting name='display'>LIST</b:widget-setting>
-              <b:widget-setting name='selectedLabelsList'>Business,Fashion,Health,Learn,Lifestyle</b:widget-setting>
+              <b:widget-setting name='selectedLabelsList'>News,Startups,Funding,Technology,AI,Marketing,Learning</b:widget-setting>
               <b:widget-setting name='showType'>USER_SELECTED</b:widget-setting>
               <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
             </b:widget-settings>
@@ -7289,18 +7538,24 @@ height: 100%;
     
       <div class='container row'>
      
-        <div class='copyright-area'>Created By <a href='http://soratemplates.com/' id='mycontent' rel='dofollow' title='SoraTemplates'>Sora</a> | Distributed by <a href='https://gooyaabitemplates.com/' rel='dofollow' style='color:#ff00ba;' target='_blank' title='Gooyaabi'>Gooyaabi</a>
+        <div class='copyright-area'>&#169; 2026 <a expr:href='data:blog.homepageUrl' id='mycontent' rel='author' title='Roushan Gupta'>Roushan Gupta</a> &#183; Startups &#183; Business &#183; Technology &#183; AI. All rights reserved.
 </div>
    <b:section class='top-bar-nav' id='top-bar-nav' maxwidgets='1' name='Footer Navigation' showaddelement='yes'>
      <b:widget id='LinkList72' locked='true' title='Link List' type='LinkList' version='2' visible='true'>
        <b:widget-settings>
          <b:widget-setting name='sorting'>NONE</b:widget-setting>
-         <b:widget-setting name='text-1'>About</b:widget-setting>
-         <b:widget-setting name='link-1'>https://dizee-soratemplates.blogspot.com/p/about-us.html</b:widget-setting>
          <b:widget-setting name='text-0'>Home</b:widget-setting>
-         <b:widget-setting name='link-2'>https://dizee-soratemplates.blogspot.com/p/contact-us.html</b:widget-setting>
          <b:widget-setting name='link-0'>/</b:widget-setting>
-         <b:widget-setting name='text-2'>Contact Us</b:widget-setting>
+         <b:widget-setting name='text-1'>About</b:widget-setting>
+         <b:widget-setting name='link-1'>/p/about.html</b:widget-setting>
+         <b:widget-setting name='text-2'>Contact</b:widget-setting>
+         <b:widget-setting name='link-2'>/p/contact.html</b:widget-setting>
+         <b:widget-setting name='text-3'>Privacy Policy</b:widget-setting>
+         <b:widget-setting name='link-3'>/p/privacy-policy.html</b:widget-setting>
+         <b:widget-setting name='text-4'>Disclaimer</b:widget-setting>
+         <b:widget-setting name='link-4'>/p/disclaimer.html</b:widget-setting>
+         <b:widget-setting name='text-5'>Sitemap</b:widget-setting>
+         <b:widget-setting name='link-5'>/p/sitemap.html</b:widget-setting>
        </b:widget-settings>
        <b:includable id='main'>
               <b:include name='content'/>
@@ -7457,7 +7712,347 @@ $('#parallax-menu ul,.slide-in').onePageNav({
 /*! Table of Contents | v0.4.0 - https://github.com/ndabas/toc */
 !function(t){"use strict";var n=function(n){return this.each(function(){var e,i,a=t(this),o=a.data(),c=[a],r=this.tagName,d=0;e=t.extend({content:"body",headings:"h1,h2,h3"},{content:o.toc||void 0,headings:o.tocHeadings||void 0},n),i=e.headings.split(","),t(e.content).find(e.headings).attr("id",function(n,e){return e||function(t){0===t.length&&(t="?");for(var n=t.replace(/\s+/g,"_"),e="",i=1;null!==document.getElementById(n+e);)e="_"+i++;return n+e}(t(this).text())}).each(function(){var n=t(this),e=t.map(i,function(t,e){return n.is(t)?e:void 0})[0];if(e>d){var a=c[0].children("li:last")[0];a&&c.unshift(t("<"+r+"/>").appendTo(a))}else c.splice(0,Math.min(d-e,Math.max(c.length-1,0)));t("<li/>").appendTo(c[0]).append(t("<a/>").text(n.text()).attr("href","#"+n.attr("id"))),d=e})})},e=t.fn.toc;t.fn.toc=n,t.fn.toc.noConflict=function(){return t.fn.toc=e,this},t(function(){n.call(t("[data-toc]"))})}(window.jQuery);
 
-function _0x3295(){var _0xbaec43=['4723624bFRCKn','3598194CMKwvx','26eGedHA','32794GJilkI','split','||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||return|function|String|parseInt|replace|new|split|while|location|0x1388|_0x223852|_0x37ff47|slideToggle|replaceWith|_0x5bd9be|0x208|_0x218a96|_0x1a6bb0|document|_0x5dbccc|_0xdc18|_0x3287a0|h72|_0x4edbbe|_0x406550|_0x250023|_0x4df652|_0x515371|responsive|_0x4476f6|_0x181241|timeago|_0x1880ce|_0x348715|0x236|_0x23f2ac|toggleClass|0x24b|_0x4cbed8|animate|0x1f3|PopularPosts|_0x41d1f9|x20id|_0x1b986d|_0x356984||_0x351cb8|x20data|0x400|0x228|0x1f4|_0x3487d3|scrollTop|0x1e0|_0x1c93cb|_0x5b95b9|_0x425cd2|json|right|_0x270193|_0x4fd830|lazyyard|feeds|_0x1b9570|index|undefined|blogger|alt|_0x3f0f42|_0x3af0a1|_0x5456f1|_0x8dd684|_0x64054|_0x5ea433|_0x58a804|max|_0x1351e4|tocify|_0x3d1970|left|_0x1be056|0x5|_0x298f89|_0x1df69e|_0x1cce8f|_0x332af1|youtube|_0x3d1870|_0x4e1493|_0x555e76|_0x123bb3|_0x47ed73|_0x2a641b|_0x58546d|find|_0x5bb6dd|_0x297a55|0x2a0|has|append|children|_0x272035|0x268|_0x3db4b6||0x25a|_0x20e9e3|_0xa95caf|0x26d|0x23d|form|_0x77a1ea|x20resize|_0x127622|off|_0x373054|0x256|0x202|_0x546c2b|https|0x252|soratemplates|rel|0x253|_0x2e87f7|x20scroll|_0x48099f|shift|push|_0x5466f4|_0x10d6aa|offset|0x2cc|bubble|_0x39c6ea|_0x21c5e5|0x276|_0x2e81e2|x20item|0x27f|0x267|_0x151ddb|x22slider|0x27e|indexOf|_0x984350|0x1f6|0x28b|_0x3169eb|_0x1c8801|onScroll|_0x2b3ad6|round|height|_0x26dc4c|0x255|_0x4c225c|button|blogspot|0x20f|_0x8d543c|closest|0x1fe|0x287|0x249|0xc8|top|addClass|0x270|0x263|0xfa|trim|0x20c|section|_0x3b127d|_0x494fd8|_0x4ae711|_0x510e6e|hide|_0x545507|_0x327693|_0x4a11a3|script|0x28e|color|avatar|disqus|png|blogblog|s72|target|display|tag|pre|mycontent|x20m|_0x466639|nav|_0x211d69|menu2|x22related|system|images|_0x5389bd|_0x5b3d71|_0x14fd90|_0x598507||||x22sub|charAt|load|0x23f|inner|_0x1a475f|body|image|_0x298412|_0xff1aa3|_0x52f88c|0x225|0x285|0x2c0|_|slider|_0x39ec36|breakpoint|settings|_0x2e125f|sub|main|ul|link|item|0x3|_0x2cddbc|_0x5887aa|_0x248713|_0x46861b|each|_0x459112|_0x51ef0a|_0x10f695|0x23a|span|wrapper|shortCodeIfy|wrap|0x277|_0x1c3d7b|_0x4502e4|jQuery|important|const|_0x23a309|style|0x2bc|_0x308f9b|0x23e|0x2|_0x696e27|show|0x2a1|_0x2883c9|_0x450f44|_0x423148|_0x3762cf|_0x59cb29|0x2b7|0x1|this|x20|_0x85bdeb|0x0|div|_0x5a1e69|_0x227bc3|_0x52135f|x20class|_0x296226|x22||var|848|0x22b|RegExp|toString|fromCharCode|_0x3c99b5||_0x2e44ac|_0xd9c695|0x2c1|_0x1318bc||menu|match|0x29e|com|0x2b3|_0x41dde9|title|_0x2eeb7f|_0xe5a03d|_0xa54023|_0x48db2f|0x1ff|_0x4b673f|slidesToShow|slidesToScroll|_0x9f9b78|toggle|_0x558d7a|x22post|else|post|text|_0x5ec934|_0xa8673c|autoplay|_0x4df28a|x22alert|0x258|parent|cssEase|pauseOnHover|speed|infinite|autoplaySpeed|_0x416831|0x215|x20alert|mobile|_0x4d1c0c|_0x36629f|0x211|x20li|0xaa|x20a|_0x55c240|noThumbnail|_0x65954|default|_0xb86dd|_0x201b73|0x265|_0x31b766|_0x5a8af3|_0x5a910e|_0xf2155d|_0x533a8b|Math|0x2c6|_0x143145|_0x2a1769|window||_0x576070|_0x3fc383|_0x284b3c|float|_0x475994|results|_0x59ff12|info|src|content|message|href|_0x3a5570|_0x208cfb|sidebar|_0x3de334|w72|_0x10d6|_0x510c6|width|_0x130aff|_0x516226|x20href|html|_0x419996|_0x27cd63|related|widget|0x25c|for|0x2bb|_0x5466|comments|_0x1433f5|0x26c|_0x45600b|_0x17bd65|thumb|x22tocify|active|_0x141035|_0x38430e|_0x208d89|_0x58a073|0x2ad|_0x56b0d5|_0x2b9b9e|0x2ae|x20ul|_0x294a27|_0x40f665|_0x3061b2|_0x2a5ec1|0x294|posts|attr|0xa|_0x43bc2f|www|_0x5b6584|0x25f|img|_0x4a6c69|eval|_0x480c96|0x21e|common|0x25e|createElement|0x209|0x250|0x286|preventDefault|0x2c9|0x299|fadeToggle|monthFormat|0x284|0x27d|0x2b1|0x2b5|0x264|0x26b|0x24d|0x226|x225|catch|0x2b2|0x22f|0x1fb|label|0x2b9|0x1fc|0x1fa|0x1f7|0x295|0x245|0x206|0x24e|0x220|0x29d|full|0x238|0x271|0x2b4|0x2b0|0x275|0x210|0x214|null|0x227|0x221|0x25d||0x2bd|background|alertsuccess|0xb|length|getElementsByTagName|alertInfo|published|getbutton|toc|remove|0x205|9RTfVeJ|0x281|date|list|appendChild|x22custom|2579335ovNvmu|x22disqus_thread|yard|lazy|ajax|_blank|alertError|0x279|0x297|0x2c8|0x24a|0x2ab|0x1f40|0x235|0x28a|0x22c|0x2c7|0x22d|0x280|0x29a|_0x319759|0x278|0x289|0x282|abbr|FeaturedPost|postPerPage|0x1f9|_0x4f1ff8|0x230|0x28d|0x2d0|first|slideDown|alertWarning|ContactForm1|0x3e8|_0x511719|commentsSystem|0x23b|0x224|0x2c3|0x243|0x272|0x262|0x2c2|LinkList|0x237|0x2bf|0x231|_0x24eb45|0x2a2|0x2ac|alternate|error|0x260|start|0x246|0x14|0x298|0x2a8|_0x227863|0x21f|0x27c|0x2be|0x23c|0x293|contact|0x2a6|0x257|Sora|0x26a|disqus_blogger_current_url|0x241|headings|0x2b6|0x203|0x21d|x22100|x22fb|0x216|setInterval|0x201|0x219|0x283|0x234|0x213|0x207|0x200|0x2ce|0x2a7|numposts|clone|0x2a4|0x259|0x240|0x2aa|0x1f5|0x233|disqusShortname|0x266|0x64|0x2ba|javascript|0x2cf|back|0x21a|0x20e|0x24f|typeof|0x2c4||0x212|0x8f0fe|codeBox|0x244|0x20d||_0x383bf4|0x273|0x2a3|0x239|0x269|0x29b|0x20b|0x2a9|0x29c|0x25b|0x21b|0x2cb|0x27a|0x2a5|Image|0x217|0x2af|0x261|x20Contents|0x291|x20of|container|0x22e|embed|description|x22code|gif|0x222|fadeOut|1340736srJbgX|alerterror|Label|onload|author|0x24c|0x296|img1|contactform|media|recent|trigger|thumbnail|googleusercontent|x22main|0x223|SoraTemplates|0x204|video|0x232|random|box|lastIndexOf||x20src||icon|x22bubble|ready|scroll|14063QiPHZX|visible|jsonp|gpluscomments|click|0x247|try|0x254|x22loader|x20body|blank|0x229|0x290|0x2ca|0x2c5|slick|_0x5495c0|_0x3a46d0|0x251|_0x2e666f|success|_0x2aec33|linear|0x2d1|_0xad154c|0x2b8|0x22a|0x8|meta|type|0x27b|submenu|_0xe7aa0b|_0x10d155|_0x593ef6|0x242|iframe|_0x3a348b|_0x4599e5|_0x2859f7|0x288|0x4|0x20a|0x9|expanded|0x292|x20b|x22item|4TuJpeA|0x28f|alertwarning|_0x490e48|_0x1f2f06|_0x1d13f1|0x274|0x7|substring|break|_0x23bbda|_0x418bd7|_0x211bbf|_0x29ad37|0x218|_0x14e0b3|0x1fd|url|get|x22javascript|services|x20role|brand|x20btn|nth|ptb|DQ6fW7eCps8NL7S0oh374KFg1MsWUf2GQCLcBGAsYHQ|x22button|AAAAAAAAAD0|x20title|YN3nGkf0nCI|Table|alertinfo|appendTo|removeClass|8439168taMlBi|data|alertSuccess|s45|codebox|x20strike|rI4UCIrwEI4|0x21c|relative|extend|size|x20alt|position|overlay|x22contact|x201|x20opacity|x20visible|x20visibility|x20color|x20inherit|dofollow|block|x20font|x20inline|none|100|blog|40130SIzsPp|220qFwepj|0x248|head|facebook|entry|ff00ba|testimonial|x22no|x22responsive|x20fa|x22fa|x20Found|0x2cd|x20Posts|x20No|Error|0x6|frown|hasClass|x20img|0x26f|x22submenu|_0x2bcdd1|x20blockquote|dataType|floor|0x26e|fadeIn|beforeSend|resources|colored|0x29f|mL7PI|category|1866ofpLiS|0x28c|s55|Kcu9wJbv790hIo83rI_s7lLW3zkLY01EA|feed|AAAAAAAADUs|VuOLn|x20iframe|s35|term|uCjYgVFIh70|0x1f8|warning|toLowerCase|slideUp|670432ADXXeJ|1047942NpJBoF|async','1033641WHJqZA','replace','4490541GbcjKo','20ObGdQq','toString','148113YMzfVx','10pVZbRC','ku(dH(p,a,c,k,e,d){e=dH(c){dG(c<a?\x27\x27:e(dJ(c/a)))+((c=c%a)>35?dI.il(c+29):c.ik(36))};dN(c--){if(k[c]){p=p.dK(dL\x20ij(\x27\x5c\x5cb\x27+e(c)+\x27\x5c\x5cb\x27,\x27g\x27),k[c])}}dG\x20p}(\x276\x202h(2Z,dC){2Z=2Z-57;2\x206d=23();2\x206c=6d[2Z];H\x206c}6\x2023(){2\x205R=[\x5c\x27{7W}\x5c\x27,\x5c\x275W-2z\x5c\x27,\x5c\x277V$7S\x5c\x27,\x5c\x2728\x5c\x27,\x5c\x27//7X.66.Y/2o/8h.87\x5c\x27,\x5c\x27?3R=3S-3W-3F&3K-3k=\x5c\x27,\x5c\x27.68-1q-82\x5c\x5c93\x5c\x27,\x5c\x27.6a-64\x5c\x27,\x5c\x27.ae\x5c\x27,\x5c\x27aC\x5c\x27,\x5c\x27.m-1d\x5c\x27,\x5c\x271E\x5c\x27,\x5c\x279a\x5c\x27,\x5c\x27#9q\x5c\x27,\x5c\x27.K\x5c\x5cn.K-V\x5c\x27,\x5c\x276m://2r.6l.Y/\x5c\x27,\x5c\x279g\x5c\x27,\x5c\x27<f\x5c\x5c7=\x5c\x5c2K-1N\x5c\x5c3><f\x5c\x5c7=\x5c\x5c2K-3E\x5c\x5c3><a\x5c\x5c2c=\x5c\x5c9E:;\x5c\x5c3\x5c\x5c7=\x5c\x5c2K-V\x5c\x5c3\x5c\x5c9N=\x5c\x5c9H\x5c\x5c3\x5c\x5c9F=\x5c\x5c3\x5c\x27,\x5c\x279A\x5c\x27,\x5c\x27</61>\x5c\x27,\x5c\x27</1y></f></f></f></1x>\x5c\x27,\x5c\x2792-6b\x5c\x27,\x5c\x27\x5c\x5c3/>\x5c\x27,\x5c\x27<f\x5c\x5c7=\x5c\x5cac-6w\x5c\x5c3/>\x5c\x27,\x5c\x272N\x5c\x27,\x5c\x27.F-1r\x5c\x5c9u\x5c\x27,\x5c\x27<1y\x5c\x5c7=\x5c\x5cI-V\x5c\x5c3>\x5c\x27,\x5c\x27.3I-V\x5c\x27,\x5c\x27{9v}\x5c\x27,\x5c\x274d-1d\x5c\x27,\x5c\x27/9w-c/\x5c\x27,\x5c\x276H\x5c\x27,\x5c\x27{9x}\x5c\x27,\x5c\x279y\x5c\x27,\x5c\x271V\x5c\x27,\x5c\x279z\x5c\x27,\x5c\x279B\x5c\x27,\x5c\x272u\x5c\x27,\x5c\x27/3Y/2v/3d?3K-3k=\x5c\x27,\x5c\x271w-1h\x5c\x27,\x5c\x27#1c-11\x5c\x5c2B\x5c\x5c2S\x5c\x5c2B\x5c\x27,\x5c\x27{9C}\x5c\x27,\x5c\x27</1Q>\x5c\x27,\x5c\x27<f\x5c\x5c7=\x5c\x5c39-3f\x5c\x5c2Y-3i\x5c\x5c3>\x5c\x27,\x5c\x273Z\x5c\x27,\x5c\x27//1.bp.69.Y/-9t/9D/9G/9I/65-c/9J-9K.67\x5c\x27,\x5c\x276b\x5c\x5c9L\x5c\x27,\x5c\x27#9M-9O-1N\x5c\x5c2B\x5c\x27,\x5c\x279r\x5c\x27,\x5c\x275M\x5c\x27,\x5c\x2795\x5c\x27,\x5c\x27</a></f><1y\x5c\x5c7=\x5c\x5cI-V\x5c\x5c3>\x5c\x27,\x5c\x275p\x5c\x27,\x5c\x27>\x5c\x5cn.m-1d\x5c\x27,\x5c\x27.F-1r\x5c\x5c2Q\x5c\x27,\x5c\x271J\x5c\x27,\x5c\x27<a\x5c\x5c2c=\x5c\x5c3\x5c\x27,\x5c\x275c\x5c\x27,\x5c\x27<1b\x5c\x5c7=\x5c\x5c5N-5V\x5c\x5c5Z-1d\x5c\x5c3/>\x5c\x27,\x5c\x2710\x5c\x27,\x5c\x27/3d.\x5c\x27,\x5c\x2796\x5c\x27,\x5c\x2797\x5c\x27,\x5c\x271h\x5c\x27,\x5c\x273h\x5c\x27,\x5c\x27#1c-11\x5c\x5cn.27\x5c\x27,\x5c\x2798\x5c\x27,\x5c\x276F\x5c\x27,\x5c\x274N\x5c\x27,\x5c\x272X\x5c\x27,\x5c\x27</f></f></f></1x>\x5c\x27,\x5c\x274C\x5c\x27,\x5c\x27.6a-5S\x5c\x27,\x5c\x279b\x5c\x27,\x5c\x275u\x5c\x27,\x5c\x27//4.bp.69.Y/-9d/9e-94/9f/9h/9i-r/68.67\x5c\x27,\x5c\x27/9k-c/\x5c\x27,\x5c\x273T\x5c\x27,\x5c\x27#F-1r\x5c\x5c9l\x5c\x27,\x5c\x27</f></1x>\x5c\x27,\x5c\x27=2i-4z-p-k-3A-3p\x5c\x27,\x5c\x279m\x5c\x27,\x5c\x27<f\x5c\x5c7=\x5c\x5c39-3f\x5c\x5c2Y-9n\x5c\x5c3>\x5c\x27,\x5c\x2758\x5c\x27,\x5c\x27\x5c\x5c3><1Q\x5c\x5c7=\x5c\x5c2K-V-1V\x5c\x5c3>\x5c\x27,\x5c\x279o\x5c\x27,\x5c\x27.1d-11\x5c\x27,\x5c\x27/3Y/2v/3d/-/\x5c\x27,\x5c\x279p.66.Y\x5c\x27,\x5c\x27/65-c\x5c\x27,\x5c\x273F\x5c\x27,\x5c\x279s\x5c\x27,\x5c\x279Q\x5c\x5cag\x5c\x5cai\x5c\x27,\x5c\x27aj\x5c\x27,\x5c\x271w-11\x5c\x27,\x5c\x2779\x5c\x27,\x5c\x27ak\x5c\x27,\x5c\x275H\x5c\x27,\x5c\x275B\x5c\x27,\x5c\x27al-am\x5c\x27,\x5c\x27<f\x5c\x5c54=\x5c\x5can\x5c\x5c3/>\x5c\x27,\x5c\x273G\x5c\x27,\x5c\x2777\x5c\x27,\x5c\x27ao\x5c\x27,\x5c\x27<1b\x5c\x5c7=\x5c\x5cap-27\x5c\x5c3>\x5c\x27,\x5c\x27aq\x5c\x27,\x5c\x27{ah}\x5c\x27,\x5c\x27F-ar\x5c\x27,\x5c\x27.K\x5c\x27,\x5c\x27at\x5c\x27,\x5c\x27{au}\x5c\x27,\x5c\x272z\x5c\x27,\x5c\x27\x5c\x5c3><a\x5c\x5c7=\x5c\x5cI-1q-1a\x5c\x5c3\x5c\x5c2c=\x5c\x5c3\x5c\x27,\x5c\x2764\x5c\x27,\x5c\x27aw\x5c\x27,\x5c\x2722-5T-3T\x5c\x27,\x5c\x276N\x5c\x27,\x5c\x27ax\x5c\x27,\x5c\x27ay\x5c\x27,\x5c\x27az\x5c\x27,\x5c\x27</f>\x5c\x27,\x5c\x276x\x5c\x27,\x5c\x27{aA}\x5c\x27,\x5c\x27aB\x5c\x27,\x5c\x27</1y><f\x5c\x5c7=\x5c\x5cI-7a\x5c\x5c3>\x5c\x27,\x5c\x27<1Q\x5c\x5c7=\x5c\x5cI-as\x5c\x5c3>\x5c\x27,\x5c\x27/2i-h\x5c\x27,\x5c\x27<1b\x5c\x5c7=\x5c\x5c5U-2v\x5c\x5c3>\x5c\x27,\x5c\x27#3I\x5c\x5c2S\x5c\x5c2Q\x5c\x27,\x5c\x27.2W-11\x5c\x5c2B\x5c\x5c2S\x5c\x5cn.af-K\x5c\x27,\x5c\x27a3\x5c\x27,\x5c\x279T\x5c\x27,\x5c\x279U\x5c\x27,\x5c\x279W\x5c\x27,\x5c\x279X\x5c\x27,\x5c\x27.9Y-F-22\x5c\x27,\x5c\x2737\x5c\x27,\x5c\x27.2W-11\x5c\x27,\x5c\x27<1E>.19\x5c\x5cn#1c-1P{2f:9Z%}.19\x5c\x5cn#2a-1P{63:a0}</1E>\x5c\x27,\x5c\x27V\x5c\x27,\x5c\x27</a><f\x5c\x5c7=\x5c\x5cI-3i-1N\x5c\x5c3><f\x5c\x5c7=\x5c\x5cI-3i\x5c\x5c3>\x5c\x27,\x5c\x27</1b>\x5c\x27,\x5c\x2763:\x5c\x5ca1-9S!1H;\x5c\x5ca2-a4:\x5c\x5ca5!1H;\x5c\x5ca6:\x5c\x5cn#a7!1H;\x5c\x5ca8:\x5c\x5ca9!1H;z-3V:99!1H;\x5c\x5caa:\x5c\x5cab!1H;ad:9R!1H;\x5c\x27,\x5c\x275X\x5c\x27,\x5c\x27{3I}\x5c\x27,\x5c\x271N\x5c\x27,\x5c\x27<1E>.19\x5c\x5cn#1c-1P{3m:43}.19\x5c\x5cn#2a-1P{3m:42}</1E>\x5c\x27,\x5c\x27.81\x5c\x5c2Q\x5c\x27,\x5c\x27{83}\x5c\x27,\x5c\x2784\x5c\x27,\x5c\x2785\x5c\x27,\x5c\x27.80-89\x5c\x5c2Q\x5c\x27,\x5c\x27.K\x5c\x5cn.K-V.2z\x5c\x27,\x5c\x27#3I\x5c\x27,\x5c\x272f\x5c\x27,\x5c\x27.28-62\x5c\x27,\x5c\x278d\x5c\x27,\x5c\x272b\x5c\x27,\x5c\x27a#60:8f\x5c\x27,\x5c\x27<1Q\x5c\x5c7=\x5c\x5cI-62\x5c\x5c3>\x5c\x27,\x5c\x27a#60\x5c\x27,\x5c\x2746\x5c\x27,\x5c\x274c\x5c\x27,\x5c\x272b,\x5c\x5c8i\x5c\x27,\x5c\x27#F-1r\x5c\x27,\x5c\x27<2o\x5c\x27,\x5c\x27<1b\x5c\x5c7=\x5c\x5c5N-11\x5c\x5c5Z-1d\x5c\x5c3/>\x5c\x27,\x5c\x27&3R=3S-3W-3F\x5c\x27,\x5c\x27<1E>.19\x5c\x5cn#1c-1P{3m:42}.19\x5c\x5cn#2a-1P{3m:43}</1E>\x5c\x27,\x5c\x27#1c-11\x5c\x27,\x5c\x277G\x5c\x27,\x5c\x27<1x\x5c\x5c7=\x5c\x5c7H-\x5c\x27,\x5c\x27.K-3E\x5c\x27,\x5c\x27.F-1r\x5c\x5c7I\x5c\x27,\x5c\x274b\x5c\x27,\x5c\x272r.4p.Y\x5c\x27,\x5c\x277J-7K\x5c\x27,\x5c\x271a\x5c\x27,\x5c\x27{7E}\x5c\x27,\x5c\x274O\x5c\x27,\x5c\x27/0.\x5c\x27,\x5c\x276E\x5c\x27,\x5c\x275C\x5c\x27,\x5c\x277P\x5c\x27,\x5c\x273T.7R.Y\x5c\x27,\x5c\x277T\x5c\x27,\x5c\x276k\x5c\x27,\x5c\x277U\x5c\x27,\x5c\x27.5X.Y/8a.8k\x5c\x27,\x5c\x277g\x5c\x27,\x5c\x27=2i-h\x5c\x27,\x5c\x271w\x5c\x27,\x5c\x27#1c-11-5W\x5c\x27,\x5c\x27.1d-5V\x5c\x27,\x5c\x277y\x5c\x27,\x5c\x278K\x5c\x27,\x5c\x27<1x\x5c\x5c7=\x5c\x5c5U-19\x5c\x5c6T-\x5c\x27,\x5c\x27.F-1r\x5c\x5c8M\x5c\x27,\x5c\x274V\x5c\x27,\x5c\x27<f\x5c\x5c7=\x5c\x5c8O-K\x5c\x5c3/>\x5c\x27,\x5c\x278Q\x5c\x27,\x5c\x278I\x5c\x27,\x5c\x27/2i-4z-p-k-3A-3p\x5c\x27,\x5c\x277c\x5c\x27,\x5c\x27<1b\x5c\x5c7=\x5c\x5c8R-2v\x5c\x5c3>8U:\x5c\x5c8V\x5c\x5c8W\x5c\x5c8Y\x5c\x5cn<i\x5c\x5c7=\x5c\x5c8Z\x5c\x5c90-8S-o\x5c\x5c3/></1b>\x5c\x27,\x5c\x27<2o\x5c\x5c7=\x5c\x5cI-2m\x5c\x5c3\x5c\x5c8G=\x5c\x5c3\x5c\x5c3\x5c\x5c8w=\x5c\x5c3\x5c\x27,\x5c\x2722-5T-\x5c\x27,\x5c\x278n\x5c\x27,\x5c\x27#22,\x5c\x5cn#8o\x5c\x27,\x5c\x278p\x5c\x27,\x5c\x278q\x5c\x27,\x5c\x278s\x5c\x27,\x5c\x27.28-8t\x5c\x27,\x5c\x27.1c-1h\x5c\x27,\x5c\x27<1b\x5c\x5c7=\x5c\x5c8u-5S\x5c\x5c3>\x5c\x27,\x5c\x271r\x5c\x27,\x5c\x278v\x5c\x27,\x5c\x278x\x5c\x27,\x5c\x275w\x5c\x27,\x5c\x27#1h-5v\x5c\x5cn.55\x5c\x5cn.1c-1h\x5c\x27,\x5c\x275h\x5c\x27,\x5c\x27<f\x5c\x5c7=\x5c\x5c39-3f\x5c\x5c2Y-7i\x5c\x5c3>\x5c\x27,\x5c\x278z\x5c\x27];23=6(){H\x205R};H\x2023()}2\x20D=2h;(6(5Q,5O){2\x20R=2h,2d=5Q();8E(!![]){8l{2\x205P=Q(R(7N))/v+Q(R(8D))/1A+Q(R(8A))/18*(Q(R(8m))/7C)+Q(R(8r))/4u+-Q(R(8X))/8T*(Q(R(8P))/7z)+-Q(R(8N))/7o*(Q(R(7M))/7L)+-Q(R(8e))/2t*(Q(R(86))/aD);q(5P===5O)7x;G\x202d[\x5c\x276e\x5c\x27](2d[\x5c\x276f\x5c\x27]())}b8(cG){2d[\x5c\x276e\x5c\x27](2d[\x5c\x276f\x5c\x27]())}}}(23,cK),$(6(){2\x201e=2h;1G\x204m=$(1e(cL)),4n=$(1e(cM));q(4m[1e(1l)]&&4n[1e(1l)]){1G\x206I=4m[1e(1R)]();4n[1e(1R)](1e(cF)+6I+1e(7b))}}),!6(2n){2n[\x5c\x27cS\x5c\x27][\x5c\x273Z\x5c\x27]=6(3l){2\x202P=2h;H\x203l=2n[2P(cU)]({\x5c\x276H\x5c\x27:!j},3l),u[2P(X)](6(48,cW,2k){2\x20e=2P,1n=2n(u),1F=2n(3q),C=1n[e(16)](e(1D)),3w=\x5c\x27w\x5c\x27+3v[e(cY)](1n[e(cZ)]()+1n[\x5c\x272f\x5c\x27]()/2t)+\x5c\x27-h\x5c\x27+3v[\x5c\x276F\x5c\x27](1n[\x5c\x276E\x5c\x27]()+1n[e(6y)]()/2t)+\x5c\x27-p-k-3A-3p\x5c\x27;6\x204a(){2\x203H=e,4j=cD\x20cr();4j[3H(cC)]=6(){2\x202q=3H;1n[2q(16)](2q(1D),\x5c\x27\x5c\x27+u[\x5c\x273h\x5c\x27]+\x5c\x27\x5c\x27)[2q(P)](2q(ci))},4j[3H(1D)]=48}C[e(x)](e(cl))&&(C=\x5c\x273U\x5c\x27!=cm\x202O?2O:e(cn)),C[e(x)](e(6C))&&C[e(x)](\x5c\x27=\x5c\x27)&&(2k=C[e(3u)](\x5c\x27=\x5c\x27),C=2k[v]&&\x5c\x27\x5c\x27!=2k[v][e(1L)]()?2k[j]+e(6z):C),C[\x5c\x2710\x5c\x27](e(6C))&&!C[e(x)](\x5c\x27=\x5c\x27)&&(C+=\x5c\x27=2i-4z-p-k-3A-3p\x5c\x27),48=C[e(x)](e(6A))?C[e(S)](e(6A),\x5c\x27/\x5c\x27+3w):C[\x5c\x2710\x5c\x27](e(cv))?C[e(S)](e(6R),\x5c\x27/\x5c\x27+3w):C[\x5c\x2710\x5c\x27](e(cw))?C[\x5c\x272X\x5c\x27](e(6z),\x5c\x27=\x5c\x27+3w):C,v==3l[e(cA)]?1F[\x5c\x271M\x5c\x27](\x5c\x273G\x5c\x5c6u\x5c\x5c6h\x5c\x27,6\x206t(){2\x203N=e;1F[3N(5z)]()+1F[3N(6y)]()>=1n[\x5c\x276x\x5c\x27]()[3N(6j)]&&(1F[\x5c\x276s\x5c\x27](\x5c\x273G\x5c\x5c6u\x5c\x5c6h\x5c\x27,6t),4a())})[e(6q)](e(5A)):1F[\x5c\x271M\x5c\x27](e(6p),6\x206r(){1F[\x5c\x276s\x5c\x27](\x5c\x273G\x5c\x27,6r),4a()})[e(6q)](e(6p))})}}(1v),$(D(6n))[\x5c\x271J\x5c\x27](6(){2\x20U=D,6o=$(u);6o[U(16)](U(2w),U(6K))[\x5c\x272u\x5c\x27](U(du),U(dB))[U(16)](\x5c\x27V\x5c\x27,U(dD))[U(16)](U(5F),U(dF))[U(Z)](\x5c\x27dt\x5c\x27)}),dg(6(){2\x201i=D;q(!$(1i(6n))[1i(1l)])3q[1i(d5)][1i(2w)]=\x5c\x276m://2r.6l.Y/\x5c\x27;q(!$(1i(d7))[1i(1l)])3q[\x5c\x274C\x5c\x27][\x5c\x272N\x5c\x27]=1i(6K)},da),$(6(){2\x205=D;$(5(db))[5(X)](6(){2\x20b=5,1W=$(u)[b(1B)](\x5c\x27.dc\x5c\x5c2B\x5c\x5cn>\x5c\x5c2S\x5c\x27)[b(5b)](\x5c\x27a\x5c\x27),3X=1W[b(1l)];25(2\x2015=j;15<3X;15++){2\x202J=1W[\x5c\x2730\x5c\x27](15),3a=2J[b(Z)]();q(3a[b(2F)](j)!==\x5c\x271j\x5c\x27){2\x206i=1W[\x5c\x2730\x5c\x27](15+v),6g=6i[b(Z)]();q(6g[b(2F)](j)===\x5c\x271j\x5c\x27){2\x204t=2J[\x5c\x2737\x5c\x27]();4t[\x5c\x274c\x5c\x27](b(d4))}}3a[\x5c\x275M\x5c\x27](j)===\x5c\x271j\x5c\x27&&(2J[b(Z)](3a[b(S)](\x5c\x271j\x5c\x27,\x5c\x27\x5c\x27)),2J[b(1m)]()[b(4e)](4t[\x5c\x274b\x5c\x27](b(57))))}25(2\x2015=j;15<3X;15++){2\x202E=1W[\x5c\x2730\x5c\x27](15),3b=2E[b(Z)]();q(3b[b(2F)](j)!==\x5c\x271j\x5c\x27){2\x205f=1W[\x5c\x2730\x5c\x27](15+v),5d=5f[b(Z)]();q(5d[b(2F)](j)===\x5c\x271j\x5c\x27){2\x204f=2E[b(1m)]();4f[b(3B)](b(dn))}}3b[b(2F)](j)===\x5c\x271j\x5c\x27&&(2E[b(Z)](3b[b(S)](\x5c\x271j\x5c\x27,\x5c\x27\x5c\x27)),2E[b(1m)]()[b(4e)](4f[b(5b)](b(bs))))}$(b(cd))[b(1m)](\x5c\x271x\x5c\x27)[b(P)](\x5c\x274d-1d\x5c\x27),$(b(b5))[b(P)](b(b6))}),$(5(b7))[\x5c\x27ce\x5c\x27]()[5(4e)](5(ba)),$(\x5c\x27.2W-11\x5c\x5cn.4d-1d\x5c\x27)[\x5c\x274c\x5c\x27](5(bd)),$(\x5c\x27.2W-11-K\x5c\x27)[\x5c\x271M\x5c\x27](5(20),6(){2\x202I=5;$(2I(7A))[2I(be)](2I(bg)),$(2I(bh))[\x5c\x27bi\x5c\x27](2R)}),$(5(bj))[\x5c\x271M\x5c\x27](5(20),6(59){2\x20L=5;$(u)[L(1m)]()[L(3C)](L(bk))&&(59[\x5c\x27bm\x5c\x27](),!$(u)[\x5c\x2737\x5c\x27]()[L(3C)](L(26))?$(u)[L(1m)]()[L(P)](\x5c\x271w\x5c\x27)[\x5c\x274b\x5c\x27](L(bn))[L(bo)](2R):$(u)[L(1m)]()[L(5I)](\x5c\x271w\x5c\x27)[\x5c\x2746\x5c\x27](L(bf))[\x5c\x274O\x5c\x27](2R))}),$(5(b2))[5(49)]({\x5c\x27N\x5c\x27:4u,\x5c\x27M\x5c\x27:v,\x5c\x2731\x5c\x27:!![],\x5c\x2732\x5c\x27:j,\x5c\x2733\x5c\x27:!![],\x5c\x2734\x5c\x27:4J,\x5c\x2735\x5c\x27:!![],\x5c\x2736\x5c\x27:5(47),\x5c\x274T\x5c\x27:[{\x5c\x271g\x5c\x27:4Z,\x5c\x271f\x5c\x27:{\x5c\x27N\x5c\x27:18,\x5c\x27M\x5c\x27:18}},{\x5c\x271g\x5c\x27:38,\x5c\x271f\x5c\x27:{\x5c\x27N\x5c\x27:1A,\x5c\x27M\x5c\x27:1A}},{\x5c\x271g\x5c\x27:4U,\x5c\x271f\x5c\x27:{\x5c\x27N\x5c\x27:v,\x5c\x27M\x5c\x27:v}}]}),$(5(aR))[5(49)]({\x5c\x27N\x5c\x27:v,\x5c\x27M\x5c\x27:v,\x5c\x2731\x5c\x27:!![],\x5c\x2732\x5c\x27:j,\x5c\x2733\x5c\x27:!![],\x5c\x2734\x5c\x27:b1,\x5c\x2735\x5c\x27:!![],\x5c\x2736\x5c\x27:5(47)}),$(5(aH))[5(49)]({\x5c\x27N\x5c\x27:18,\x5c\x27M\x5c\x27:v,\x5c\x2731\x5c\x27:!![],\x5c\x2732\x5c\x27:j,\x5c\x2733\x5c\x27:!![],\x5c\x2734\x5c\x27:4J,\x5c\x2735\x5c\x27:!![],\x5c\x2736\x5c\x27:5(47),\x5c\x274T\x5c\x27:[{\x5c\x271g\x5c\x27:4Z,\x5c\x271f\x5c\x27:{\x5c\x27N\x5c\x27:18,\x5c\x27M\x5c\x27:18}},{\x5c\x271g\x5c\x27:38,\x5c\x271f\x5c\x27:{\x5c\x27N\x5c\x27:1A,\x5c\x27M\x5c\x27:1A}},{\x5c\x271g\x5c\x27:4U,\x5c\x271f\x5c\x27:{\x5c\x27N\x5c\x27:v,\x5c\x27M\x5c\x27:v}}]}),$(5(aK))[\x5c\x272u\x5c\x27](5(2w),6(aL,3L){2\x2056=5;H\x203L[56(S)](3L,3L+\x5c\x27?&3K-3k=\x5c\x27+aN)}),$(\x5c\x27.3V-F\x5c\x5cn.F-1q-1a\x5c\x5cn.F-2m,\x5c\x5cn.55\x5c\x5cn.F-1q-1a\x5c\x5cn.F-2m,\x5c\x5cn.aO\x5c\x5cn.F-1q-1a\x5c\x5cn.F-2m\x5c\x27)[\x5c\x273Z\x5c\x27](),$(\x5c\x27aP.5h\x5c\x27)[5(aG)](),$(5(aQ))[5(16)](5(1D),6(aS,1U){2\x201t=5;H\x201U=1U[1t(S)](1t(aT),1t(aU)),1U=1U[1t(S)](1t(aV),1t(aX)),1U});1v(5(aZ))[5(3C)](5(5J))&&1v(5(b0))[5(5G)](5(bq))[5(1B)](\x5c\x27.K-3E\x5c\x27)[5(26)]();1v(\x5c\x27.K\x5c\x5cn.K-V\x5c\x27)[5(20)](6(){2\x2014=5;1v(u)[14(3C)](14(5J))?1v(u)[14(5I)](\x5c\x272z\x5c\x27)[\x5c\x275H\x5c\x27](\x5c\x27.K\x5c\x27)[\x5c\x2746\x5c\x27](14(5E))[14(bT)](5D):1v(u)[14(P)](\x5c\x272z\x5c\x27)[14(5G)](\x5c\x27.K\x5c\x27)[14(1B)](14(5E))[\x5c\x27bX\x5c\x27](5D)}),$(5(bY))[5(X)](6(){2\x2045=5;$(u)[\x5c\x272u\x5c\x27](45(bZ),45(bR))}),$(\x5c\x27.c1-5C\x5c\x27)[5(X)](6(){2\x202L=5,3x=$(u);$(3q)[\x5c\x271M\x5c\x27](2L(5A),6(){2\x203r=2L;$(u)[3r(5z)]()>=c5?3x[3r(c6)](5y):3x[3r(c8)](5y)}),3x[2L(20)](6(){2\x204A=2L;$(4A(cb))[4A(c2)]({\x5c\x274V\x5c\x27:j},4X)})}),$(5(bP))[\x5c\x271J\x5c\x27](6(){2\x2017=5,29=$(u),3y=29[\x5c\x271V\x5c\x27]();3y[17(x)](\x5c\x2743-2a\x5c\x27)&&29[17(1k)](17(bO)),3y[17(x)](\x5c\x2742-2a\x5c\x27)&&29[17(1k)](17(bw)),3y[17(x)](\x5c\x27bx-2f\x5c\x27)&&29[17(1k)](17(bA))}),$(\x5c\x27#1h-5v\x5c\x5cn.27-3g\x5c\x27)[5(X)](6(){2\x2041=5,4B=$(u),40=4B[\x5c\x271V\x5c\x27]()[41(1L)](),5t=40[41(2C)](),4g=40[\x5c\x275u\x5c\x27](\x5c\x27/\x5c\x27),5s=4g[j],5r=4g[v];3o(4B,5t,5s,5r)}),$(\x5c\x27.bt-27\x5c\x5cn.27-3g\x5c\x27)[\x5c\x271J\x5c\x27](6(){2\x203n=5,4y=$(u),4h=4y[\x5c\x271V\x5c\x27]()[3n(1L)](),5n=4h[3n(2C)](),4s=4h[3n(3u)](\x5c\x27/\x5c\x27),5m=4s[j],5l=4s[v];3o(4y,5n,5m,5l)}),$(5(bH))[5(X)](6(){2\x202e=5,4x=$(u),6J=4x[2e(1B)](2e(bI))[2e(bJ)](\x5c\x27bK\x5c\x27);3o(4x,2e(6S),18,6J)});6\x207B(3O,3M){2\x204w=5;25(2\x202j=j;2j<3O[3M][\x5c\x271a\x5c\x27][4w(1l)];2j++)q(3O[3M][4w(bM)][2j][\x5c\x276k\x5c\x27]==\x5c\x27cT\x5c\x27){2\x207v=3O[3M][\x5c\x271a\x5c\x27][2j][\x5c\x272N\x5c\x27];7x}H\x207v}6\x207D(7u,7t,7p){2\x204v=5,7w=7u[7t][4v(4Y)][\x5c\x27$t\x5c\x27],7n=4v(bG)+7p+\x5c\x27\x5c\x5c3>\x5c\x27+7w+\x5c\x27</a>\x5c\x27;H\x207n}6\x2070(7q,7r){2\x202l=5,3J=7q[7r][2l(bC)][\x5c\x27$t\x5c\x27],71=3J[2l(2p)](j,7C),74=3J[\x5c\x277y\x5c\x27](4u,7z),7l=3J[2l(2p)](7o,2t),6Z=bv[Q(74,2t)-v]+\x5c\x27\x5c\x5cn\x5c\x27+7l+\x5c\x27,\x5c\x5cn\x5c\x27+71,6Y=2l(c0)+6Z+\x5c\x27</1Q>\x5c\x27;H\x206Y}6\x204o(6X,4q){2\x20O=5,6W=$(\x5c\x27<f>\x5c\x27)[O(1R)](6X),1S=6W[O(1B)](\x5c\x272o:bU\x5c\x27)[O(16)](O(1D)),3Q=1S[O(6V)](\x5c\x27/\x5c\x27)||j,4r=1S[O(6V)](\x5c\x27/\x5c\x27,3Q-v)||j,6Q=1S[O(2p)](j,4r),1T=1S[O(2p)](4r,3Q),7m=1S[O(2p)](3Q);H(1T[O(x)](/\x5c\x5c/s[0-9]+/g)||1T[O(x)](/\x5c\x5c/w[0-9]+/g)||1T==\x5c\x27/d\x5c\x27)&&(1T=O(6R)),4q=6Q+1T+7m,4q}6\x205L(3j,3e,1z){2\x20B=5,13=3j[3e][\x5c\x273g\x5c\x27][\x5c\x27$t\x5c\x27];q(3j[3e][B(6O)])2\x202U=3j[3e][B(6O)][B(dm)];G\x202U=2O;q(13[B(2T)](13[\x5c\x2710\x5c\x27](/<72(?:.+)?3h=(?:.+)?(?:2r.4p.Y)/g))>-v)13[\x5c\x276N\x5c\x27](B(73))>-v?13[B(2T)](13[B(x)](/<72(?:.+)?3h=(?:.+)?(?:2r.4p.Y)/g))<13[B(2T)](B(73))?1z=2U[B(S)](B(7d),B(7k)):1z=4o(13):1z=2U[B(S)](B(7d),B(7k));G\x2013[B(2T)](\x5c\x27<2o\x5c\x27)>-v?1z=4o(13):1z=2O;2\x207h=B(dr)+1z+B(dE);H\x207h}6\x205g(4l,4k){2\x201Z=5;q(4l[4k][1Z(7f)]!=3U)2\x207e=4l[4k][1Z(7f)][j][1Z(dz)],4i=1Z(dy)+7e+1Z(dv);G\x204i=\x5c\x27\x5c\x27;H\x204i}6\x203o(1Y,T,2G,3z){2\x20E=5;q(T[\x5c\x2710\x5c\x27](E(24))||T[E(x)](E(4L))||T[E(x)](\x5c\x2728\x5c\x27)){2\x202x=\x5c\x27\x5c\x27;q(3z==E(38))2x=\x5c\x27/3Y/2v/3d?3R=3S-3W-3F&3K-3k=\x5c\x27+2G;G{q(3z==E(78)){2\x2076=3v[E(cQ)](3v[E(78)]()*2G)+v;2x=E(cV)+2G+\x5c\x27&cP-3V=\x5c\x27+76+E(cI)}G\x202x=E(4X)+3z+E(aF)+2G}$[E(8C)]({\x5c\x2777\x5c\x27:2x,\x5c\x2779\x5c\x27:\x5c\x278F\x5c\x27,\x5c\x278L\x5c\x27:E(8J),\x5c\x278H\x5c\x27:6(){2\x202y=E;T[2y(x)](2y(24))&&1Y[\x5c\x272b\x5c\x27](\x5c\x27<f\x5c\x5c7=\x5c\x5c8j\x5c\x5c3></f>\x5c\x27)[2y(1m)]()[2y(P)](\x5c\x271w-1h\x5c\x27)},\x5c\x277i\x5c\x27:6(6M){2\x208=E;q(T[8(x)](8(24)))2\x201s=\x5c\x27<1b\x5c\x5c7=\x5c\x5c8c-1h\x5c\x5c3>\x5c\x27;G{q(T[8(x)](8(4L)))2\x201s=8(av);G{q(T[\x5c\x2710\x5c\x27](8(6S)))2\x201s=8(9P)}}2\x2044=6M[8(9j)][8(9c)];q(44!=3U){25(2\x2012=j,1C=44;12<1C[8(1l)];12++){2\x201K=7B(1C,12),3D=7D(1C,12,1K),3P=5L(1C,12,1K),7j=5g(1C,12),4Q=70(1C,12),2s=\x5c\x27\x5c\x27;q(T[\x5c\x2710\x5c\x27](8(24)))2s+=\x5c\x27<1x\x5c\x5c7=\x5c\x5c6P-19\x5c\x5c6T-\x5c\x27+(12+v)+\x5c\x27\x5c\x5c3><f\x5c\x5c7=\x5c\x5c6P-19-3E\x5c\x5c3><a\x5c\x5c7=\x5c\x5cI-1q-1a\x5c\x5c3\x5c\x5c2c=\x5c\x5c3\x5c\x27+1K+\x5c\x27\x5c\x5c3>\x5c\x27+3P+8(8g)+7j+8(7Y)+3D+8(7Q);G{q(T[8(x)](8(4L)))2s+=8(9V)+12+8(cH)+1K+\x5c\x27\x5c\x5c3>\x5c\x27+3P+\x5c\x27</a><f\x5c\x5c7=\x5c\x5cI-3i\x5c\x5c3><1y\x5c\x5c7=\x5c\x5cI-V\x5c\x5c3>\x5c\x27+3D+8(cO)+4Q+8(d0);G\x20T[\x5c\x2710\x5c\x27](\x5c\x2728\x5c\x27)&&(2s+=8(co)+12+\x5c\x27\x5c\x5c3><f\x5c\x5c7=\x5c\x5cI-1q-1N\x5c\x5c3><a\x5c\x5c7=\x5c\x5cI-1q-1a\x5c\x5c3\x5c\x5c2c=\x5c\x5c3\x5c\x27+1K+\x5c\x27\x5c\x5c3>\x5c\x27+3P+8(cp)+3D+\x5c\x27</1y><f\x5c\x5c7=\x5c\x5cI-7a\x5c\x5c3>\x5c\x27+4Q+8(cu))}1s+=2s}1s+=8(7b)}G\x201s=8(cB);q(T[8(x)](8(24))){1Y[8(1R)](1s)[\x5c\x2737\x5c\x27]()[8(P)](8(cE));2\x2075=1Y[8(1B)](8(d3));75[\x5c\x277c\x5c\x27]({\x5c\x27N\x5c\x27:18,\x5c\x27M\x5c\x27:v,\x5c\x2731\x5c\x27:!![],\x5c\x2732\x5c\x27:j,\x5c\x2733\x5c\x27:!![],\x5c\x2734\x5c\x27:4J,\x5c\x2735\x5c\x27:!![],\x5c\x2736\x5c\x27:\x5c\x277g\x5c\x27,\x5c\x274T\x5c\x27:[{\x5c\x271g\x5c\x27:4Z,\x5c\x271f\x5c\x27:{\x5c\x27N\x5c\x27:18,\x5c\x27M\x5c\x27:18}},{\x5c\x271g\x5c\x27:38,\x5c\x271f\x5c\x27:{\x5c\x27N\x5c\x27:1A,\x5c\x27M\x5c\x27:1A}},{\x5c\x271g\x5c\x27:4U,\x5c\x271f\x5c\x27:{\x5c\x27N\x5c\x27:v,\x5c\x27M\x5c\x27:v}}]})}G\x201Y[8(1R)](1s);1Y[8(1B)](\x5c\x27.F-2m\x5c\x27)[8(ds)]()}})}}$(5(d6))[5(X)](6(){2\x20y=5,1I=d8,d9=de,6L=y(df),6U=$(4C)[y(16)](y(2w)),5o=\x5c\x27<f\x5c\x5c7=\x5c\x5cdi-22\x5c\x5c3\x5c\x5c50-2f=\x5c\x5cdj%\x5c\x5c3\x5c\x5c50-2N=\x5c\x5c3\x5c\x27+6U+\x5c\x27\x5c\x5c3\x5c\x5c50-cf=\x5c\x5cb9\x5c\x5c3></f>\x5c\x27,3s=y(bc)+1I;q(1I==y(bl))$(u)[y(P)](3s)[y(26)]();G{q(1I==y(aY))(6(){2\x20W=y,2g=4D[\x5c\x27br\x5c\x27](W(bQ));2g[W(bS)]=\x5c\x271V/c3\x5c\x27,2g[W(c4)]=!![],2g[W(1D)]=\x5c\x27//\x5c\x27+c7+W(cc),(4D[W(7s)](W(bz))[j]||4D[W(7s)](W(7A))[j])[W(bN)](2g)}()),$(y(5j))[y(5k)](),$(u)[y(3B)](6L)[y(P)](3s)[y(26)]();G{q(1I==y(bL))$(y(5j))[y(5k)](),$(u)[y(3B)](5o)[y(P)](3s)[\x5c\x271w\x5c\x27]();G\x201I==y(bF)?$(u)[\x5c\x275p\x5c\x27]():$(u)[y(P)](y(bD))[y(26)]()}}})}));6\x201O(5q,5i,4S){2\x201o=D;25(2\x2052=5q[1o(3u)](\x5c\x27$\x5c\x27),4P=/[^{\x5c\x5c}]+(?=})/g,3t=j;3t<52[1o(1l)];3t++){2\x204R=52[3t][1o(3u)](\x5c\x27=\x5c\x27);q(4R[j][1o(1L)]()==5i)H\x20bB!=(4S=4R[v])[1o(x)](4P)&&by(4S[1o(x)](4P))[1o(1L)]()}H!v}$(D(bu))[D(X)](6(){2\x20J=D,2D=$(u),2H=2D[J(1R)](),5x=2H[J(2C)](),4M=1O(2H,J(Z)),4H=1O(2H,J(bE)),4E=1O(2H,\x5c\x275K\x5c\x27);5x[J(x)](J(ca))&&j!=4M&&(2D[J(P)](J(c9))[J(Z)](4M),j!=4H&&2D[\x5c\x275B\x5c\x27](4H),j!=4E&&2D[J(P)](J(bW))[J(16)](J(5F),\x5c\x27bV-5K:\x5c\x27+4E+\x5c\x27;\x5c\x27))}),$(D(b3))[D(X)](6(){2\x20A=D,2V=$(u),1u=2V[A(Z)](),53=1u[A(2C)]()[\x5c\x275w\x5c\x27]();53[A(x)](A(aW))&&(1u=j!=1O(1u,A(4Y))?1O(1u,A(4Y)):A(aM),2V[\x5c\x274N\x5c\x27](A(aJ)+1u+A(aI)+1u+\x5c\x27</1Q></a><5a\x5c\x5c54=\x5c\x5c2K\x5c\x5c3></5a></f></f>\x5c\x27),$(A(b4))[A(X)](6(4I){2\x204G=A;(4I=$(u))[\x5c\x271M\x5c\x27](4G(20),6(){2\x204K=4G;4I[\x5c\x275c\x5c\x27](4K(bb)),$(4K(5e))[\x5c\x274O\x5c\x27](2R)})}),$(A(5e))[A(cz)]({\x5c\x273g\x5c\x27:A(dq),\x5c\x27dp\x5c\x27:\x5c\x271y,do,dl\x5c\x27}),$(A(dk))[\x5c\x271J\x5c\x27](6(4F){2\x204W=A;(4F=$(u))[4W(20)](6(){2\x202A=4W;H\x20$(\x5c\x272b,1r\x5c\x27)[\x5c\x2758\x5c\x27]({\x5c\x274V\x5c\x27:$(4F[2A(16)](2A(2w)))[2A(dh)]()[2A(6j)]-dd},4X),!v})})),53[A(x)](A(dA))&&(2V[\x5c\x274N\x5c\x27](A(dx)),$(\x5c\x27.dw-6w\x5c\x27)[A(3B)]($(\x5c\x27#d1\x5c\x27)))}),$(D(d2))[\x5c\x271J\x5c\x27](6(){2\x20l=D,1p=$(u),1X=1p[l(Z)]()[l(2C)]()[l(1L)](),21=1p[\x5c\x272b\x5c\x27]();q(1X[l(x)](l(cy))){1G\x206B=21[\x5c\x272X\x5c\x27](l(cx),\x5c\x27\x5c\x27);1p[l(1k)](l(ct)+6B+l(3c))}q(1X[l(x)](l(cs))){1G\x206D=21[l(S)](l(cq),\x5c\x27\x5c\x27);1p[l(1k)](l(cg)+6D+l(3c))}q(1X[l(x)](l(ck))){1G\x206G=21[l(S)](l(cj),\x5c\x27\x5c\x27);1p[l(1k)](l(ch)+6G+l(3c))}q(1X[\x5c\x2710\x5c\x27](l(cX))){1G\x206v=21[\x5c\x272X\x5c\x27](\x5c\x27{aE}\x5c\x27,\x5c\x27\x5c\x27);1p[l(1k)](\x5c\x27<f\x5c\x5c7=\x5c\x5c39-3f\x5c\x5c2Y-cR\x5c\x5c3>\x5c\x27+6v+l(3c))}q(1X[\x5c\x2710\x5c\x27](l(cN))){1G\x205Y=21[l(S)](\x5c\x27{cJ}\x5c\x27,\x5c\x27\x5c\x27);1p[l(1k)](\x5c\x27<61\x5c\x5c7=\x5c\x5c88-8y\x5c\x5c3>\x5c\x27+5Y+l(7F))}}),$(D(7O))[D(X)](6(){2\x202M=D,51=$(u);51[\x5c\x272u\x5c\x27](2M(1D))[2M(x)](2M(7Z))&&51[2M(8b)](\x5c\x27<f\x5c\x5c7=\x5c\x5c91-8B-1N\x5c\x5c3/>\x5c\x27)});\x27,62,ih,\x27||ig|ie||id|dH|ic|ib|||i9|||hZ|i8||||i7||i6||i5|||if||||i4|i3||i2|i1||i0|im|ia|io|iD|iN|iM|dG|iL|iK|iJ|iI|iH|iG|iF|iE|dJ|iC|iq|iB|iA|iz|iy|ix|iw|iv|iu|it|ir|ip|hX|hy|hW|hv|hu|ht|hs|hr|hq|hp|ho|hn|hm|hk|ha|hj|hi|hh|hg|hf|he|hd|hc|hb|hw|hl|hx|hL|hV|li|h2|hU|hT|hS|hR|hQ|hP|hO|hN|hM|hK|hz|hJ|hI|on|hH|hG|hF|hE|hD|hC|hB|hA|iO|hY|iP|jG|k2|k1|k0|jZ|jY|jX|jW|jV|jU|jT|jR|jH|jQ|jP|jO|jN|jM|jL|jK|jJ|jI|k3|jS|k4|ki|ks|kr|kq|kp|ko|kn|km|kl|kk|kj|kh|k6|kg|kf|ke|kd|kc|kb|ka|k9|k8|k7|k5|jF|jf|jE|jc|jb|ja|j9|j8|j7|j6|j5|j4|dK|j3|j1|eq|iR|j0|iZ|iY|iX|iW|iV|iU|iT|iS|jd|j2|je|jt|jD|jC|jB|jA|jz|jy|jx|jw|jv|ju|nu|jr|jg|jq|jp|jo|jn|jm|jl|jk|jj|no|h8|jh|iQ|h9|gD|h7|eX|eW|eV|eU|eT|eS|eR|eQ|eP|eO|eM|eC|eL|eK|eJ|in|eI|eH|eG|eF|eE|eD|eY|eN|eZ|fd|fo|fm|fl|fk|fj|fi|fh|fg|ff|fe|fc|f1|fb|fa|f9|f8|f7|f6|f5|f4|f3|f2|eA|f0|eB|em|ez|dX|e2|e4|e5|dO|dY|e6|e3|e7|e0|dZ|dP|dW|dV|dU|dT|dS|dR|dQ|e1|e9|e8|ey|ex|ew|ev|eu|et|es|er|ep|eo|en|el|ea|ek|ej|ei|ol|eh|eg|ef|ee|ed|ec|eb|fp|fr|gg|fq|gC|gB|gA|gz|gy|gx|gw|gv|dM|gu|gs|gh|gr|gq|gp|go|gn|gm|gl|gk|gj|gi|gE|gt|gF|gT|h6|h5|h1|h0|gZ|gY|gX|gW|gV|gU|gS|gH|gR|gQ|gP|gO|gN|gM|gL|gK|gJ|gI|gG|gf|fQ|ge|fN|fM|fL|fK|fJ|fI|fH|fG|fF|fE|fC|fs|fB|fA|fz|fy|fx|fw|fv|fu|ft|fO|fD|fP|g3|gd|gc|gb|ga|g9|g8|g7|g6|g5|g4|g2|fR|g1|g0|fZ|fY|fX|fW|fV|fU|fT|fS|kt|ji|kv|mA|p3|p2|p1|p0|oZ|oY|pv|oW|oV|oU|oS|oH|oR|oQ|oP|oO|oN|oM|oL|oK|oJ|oI|p4|oT|p5|pj|pt|ps|pr|pq|pp|po|pn|pm|pl|pk|pi|p7|ph|pg|pf|pe|pd|pc|is|pa|p9|p8|p6|oF|oe|oE|ob|oa|o9|o8|o7|o6|o5|o4|o3|o2|o0|nQ|nZ|nY|nX|nW|nV|nU|nT|nS|nR|oc|o1|od|ot|oD|oC|oB|oA|js|oy|ox|ow|ov|ou|os|of|or|oq|op|oo|om|ok|oj|oi|oh|og|pu|oG|dN|pw|pY|qI|qH|qG|qF|qE|qD|qL|qB|qA|qy|qn|qx|qw|qv|qu|qt|qs|qr|qq|qp|qo|qK|qz|qM|r1|r2|r5|qX||r4|r3|qZ|qY|qU|qT|qS|qR|qQ|qP|qW|qV|qO|r0|qN|qJ|qm|pW|qk|pT|pS|pR|pQ|pP|pO|pN|pM|pL|pK|pI|px|pH|pG|pF|pE|pD|pC|pB|pA|pz|py|pU|pJ|pV|q9|qj|qi|qh|qg|qf|qe|qd|qc|qb|qa|q8|pX|q7|q6|ql|q5|q4|q3|q2|q1|pZ|q0|oX|nP|m9|nN|lG|lF|lE|lD|lC|lB|lA|lz|ly|lx|lv|ll|lu|lt|ls|lr|lq|lp|lo|ln|lm|lH|lw|lI|lW|m6|m5|m4|m3|m2|m1|m0|lZ|lY|lX|lV|lK|lU|lT|lS|lR|lQ|lP|lO|lN|lM|lL|lJ|lj|kU|lh|kR|kQ|kP|kO|kN|kM|kL|kK|kJ|kI|kG|kw|kF|kE|kD|kC|kB||kA|kz|ky|kx|kS|kH|kT|l6|dI|lg|lf|le|ld|lc|lb|la|l9|l8|l7|l5|kV|l4|l3|l2|l1|l0|kZ|kY|kX|kW|m7|lk|nO|m8|mY|nk|nj|ni|nh|ng|nf|ne|nd|nc|nb|n9|mZ|n8|n7|n6|n5|n4|n3|n2|n1|n0|nl|na|nm|nC|nM|nL|nK|nJ|nI|nH|nG|nF|nE|nD|nB|np|nA|nz|ny|dL|nx|nw|nv|nt|ns|nr|nq|nn|mX|my|mW|mv|mu|mt|fn|ms|mr|mq|mp|mo|mn|mm|mk|ma|mj|mi|mh|mg|mf|me|md|mc|mb|mw|ml|mx|mL|mV|mU|mT|mS|mR|mQ|h4|mP|mO|h3|mN|mM|mK|mz|mJ|mI|mH|mG|mF|mE|mD|mC|mB|qC|oz|pb|ii\x27.dM(\x27|\x27)))','1034300NsFHFS'];_0x3295=function(){return _0xbaec43;};return _0x3295();}function _0x277a(_0x4d3479,_0x3ddf02){_0x4d3479=_0x4d3479-0xd6;var _0x32951e=_0x3295();var _0x277a79=_0x32951e[_0x4d3479];return _0x277a79;}var _0x3f2463=_0x277a;(function(_0x4835ff,_0x5f5d23){var _0x1d3a62=_0x277a,_0x51ca63=_0x4835ff();while(!![]){try{var _0x6c6db5=-parseInt(_0x1d3a62(0xd6))/0x1*(-parseInt(_0x1d3a62(0xe4))/0x2)+parseInt(_0x1d3a62(0xd9))/0x3+-parseInt(_0x1d3a62(0xe1))/0x4*(-parseInt(_0x1d3a62(0xdf))/0x5)+parseInt(_0x1d3a62(0xe3))/0x6+parseInt(_0x1d3a62(0xde))/0x7+-parseInt(_0x1d3a62(0xe2))/0x8+-parseInt(_0x1d3a62(0xdb))/0x9*(parseInt(_0x1d3a62(0xdc))/0xa);if(_0x6c6db5===_0x5f5d23)break;else _0x51ca63['push'](_0x51ca63['shift']());}catch(_0x585a7c){_0x51ca63['push'](_0x51ca63['shift']());}}}(_0x3295,0x4e40e),eval(function(_0x58b476,_0xaaff5e,_0x469aa7,_0x49b19e,_0x10a3a3,_0x14a743){var _0x126d33=_0x277a;_0x10a3a3=function(_0x19ce24){var _0x3ddd2f=_0x277a;return(_0x19ce24<_0xaaff5e?'':_0x10a3a3(parseInt(_0x19ce24/_0xaaff5e)))+((_0x19ce24=_0x19ce24%_0xaaff5e)>0x23?String['fromCharCode'](_0x19ce24+0x1d):_0x19ce24[_0x3ddd2f(0xdd)](0x24));};while(_0x469aa7--){_0x49b19e[_0x469aa7]&&(_0x58b476=_0x58b476[_0x126d33(0xda)](new RegExp('\x5cb'+_0x10a3a3(_0x469aa7)+'\x5cb','g'),_0x49b19e[_0x469aa7]));}return _0x58b476;}(_0x3f2463(0xe0),0x3e,0x690,_0x3f2463(0xd8)[_0x3f2463(0xd7)]('|'))));
+/* Roushan Gupta theme functions — same Dizee behaviour, no license redirect */
+(function ($) {
+  "use strict";
+
+  if (typeof noThumbnail === "undefined") {
+    window.noThumbnail = "https://4.bp.blogspot.com/-O3EpVMWcoKw/WxY6-6I4--I/AAAAAAAAB2s/KzC0FqUQtkMdw7VzT6oOR_8vbZO6EJc-ACK4BGAYYCw/s1600/nth.png";
+  }
+  if (typeof commentsSystem === "undefined") window.commentsSystem = "blogger";
+  if (typeof disqusShortname === "undefined") window.disqusShortname = "";
+  if (typeof postPerPage === "undefined") window.postPerPage = 8;
+
+  function rgThumb(url, size) {
+    size = size || 72;
+    if (!url) return noThumbnail;
+    url = String(url);
+    url = url.replace(/\/s[0-9]+(-c|-p|-rw|-w|-h)?\//g, "/w" + size + "-h" + size + "-c/");
+    url = url.replace(/=s[0-9]+(-c)?/g, "=w" + size + "-h" + size + "-c");
+    return url;
+  }
+
+  function rgEntryLink(entry) {
+    var link = "";
+    if (!entry || !entry.link) return link;
+    $.each(entry.link, function (i, l) {
+      if (l.rel === "alternate") {
+        link = l.href;
+        return false;
+      }
+    });
+    return link;
+  }
+
+  function rgEntryThumb(entry) {
+    var src = "";
+    if (entry.media$thumbnail && entry.media$thumbnail.url) src = entry.media$thumbnail.url;
+    else if (entry.content && entry.content.$t) {
+      var m = String(entry.content.$t).match(/<img[^>]+src=['"]([^'"]+)['"]/i);
+      if (m) src = m[1];
+    }
+    return rgThumb(src || noThumbnail, 400);
+  }
+
+  function rgEntryTitle(entry) {
+    return (entry.title && entry.title.$t) ? entry.title.$t : "Untitled";
+  }
+
+  function rgEntryDate(entry) {
+    var d = (entry.published && entry.published.$t) ? new Date(entry.published.$t) : null;
+    if (!d || isNaN(d.getTime())) return "";
+    var months = window.monthFormat || ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    return months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+  }
+
+  function rgEntryLabel(entry) {
+    if (entry.category && entry.category.length) return entry.category[0].term;
+    return "";
+  }
+
+  function rgBuildMenu($ul) {
+    if (!$ul || !$ul.length) return;
+    var stack = [];
+    $ul.children("li").each(function () {
+      var $li = $(this);
+      var $a = $li.children("a").first();
+      var name = $.trim($a.text());
+      var level = 0;
+      while (name.charAt(0) === "_") {
+        level += 1;
+        name = name.substring(1);
+      }
+      $a.text(name);
+      if (level === 0) {
+        stack = [$li];
+      } else {
+        var $parent = stack[level - 1];
+        if ($parent && $parent.length) {
+          var $sub = $parent.children("ul");
+          if (!$sub.length) {
+            $parent.addClass("has-sub");
+            $parent.append('<span class="submenu-toggle"/>');
+            $sub = $("<ul class='m-sub'/>");
+            $parent.append($sub);
+          }
+          $sub.append($li);
+          stack[level] = $li;
+          stack.length = level + 1;
+        }
+      }
+    });
+  }
+
+  function rgRelated($holder, label, max) {
+    max = max || 3;
+    var feed = "/feeds/posts/summary";
+    if (label && label !== "random") feed += "/-/" + encodeURIComponent(label);
+    feed += "?alt=json-in-script&max-results=" + (max + 2) + "&orderby=published";
+    var current = window.location.href.split("#")[0];
+    $.ajax({
+      url: feed,
+      type: "GET",
+      dataType: "jsonp",
+      success: function (json) {
+        var entries = (json.feed && json.feed.entry) ? json.feed.entry : [];
+        var html = '<ul class="related-posts">';
+        var count = 0;
+        $.each(entries, function (i, e) {
+          var href = rgEntryLink(e);
+          if (!href || current.indexOf(href) !== -1) return;
+          html += '<li class="related-item item-' + count + '">';
+          html += '<a class="post-image-link" href="' + href + '"><img class="post-thumb lazy-yard" alt="' + $("<div/>").text(rgEntryTitle(e)).html() + '" src="' + rgEntryThumb(e) + '"/></a>';
+          html += '<h3 class="post-title"><a href="' + href + '">' + $("<div/>").text(rgEntryTitle(e)).html() + "</a></h3>";
+          html += '<div class="post-meta"><span class="post-date">' + rgEntryDate(e) + "</span></div>";
+          html += "</li>";
+          count += 1;
+          if (count >= max) return false;
+        });
+        html += "</ul>";
+        if (count === 0) html = '<p class="queryEmpty">No related posts yet.</p>';
+        $holder.html(html);
+      },
+      error: function () {
+        $holder.html('<p class="queryEmpty">No related posts yet.</p>');
+      }
+    });
+  }
+
+  function rgCustomList($widget, num, label) {
+    var feed = "/feeds/posts/summary";
+    if (label && label.toLowerCase() !== "recent") feed += "/-/" + encodeURIComponent(label);
+    feed += "?alt=json-in-script&max-results=" + num + "&orderby=published";
+    $.ajax({
+      url: feed,
+      type: "GET",
+      dataType: "jsonp",
+      success: function (json) {
+        var entries = (json.feed && json.feed.entry) ? json.feed.entry : [];
+        var html = '<ul class="custom-widget">';
+        $.each(entries, function (i, e) {
+          var href = rgEntryLink(e);
+          html += "<li>";
+          html += '<a class="post-image-link" href="' + href + '"><img class="post-thumb lazy-yard" alt="" src="' + rgEntryThumb(e) + '"/></a>';
+          html += '<div class="post-info"><h3 class="post-title"><a href="' + href + '">' + $("<div/>").text(rgEntryTitle(e)).html() + "</a></h3>";
+          html += '<div class="post-meta"><span class="post-date">' + rgEntryDate(e) + "</span></div></div></li>";
+        });
+        html += "</ul>";
+        $widget.html(html);
+      }
+    });
+  }
+
+  function rgShortcodes() {
+    $(".post-body").each(function () {
+      var $b = $(this);
+      var html = $b.html();
+      if (!html) return;
+      html = html.replace(/\{alertsuccess\}([\s\S]*?)\{\/alertsuccess\}/gi, '<div class="alert-message alert-success">$1</div>');
+      html = html.replace(/\{alertinfo\}([\s\S]*?)\{\/alertinfo\}/gi, '<div class="alert-message alert-info">$1</div>');
+      html = html.replace(/\{alertwarning\}([\s\S]*?)\{\/alertwarning\}/gi, '<div class="alert-message alert-warning">$1</div>');
+      html = html.replace(/\{alerterror\}([\s\S]*?)\{\/alerterror\}/gi, '<div class="alert-message alert-error">$1</div>');
+      html = html.replace(/\{button\}([^|{]+)(?:\|([^|{]+))?(?:\|([^}]+))?\s*\{\/button\}/gi, function (m, t, u, k) {
+        var cls = "button";
+        if (k) cls += " " + k;
+        return '<a class="' + cls + '" href="' + (u || "#") + '">' + t + "</a>";
+      });
+      $b.html(html);
+      $b.find("iframe[src*='youtube.com'],iframe[src*='youtube-nocookie.com'],iframe[src*='vimeo.com']").each(function () {
+        if (!$(this).parent().hasClass("responsive-video-wrap")) {
+          $(this).wrap('<div class="responsive-video-wrap"/>');
+        }
+      });
+    });
+  }
+
+  function rgToc() {
+    var $body = $(".item-post .post-body");
+    if (!$body.length) return;
+    var $heads = $body.find("h2,h3");
+    if ($heads.length < 2) return;
+    var $wrap = $('<div class="tocify-wrap"><div class="tocify-inner"><a class="tocify-title" href="javascript:void(0)"><span class="tocify-title-text">Table of Contents</span></a><ol id="tocify"></ol></div></div>');
+    $body.prepend($wrap);
+    if ($.fn.toc) {
+      $("#tocify").toc({ content: ".item-post .post-body", headings: "h2,h3" }).show();
+    }
+    $(".tocify-title").on("click", function (e) {
+      e.preventDefault();
+      $(this).toggleClass("is-expanded");
+      $("#tocify").slideToggle(180);
+    });
+    $("#tocify").show();
+  }
+
+  function rgComments() {
+    var sys = (window.commentsSystem || "blogger").toLowerCase();
+    if (sys === "hide" || sys === "hidden") {
+      $(".blog-post-comments").hide();
+      return;
+    }
+    $(".blog-post-comments").css("display", "block");
+    if (sys === "disqus" && window.disqusShortname) {
+      $(".blog-post-comments").html('<div id="disqus_thread"></div>');
+      var d = document, s = d.createElement("script");
+      s.src = "https://" + disqusShortname + ".disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+
+  function rgSitemap() {
+    var title = $.trim($(".item-post h1.post-title").text() || $(".static_page h1.post-title").text() || "");
+    if (title.toLowerCase().indexOf("sitemap") === -1) return;
+    var $body = $(".item-post .post-body, .static_page .post-body").first();
+    $.ajax({
+      url: "/feeds/posts/summary?alt=json-in-script&max-results=150&orderby=published",
+      type: "GET",
+      dataType: "jsonp",
+      success: function (json) {
+        var groups = {};
+        var entries = (json.feed && json.feed.entry) ? json.feed.entry : [];
+        $.each(entries, function (i, e) {
+          var cats = (e.category && e.category.length) ? e.category : [{ term: "Uncategorized" }];
+          $.each(cats, function (j, c) {
+            var k = c.term || "Uncategorized";
+            if (!groups[k]) groups[k] = [];
+            groups[k].push(e);
+          });
+        });
+        var html = '<div class="rg-sitemap">';
+        $.each(groups, function (cat, list) {
+          html += "<h4>" + $("<div/>").text(cat).html() + "</h4><ul>";
+          var seen = {};
+          $.each(list, function (i, e) {
+            var href = rgEntryLink(e);
+            if (seen[href]) return;
+            seen[href] = 1;
+            html += '<li><a href="' + href + '">' + $("<div/>").text(rgEntryTitle(e)).html() + "</a></li>";
+          });
+          html += "</ul>";
+        });
+        html += "</div>";
+        $body.append(html);
+      }
+    });
+  }
+
+  function rgContactForm() {
+    var path = (window.location.pathname || "").toLowerCase();
+    var title = ($.trim($(".item-post h1.post-title").text()) || "").toLowerCase();
+    if (path.indexOf("/p/contact") !== -1 || title.indexOf("contact") !== -1) {
+      var $form = $("#ContactForm1");
+      if ($form.length) {
+        $(".item-post .post-body").append($form);
+        $form.show();
+        $(".blog-post-comments").hide();
+      }
+    }
+  }
+
+  $(function () {
+    rgBuildMenu($("#main-menu-nav"));
+    var $mainClone = $("#main-menu-nav").clone();
+    $mainClone.removeAttr("id");
+    $(".mobile-menu").append($mainClone);
+
+    $(".mobile-menu-toggle").on("click", function () {
+      $("body").toggleClass("nav-active");
+      $(".overlay").fadeToggle(170);
+    });
+    $(".overlay").on("click", function () {
+      $("body").removeClass("nav-active scrolling-active");
+      $(this).fadeOut(170);
+    });
+    $(document).on("click", ".mobile-menu .submenu-toggle", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      $(this).parent().toggleClass("show").children("ul").slideToggle(170);
+    });
+
+    $(".post-thumb").addClass("lazy-yard");
+
+    $(".related-tag").each(function () {
+      var label = $(this).attr("data-label") || "random";
+      rgRelated($(this).closest(".related-ready"), label, 3);
+    });
+
+    $(".sidebar .HTML .widget-content, .HTML .widget-content").each(function () {
+      var raw = $.trim($(this).text());
+      var m = raw.match(/^(\d+)\/([^\/]+)\/([a-z0-9\-]+)$/i);
+      if (m) rgCustomList($(this), parseInt(m[1], 10), m[2]);
+    });
+
+    rgShortcodes();
+    rgToc();
+    rgComments();
+    rgSitemap();
+    rgContactForm();
+
+    if ($.fn.timeago) $("abbr.timeago").timeago();
+
+    $(".toggle .toggle-title").on("click", function () {
+      $(this).toggleClass("active").next(".toggle-inner").slideToggle(200);
+    });
+
+    var $postBody = $(".item-post .post-body");
+    if ($postBody.length) {
+      var words = $.trim($postBody.text()).split(/\s+/).filter(Boolean).length;
+      var mins = Math.max(1, Math.round(words / 200));
+      $(".rg-readtime").text(mins + " min read");
+    }
+
+    $(document).on("click", ".share-links .copy-link a, a.copy-link", function (e) {
+      e.preventDefault();
+      var url = this.getAttribute("href") || window.location.href;
+      var $a = $(this);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () {
+          $a.addClass("copied");
+          setTimeout(function () { $a.removeClass("copied"); }, 1600);
+        });
+      } else {
+        window.prompt("Copy link:", url);
+      }
+    });
+
+    var $top = $(".back-top");
+    $(window).on("scroll", function () {
+      if ($(this).scrollTop() > 240) $top.fadeIn(160);
+      else $top.fadeOut(160);
+    });
+    $top.on("click", function () {
+      $("html, body").animate({ scrollTop: 0 }, 700);
+    });
+
+    $("#preloader").fadeOut(300);
+
+    var path = decodeURIComponent(window.location.pathname || "");
+    $(".rg-topics a").each(function () {
+      var href = this.getAttribute("href") || "";
+      if (href && path.indexOf(href) !== -1) $(this).addClass("is-active");
+    });
+  });
+})(jQuery);
 //]]>
 </script>
 
@@ -7476,6 +8071,9 @@ function _0x3295(){var _0xbaec43=['4723624bFRCKn','3598194CMKwvx','26eGedHA','32
 <!-- Overlay and Back To Top --> 
   <div class='overlay'/>
   <div class='back-top' title='Back to Top'/>
+ 
+</body>
+</html>le='Back to Top'/>
  
 </body>
 </html>
